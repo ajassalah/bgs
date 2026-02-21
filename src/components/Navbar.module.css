@@ -1,0 +1,153 @@
+@import url('../app/globals.css');
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition-smooth);
+}
+
+.topBar {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 0.8rem 0; /* Increased padding */
+  font-size: 0.85rem;
+  transition: var(--transition-smooth);
+}
+
+.topBar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.topLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.topLinks a {
+  transition: var(--transition-smooth);
+}
+
+.topLinks a:hover {
+  color: var(--secondary);
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: 1.5rem;
+}
+
+.socialLink {
+  color: white;
+  opacity: 0.8;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+}
+
+.socialLink:hover {
+  color: var(--secondary);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.navbar {
+  transition: var(--transition-smooth);
+  background: #00234a; /* Solid dark blue by default */
+  width: 100%;
+}
+
+.scrolled {
+  background: #00234a; /* Keep it dark blue even on scroll or set to slightly transparent blue */
+  box-shadow: var(--shadow-md);
+}
+
+.wrapper.scrolled .topBar {
+  margin-top: -40px; /* Hide top bar on scroll */
+}
+
+.scrolled .navLink {
+  color: white;
+}
+
+.scrolled .logo {
+  color: white;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  color: white;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary);
+  transition: var(--transition-smooth);
+}
+
+.navLink:hover {
+  color: var(--secondary);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.cta {
+  background-color: #eb4d4b; /* Red Inquire Now button */
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+}
+
+.cta:hover {
+  background-color: white;
+  color: #eb4d4b;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+  .navLinks {
+    display: none;
+  }
+}

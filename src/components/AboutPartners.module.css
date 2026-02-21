@@ -1,0 +1,54 @@
+.section {
+  padding: 60px 0;
+  background: white;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #00234a;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.item {
+  opacity: 1;
+  transition: transform 0.3s;
+}
+
+.item:hover {
+  opacity: 1;
+}
+
+.logoImg {
+  max-height: 100px;
+  max-width: 250px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s;
+  border: 1px dashed #ccc;
+  padding: 1.5rem;
+  background: white;
+}
+
+.item:hover .logoImg {
+  transform: scale(1.05);
+}
+
+.placeholder {
+  font-weight: 800;
+  color: #333;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: 1px dashed #ccc;
+  padding: 1rem 2rem;
+}
