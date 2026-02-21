@@ -8,7 +8,7 @@ export default function TopUpCertification() {
         <div className={styles.grid}>
           <div className={styles.content}>
             <p className={styles.text} style={{ fontSize: '1.4rem', fontWeight: 600 }}>
-              BGS programmes open pathways to globally recognised Bachelor's and Master's top-up degrees, available both locally and internationally.
+              BGS programmes open pathways to globally recognised Bachelor&apos;s and Master&apos;s top-up degrees, available both locally and internationally.
             </p>
             <Link href="/courses" className={styles.btnRed}>Find Courses</Link>
           </div>
@@ -18,5 +18,6 @@ export default function TopUpCertification() {
         </div>
       </div>
     </section>
-  );
+
+   );
 }

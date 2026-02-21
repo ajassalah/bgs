@@ -1,4 +1,5 @@
 import styles from "./AboutFutureModel.module.css";
+import Image from "next/image";
 
 export default function AboutFutureModel() {
   return (
@@ -19,12 +20,20 @@ export default function AboutFutureModel() {
           </div>
           <div className={styles.imageGrid}>
              <div className={styles.imgRow}>
-                <img src="/student-2.jpg" alt="Student 1" className={styles.img} />
-                <img src="/online-student-2r.jpg" alt="Student 2" className={styles.img} />
+                <div className={styles.imgWrapper}>
+                  <Image src="/student-2.jpg" alt="Student 1" fill className={styles.img} style={{ objectFit: 'cover' }} />
+                </div>
+                <div className={styles.imgWrapper}>
+                  <Image src="/online-student-2r.jpg" alt="Student 2" fill className={styles.img} style={{ objectFit: 'cover' }} />
+                </div>
              </div>
              <div className={styles.imgRow}>
-                <img src="/about-thumb-2.png" alt="Student 3" className={styles.img} />
-                <img src="/online-student-5d.jpg" alt="Student 4" className={styles.img} />
+                <div className={styles.imgWrapper}>
+                  <Image src="/about-thumb-2.png" alt="Student 3" fill className={styles.img} style={{ objectFit: 'cover' }} />
+                </div>
+                <div className={styles.imgWrapper}>
+                  <Image src="/online-student-5d.jpg" alt="Student 4" fill className={styles.img} style={{ objectFit: 'cover' }} />
+                </div>
              </div>
           </div>
         </div>

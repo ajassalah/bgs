@@ -39,12 +39,12 @@ export default function LifeAtKensleyPage() {
             <h2 className="text-center mb-2">Student Testimonials</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
               <div style={{ padding: '2rem', border: '1px solid #eee', borderRadius: '8px', background: '#fdfdfd' }}>
-                <p style={{ fontStyle: 'italic', marginBottom: '1.5rem' }}>"The PGD program in Data Science at Kensley was life-changing. The faculty is world-class and the support is amazing."</p>
+                <p style={{ fontStyle: 'italic', marginBottom: '1.5rem' }}>&quot;The PGD program in Data Science at Kensley was life-changing. The faculty is world-class and the support is amazing.&quot;</p>
                 <div style={{ fontWeight: '700' }}>Malith Perera</div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Data Scientist at TechCorp</div>
               </div>
               <div style={{ padding: '2rem', border: '1px solid #eee', borderRadius: '8px', background: '#fdfdfd' }}>
-                <p style={{ fontStyle: 'italic', marginBottom: '1.5rem' }}>"Highly recommend Kensley for anyone looking to upskill in Management. Flexible learning and great networking opportunities."</p>
+                <p style={{ fontStyle: 'italic', marginBottom: '1.5rem' }}>&quot;Highly recommend Kensley for anyone looking to upskill in Management. Flexible learning and great networking opportunities.&quot;</p>
                 <div style={{ fontWeight: '700' }}>Sarah de Silva</div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>HR Manager</div>
               </div>

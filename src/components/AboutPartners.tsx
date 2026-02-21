@@ -1,4 +1,5 @@
 import styles from "./AboutPartners.module.css";
+import Image from "next/image";
 
 export default function AboutPartners() {
   const partners = [
@@ -15,7 +16,7 @@ export default function AboutPartners() {
           {partners.map((partner, idx) => (
             <div key={idx} className={styles.item}>
               {partner.img ? (
-                <img src={partner.img} alt={partner.name} className={styles.logoImg} />
+                <Image src={partner.img} alt={partner.name} width={120} height={40} className={styles.logoImg} style={{ objectFit: 'contain' }} />
               ) : (
                 <div className={styles.placeholder}>{partner.name}</div>
               )}

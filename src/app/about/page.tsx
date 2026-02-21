@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./About.module.css";
 import Image from "next/image";
-import AboutMission, { AboutMissionSection, AboutVisionSection, AboutGlobalOutlookSection } from "@/components/AboutMission";
+import { AboutMissionSection, AboutVisionSection, AboutGlobalOutlookSection } from "@/components/AboutMission";
 import AboutWhyChoose from "@/components/AboutWhyChoose";
 import AboutStats from "@/components/AboutStats";
 import AboutPartners from "@/components/AboutPartners";
@@ -50,7 +50,14 @@ export default function AboutPage() {
               </p>
             </div>
             <div className={styles.imageBox}>
-              <img src="/online-student-5d.jpg" alt="BGS Foundation" />
+               <div style={{ position: 'relative', width: '100%', height: '400px' }}>
+                <Image 
+                  src="/online-student-5d.jpg" 
+                  alt="BGS Foundation" 
+                  fill
+                  style={{ objectFit: 'cover', borderRadius: '12px' }}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -83,7 +90,7 @@ export default function AboutPage() {
         <div className="container">
           <h2 className={styles.sectionTitle} style={{ color: 'white', textAlign: 'center' }}>Our Faculties</h2>
           <p style={{ textAlign: 'center', opacity: 0.8, maxWidth: '700px', margin: '0 auto', color: 'white', marginBottom: '3rem' }}>
-            We've designed our schools to equip you with the knowledge and skills needed for success in today's global landscape.
+            We&apos;ve designed our schools to equip you with the knowledge and skills needed for success in today&apos;s global landscape.
           </p>
           <div className={styles.facultyList}>
             <div className={styles.facultyItem}>School of Management</div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -47,7 +48,7 @@ export default function Navbar() {
       <nav className={styles.navbar}>
         <div className={styles.container}>
           <Link href="/" className={styles.logo}>
-            <img src="/bgs-logo-cropped.webp" alt="BGS Logo" style={{ height: '60px' }} />
+            <Image src="/bgs-logo-cropped.webp" alt="BGS Logo" width={180} height={60} style={{ height: '60px', width: 'auto' }} />
           </Link>
           <div className={styles.navLinks}>
             <Link href="/courses" className={styles.navLink}>Courses</Link>

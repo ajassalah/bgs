@@ -35,10 +35,13 @@
   gap: 1rem;
 }
 
-.img {
+.imgWrapper {
+  position: relative;
   width: calc(50% - 0.5rem);
   height: 200px;
-  object-fit: cover;
+}
+
+.img {
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
@@ -48,7 +51,7 @@
     grid-template-columns: 1fr;
   }
   
-  .img {
+  .imgWrapper {
     height: 150px;
   }
 }

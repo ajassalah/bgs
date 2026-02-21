@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
-              <img src="/bgs-logo-cropped.webp" alt="BGS Logo" style={{ height: '40px' }} />
+              <Image src="/bgs-logo-cropped.webp" alt="BGS Logo" width={120} height={40} style={{ height: '40px', width: 'auto' }} />
             </Link>
             <p className={styles.description}>
               BGS believe in Ensuring Inclusive, Equitable and Quality Education and the Promotion of Lifelong Learning Opportunities for all.
