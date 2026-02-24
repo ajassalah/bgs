@@ -13,10 +13,10 @@ export default function Introduction() {
           </div>
           <div className={styles.contentCol}>
             <p className={styles.text}>
-              we specialise in flexible, online higher education designed to fit around work and life.
+              We specialise in flexible, online higher education designed to fit around work and life.
               With over 20 years of excellence, we offer globally recognised qualifications tailored for working professionals, 
               adult learners, and students worldwide.
-              <br /><br />
+              <br />
               Our mission is simple: to make quality education accessible to all through flexible learning paths, 
               affordable payment options, and practical, career-focused programmes that empower learners to study, 
               work, and succeed at the same time.

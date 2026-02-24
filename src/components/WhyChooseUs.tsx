@@ -1,5 +1,6 @@
 import styles from "./WhyChooseUs.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function WhyChooseUs() {
   const points = [
@@ -31,9 +32,14 @@ export default function WhyChooseUs() {
             <Link href="/apply" className="btn btn-secondary" style={{ backgroundColor: '#eb4d4b', color: 'white' }}>Join Now</Link>
           </div>
           <div className={styles.imageContainer}>
-            <div className={styles.imagePlaceholder}>
-              Graduation Ceremony Image
-            </div>
+            <Image
+              src="/Gemini_Generated_Image_f8hkv8f8hkv8f8hk.png"
+              alt="BGS Graduation Ceremony"
+              width={700}
+              height={450}
+              className={styles.image}
+              style={{ objectFit: 'cover', width: '100%', height: '450px' }}
+            />
           </div>
         </div>
       </div>

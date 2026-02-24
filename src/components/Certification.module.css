@@ -10,9 +10,13 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 4rem;
   align-items: center;
+}
+
+.asicGrid {
+  grid-template-columns: 1fr 1fr;
 }
 
 .reverse {
@@ -25,19 +29,20 @@
 
 .logoItem {
   width: 120px;
-  height: 80px;
-  background: rgba(255,255,255,0.1);
+  height: auto;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 2rem;
-  font-weight: 800;
-  border: 1px dashed #ccc;
 }
 
 .asicBg .logoItem {
-  background: white;
-  color: #00234a;
+  background: transparent;
+}
+
+.logoImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .text {
@@ -63,9 +68,24 @@
 }
 
 .imageBox {
+  max-width: 800px;
+  height: 300px;
+  margin-left: auto;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.asicImageBox {
+  max-width: 460px;
+  width: 100%;
+  height: 340px;
+}
+
+.gradImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .placeholder {
@@ -93,5 +113,11 @@
   }
   .logoItem {
     margin: 0 auto 2rem;
+    justify-content: center;
+  }
+  .imageBox {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
   }
 }

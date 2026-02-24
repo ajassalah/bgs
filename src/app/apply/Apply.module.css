@@ -1,0 +1,152 @@
+.hero {
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 100px;
+}
+
+.heroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 35, 74, 0.7);
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+.section {
+  padding: 100px 0;
+  background: #f8f9fa;
+}
+
+.formContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 3.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.formHeader h2 {
+  font-size: 2.5rem;
+  color: #00234a;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.formHeader p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.applyForm {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.formGroup label {
+  font-weight: 700;
+  color: #00234a;
+}
+
+.inputGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.input, .select, .textarea {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  border-color: #eb4d4b;
+}
+
+.submitBtn {
+  background-color: #eb4d4b;
+  color: white;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.submitBtn:hover {
+  background-color: #00234a;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .inputGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .formContainer {
+    padding: 2rem;
+  }
+}

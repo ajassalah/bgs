@@ -26,7 +26,7 @@ export default function Navbar() {
             <Link href="/about">About</Link>
           </div>
           <div className={styles.topLinks}>
-            <Link href="/pay">Pay Online</Link>
+            <Link href="/help-desk">Help Desk</Link>
             <Link href="/contact">Contact</Link>
             <div className={styles.socials}>
               <Link href="https://www.facebook.com/britishgraduateschooluk/?_rdc=1&_rdr#" target="_blank" className={styles.socialLink}>
