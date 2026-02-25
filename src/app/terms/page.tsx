@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "../legal.module.css";
+import CTASection from "@/components/CTASection";
 
 export default function TermsAndConditions() {
   return (
@@ -115,6 +116,7 @@ export default function TermsAndConditions() {
         </div>
       </section>
 
+      <CTASection />
       <Footer />
     </main>
   );

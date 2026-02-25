@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./HelpDesk.module.css";
 import Image from "next/image";
+import CTASection from "@/components/CTASection";
 
 export default function HelpDeskPage() {
   return (
@@ -141,6 +142,7 @@ export default function HelpDeskPage() {
         </div>
       </section>
 
+      <CTASection />
       <Footer />
     </main>
   );

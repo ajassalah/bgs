@@ -20,12 +20,12 @@ export default function OthmCertification() {
             <p className={styles.text}>
               NQUAL (National Qualification Organisation for Applied Learning) is an emerging UK-based awarding body committed to applied and technical education.
             </p>
-            <Link href="/about" className={styles.btnRed}>Learn More</Link>
+            <Link href="/othm" className={styles.btnRed}>Learn More</Link>
           </div>
           <div className={`${styles.imageBox} ${styles.asicImageBox}`}>
             <Image 
-              src="/nqual home page.jpg" 
-              alt="Graduation Couple OTHM" 
+              src="/Gemini_Generated_Image_hbcxkqhbcxkqhbcx.png" 
+              alt="BGS Graduation Ceremony" 
               width={600} 
               height={400} 
               className={styles.gradImage}

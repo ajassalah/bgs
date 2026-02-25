@@ -9,10 +9,11 @@ import ResourcesNews from "@/components/ResourcesNews";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import ProgramCategories from "@/components/ProgramCategories";
-import AsicCertification from "@/components/AsicCertification";
+import QualifiCertification from "@/components/QualifiCertification";
 import IsoCertification from "@/components/IsoCertification";
 import OthmCertification from "@/components/OthmCertification";
 import TopUpCertification from "@/components/TopUpCertification";
+import CTASection from "@/components/CTASection";
 
 export default function Home() {
   return (
@@ -26,11 +27,12 @@ export default function Home() {
       <WhyChooseUs />
       <Welcome />
       <Testimonials />
-      <AsicCertification />
+      <QualifiCertification />
       <IsoCertification />
       <TopUpCertification />
       <OthmCertification />
       <ResourcesNews />
+      <CTASection />
       <Footer />
     </main>
   );

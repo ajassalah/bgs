@@ -1,5 +1,6 @@
 import styles from "./Welcome.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Welcome() {
   return (
@@ -30,11 +31,14 @@ export default function Welcome() {
             <Link href="/life" className="btn btn-outline mt-2">Explore Campus Life</Link>
           </div>
           
-          <div className={styles.imagePlaceholder} style={{ height: '400px' }}>
-            <div className={styles.imageOverlay}></div>
-            <div style={{ color: 'var(--primary)', fontWeight: 700, fontSize: '1.2rem', textAlign: 'center', padding: '2rem' }}>
-              Campus Culture & Student Life
-            </div>
+          <div className={styles.imageBox}>
+            <Image 
+              src="/Gemini_Generated_Image_91k04k91k04k91k0.png" 
+              alt="Campus Culture & Student Life" 
+              width={600} 
+              height={400} 
+              className={styles.image}
+            />
           </div>
         </div>
       </div>

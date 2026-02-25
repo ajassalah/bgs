@@ -1,58 +1,80 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CTASection from "@/components/CTASection";
+import styles from "./Life.module.css";
 
-export default function LifeAtKensleyPage() {
+export default function LifeAtBGSPage() {
   const activities = [
-    { title: "Student Communities", desc: "Join diverse student groups and clubs." },
-    { title: "Campus Events", desc: "Regular webinars, workshops and seminars." },
-    { title: "Global Network", desc: "Connect with alumni around the world." },
-    { title: "Career Support", desc: "Professional guidance for your future path." }
+    { title: "Student Communities", desc: "Join diverse student groups and clubs.", icon: "👥" },
+    { title: "Campus Events", desc: "Regular webinars, workshops and seminars.", icon: "📅" },
+    { title: "Global Network", desc: "Connect with alumni around the world.", icon: "🌍" },
+    { title: "Career Support", desc: "Professional guidance for your future path.", icon: "💼" }
   ];
 
   return (
-    <main>
+    <main style={{ overflowX: 'hidden' }}>
       <Navbar />
-      <div style={{ height: '300px', background: 'var(--bg-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', paddingTop: '80px' }}>
-        <h1 style={{ color: 'white' }}>Life at Kensley</h1>
-      </div>
+      
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          className={styles.heroVideo}
+        >
+          <source src="https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.heroOverlay}></div>
+        <div className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>Life at British Graduate School</h1>
+          <p className={styles.heroSubtitle}>
+            Unlock Your Potential With British Graduate School – Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.
+          </p>
+        </div>
+      </section>
       
       <section className="section">
         <div className="container">
           <div className="text-center mb-2">
-            <h2>Experience More Than Just Lectures</h2>
-            <p className="description">At Kensley, we believe in a holistic educational experience.</p>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#1a1a1a' }}>Experience More Than Just Lectures</h2>
+            <p style={{ fontSize: '1.2rem', color: '#666', maxWidth: '800px', margin: '1rem auto' }}>
+              At British Graduate School, we believe in a holistic educational experience that goes beyond traditional classroom learning.
+            </p>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
             {activities.map((item, idx) => (
-              <div key={idx} style={{ padding: '2rem', background: 'white', borderRadius: '12px', boxShadow: 'var(--shadow-md)', textAlign: 'center' }}>
-                <div style={{ width: '60px', height: '60px', background: 'var(--bg-gray)', borderRadius: '50%', margin: '0 auto 1.5rem', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center' }}>
-                  ⭐
+              <div key={idx} className={styles.featureCard}>
+                <div className={styles.iconCircle}>
+                  {item.icon}
                 </div>
                 <h3>{item.title}</h3>
-                <p style={{ color: 'var(--text-muted)' }}>{item.desc}</p>
+                <p style={{ color: '#666', lineHeight: 1.6 }}>{item.desc}</p>
               </div>
             ))}
           </div>
           
-          <div style={{ marginTop: '5rem' }}>
-            <h2 className="text-center mb-2">Student Testimonials</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-              <div style={{ padding: '2rem', border: '1px solid #eee', borderRadius: '8px', background: '#fdfdfd' }}>
-                <p style={{ fontStyle: 'italic', marginBottom: '1.5rem' }}>&quot;The PGD program in Data Science at Kensley was life-changing. The faculty is world-class and the support is amazing.&quot;</p>
-                <div style={{ fontWeight: '700' }}>Malith Perera</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Data Scientist at TechCorp</div>
+          <div style={{ marginTop: '6rem' }}>
+            <h2 className="text-center mb-2" style={{ fontSize: '2.5rem', fontWeight: 800 }}>Student Success Stories</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
+              <div className={styles.testimonialCard}>
+                <p className={styles.quote}>&quot;The PGD program in Data Science at British Graduate School was life-changing. The faculty is world-class and the support is amazing.&quot;</p>
+                <div className={styles.author}>Malith Perera</div>
+                <div className={styles.role}>Data Scientist at TechCorp</div>
               </div>
-              <div style={{ padding: '2rem', border: '1px solid #eee', borderRadius: '8px', background: '#fdfdfd' }}>
-                <p style={{ fontStyle: 'italic', marginBottom: '1.5rem' }}>&quot;Highly recommend Kensley for anyone looking to upskill in Management. Flexible learning and great networking opportunities.&quot;</p>
-                <div style={{ fontWeight: '700' }}>Sarah de Silva</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>HR Manager</div>
+              <div className={styles.testimonialCard}>
+                <p className={styles.quote}>&quot;Highly recommend British Graduate School for anyone looking to upskill in Management. Flexible learning and great networking opportunities.&quot;</p>
+                <div className={styles.author}>Sarah de Silva</div>
+                <div className={styles.role}>HR Manager</div>
               </div>
             </div>
           </div>
         </div>
       </section>
       
+      <CTASection />
       <Footer />
     </main>
   );

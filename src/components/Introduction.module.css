@@ -53,12 +53,17 @@
 .iconBox {
   min-width: 65px;
   height: 65px;
-  background: rgba(160, 20, 45, 0.04);
+  background: #a0142d; /* Primary red color */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(160, 20, 45, 0.1);
+  border: none;
+  box-shadow: 0 4px 12px rgba(160, 20, 45, 0.2);
+}
+
+.iconBox svg {
+  stroke: white !important;
 }
 
 .featureContent h3 {

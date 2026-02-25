@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./Apply.module.css";
+import CTASection from "@/components/CTASection";
 
 export default function ApplyPage() {
   return (
@@ -98,6 +99,7 @@ export default function ApplyPage() {
         </div>
       </section>
 
+      <CTASection />
       <Footer />
     </main>
   );

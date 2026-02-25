@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "../legal.module.css";
+import CTASection from "@/components/CTASection";
 
 export default function PrivacyPolicy() {
   return (
@@ -124,6 +125,7 @@ export default function PrivacyPolicy() {
         </div>
       </section>
 
+      <CTASection />
       <Footer />
     </main>
   );

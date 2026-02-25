@@ -34,7 +34,7 @@ export default function ContactPage() {
             {/* Top section: Contact Form */}
             <div className={styles.formSection}>
               <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                <h2 className={styles.formTitle}>Send a Message</h2>
+                <h2 id="contact-form" className={styles.formTitle}>Send a Message</h2>
                 <p className={styles.formDesc}>
                   If you have any questions about the programmes we provide, simply use the form below. We try to respond to all queries and comments within 24 hours.
                 </p>

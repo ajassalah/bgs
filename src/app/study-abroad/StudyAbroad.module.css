@@ -1,0 +1,209 @@
+.hero {
+  min-height: 500px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 100px;
+}
+
+.heroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 35, 74, 0.7);
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+.section {
+  padding: 80px 0;
+  background: white;
+}
+
+.introBox {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.mainTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #00234a;
+  margin-bottom: 2rem;
+}
+
+.description {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.destinationGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.destinationCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.destinationCard:hover {
+  transform: translateY(-5px);
+}
+
+.destImageWrapper {
+  position: relative;
+  height: 250px;
+  width: 100%;
+}
+
+.destImage {
+  object-fit: cover;
+}
+
+.destContent {
+  padding: 2rem;
+}
+
+.destContent h3 {
+  font-size: 1.5rem;
+  color: #00234a;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.destContent p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.btnOutline {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: 2px solid #eb4d4b;
+  color: #eb4d4b;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.btnOutline:hover {
+  background: #eb4d4b;
+  color: white;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.subTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00234a;
+  margin-bottom: 1.5rem;
+}
+
+.infoBox p {
+  color: #666;
+  line-height: 1.7;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #eb4d4b;
+  font-weight: bold;
+}
+
+.progressionSection {
+  background: #00234a;
+  color: white;
+  padding: 3rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.progressionSection .subTitle {
+  color: white;
+}
+
+.progressionSection p {
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+@media (max-width: 992px) {
+  .destinationGrid, .infoGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  .mainTitle {
+    font-size: 2rem;
+  }
+}

@@ -4,7 +4,7 @@ export default function AboutStats() {
   const stats = [
     { value: "2,500+", label: "Students worldwide" },
     { value: "13+", label: "Specializations to choose from" },
-    { value: "ASIC Accredited", label: "Only ASIC Accredited College in SL" },
+    { value: "Qualifi Endorsed", label: "Recognised Higher Education College" },
     { value: "ISO 9001:2015", label: "QMS certified" }
   ];
 

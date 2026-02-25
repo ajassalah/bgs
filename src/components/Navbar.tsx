@@ -26,8 +26,7 @@ export default function Navbar() {
             <Link href="/about">About</Link>
           </div>
           <div className={styles.topLinks}>
-            <Link href="/help-desk">Help Desk</Link>
-            <Link href="/contact">Contact</Link>
+            <Link href="https://studentportal.britishgraduateschool.co.uk/" target="_blank">Student Portal</Link>
             <div className={styles.socials}>
               <Link href="https://www.facebook.com/britishgraduateschooluk/?_rdc=1&_rdr#" target="_blank" className={styles.socialLink}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -54,7 +53,8 @@ export default function Navbar() {
             <Link href="/courses" className={styles.navLink}>Courses</Link>
             <Link href="/study-abroad" className={styles.navLink}>Study Abroad</Link>
             <Link href="/othm" className={styles.navLink}>OTHM Sri Lanka</Link>
-            <Link href="/asic" className={styles.navLink}>ASIC Accreditation</Link>
+            <Link href="/qualifi" className={styles.navLink}>Qualifi Endorsement</Link>
+            <Link href="/contact" className={styles.navLink}>Contact</Link>
             <Link href="/apply" className={styles.cta}>Inquire Now</Link>
           </div>
         </div>

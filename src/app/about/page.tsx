@@ -10,6 +10,7 @@ import Testimonials from "@/components/Testimonials";
 import AboutAccreditationDetails from "@/components/AboutAccreditationDetails";
 import AboutPartnershipUniversities from "@/components/AboutPartnershipUniversities";
 import AboutFutureModel from "@/components/AboutFutureModel";
+import CTASection from "@/components/CTASection";
 
 export default function AboutPage() {
   return (
@@ -107,6 +108,7 @@ export default function AboutPage() {
         <Testimonials />
       </section>
       
+      <CTASection />
       <Footer />
     </main>
   );

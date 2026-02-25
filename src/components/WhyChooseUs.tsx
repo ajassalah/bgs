@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function WhyChooseUs() {
   const points = [
-    "Only ASIC Accredited College in Sri Lanka",
+    "Qualifi Endorsed College",
     "ISO 9001-2015 Certified for Quality Management System",
     "Experienced Faculty",
     "Progression Routes to Global Universities",
@@ -29,7 +29,7 @@ export default function WhyChooseUs() {
                 </div>
               ))}
             </div>
-            <Link href="/apply" className="btn btn-secondary" style={{ backgroundColor: '#eb4d4b', color: 'white' }}>Join Now</Link>
+            <Link href="/contact#contact-form" className="btn btn-secondary" style={{ backgroundColor: '#eb4d4b', color: 'white' }}>Join Now</Link>
           </div>
           <div className={styles.imageContainer}>
             <Image
