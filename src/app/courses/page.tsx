@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Courses.module.css";
-import { allCourses, Course } from "@/data/courses";
+import { allCourses } from "@/data/courses";
 
 export default function CoursesPage() {
   const [searchTerm, setSearchTerm] = useState("");

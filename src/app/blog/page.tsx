@@ -79,7 +79,15 @@ export default function BlogPage() {
                 <h3 className={styles.widgetTitle}>Recent Posts</h3>
                 {blogPosts.slice(0, 3).map((post) => (
                   <div key={post.id} className={styles.recentPost}>
-                    <img src={post.image} alt={post.title} className={styles.recentThumb} />
+                    <div style={{ position: 'relative', width: '80px', height: '80px', flexShrink: 0 }}>
+                      <Image 
+                        src={post.image} 
+                        alt={post.title} 
+                        fill 
+                        className={styles.recentThumb} 
+                        style={{ objectFit: 'cover', borderRadius: '6px' }}
+                      />
+                    </div>
                     <div>
                       <h4 className={styles.recentTitle}>{post.title}</h4>
                       <span className={styles.recentDate}>{post.date}</span>
