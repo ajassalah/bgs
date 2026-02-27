@@ -1,0 +1,261 @@
+
+.main {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.heroContent h1, .section h2, .section h3, .infoCard h3, .inquiryCard h3 {
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.hero {
+  position: relative;
+  height: 550px; /* Increased height to compensate for padding */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.breadcrumbs {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+
+.breadcrumbs a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.breadcrumbs span {
+  margin: 0 10px;
+}
+
+.detailContainer {
+  max-width: 1200px;
+  margin: -50px auto 60px;
+  position: relative;
+  z-index: 10;
+  padding: 0 20px;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 992px) {
+  .contentGrid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.mainContent {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.infoCard {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.infoItem:last-child {
+  border-bottom: none;
+}
+
+.infoItem strong {
+  color: #333;
+}
+
+.infoItem span {
+  color: #666;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #eb4d4b; /* BGS Primary Color */
+}
+
+.section p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #eb4d4b;
+  font-weight: bold;
+}
+
+.curriculumList {
+  list-style: none;
+  padding: 0;
+}
+
+.curriculumItem {
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.curriculumItem:hover {
+  border-color: #eb4d4b;
+  transform: translateX(5px);
+}
+
+.curriculumNumber {
+  background: #eb4d4b;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.inquiryCard {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.inquiryCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.inquiryCard p {
+  opacity: 0.8;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.btnApply {
+  display: block;
+  background: #eb4d4b;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btnApply:hover {
+  background: #d43f3d;
+}
+
+.btnBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 30px;
+  transition: opacity 0.3s ease;
+}
+
+.btnBack:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}

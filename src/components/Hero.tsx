@@ -1,10 +1,18 @@
 import styles from "./Hero.module.css";
 import Link from "next/link";
 
-export default function Hero() {
+export default function Hero({ data }: { data?: any }) {
+  const title = data?.heroTitle || "Empowering Minds, Redefining Boundaries In Education";
+  const subtitle = data?.heroSubtitle || "Unlock Your Potential With British Graduate School — Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.";
+  const ctaText = data?.heroCTAText || "Find Courses";
+  const bgImage = data?.heroImage;
+
   return (
     <section className={styles.hero}>
-      <div className={styles.heroImage}></div>
+      <div 
+        className={styles.heroImage} 
+        style={bgImage ? { backgroundImage: `url("${bgImage}")` } : {}}
+      ></div>
       <div className={styles.heroOverlay}></div>
       <div className={styles.bgElements}>
         <div className={styles.circle1}></div>
@@ -13,15 +21,13 @@ export default function Hero() {
       
       <div className={styles.heroContent}>
         <span className={styles.tagline}>Excellence in Education Since Foundations</span>
-        <h1 className={styles.title}>
-          Empowering Minds, Redefining<br />
-          Boundaries In Education
+        <h1 className={styles.title} dangerouslySetInnerHTML={{ __html: title.replace('\n', '<br />') }}>
         </h1>
         <p className={styles.subtitle}>
-          Unlock Your Potential With British Graduate School — Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.
+          {subtitle}
         </p>
         <div className={styles.actions}>
-          <Link href="/courses" className={styles.mainBtn}>Find Courses</Link>
+          <Link href="/courses" className={styles.mainBtn}>{ctaText}</Link>
         </div>
         <div className={styles.statsRow}>
           <div className={styles.statItem}>

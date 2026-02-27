@@ -4,9 +4,20 @@ import CTASection from "@/components/CTASection";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Blog.module.css";
-import { blogPosts } from "@/data/blog";
+import { blogPosts as staticBlogPosts } from "@/data/blog";
+import { getPosts } from "@/sanity/lib/queries";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  // Try to fetch from Sanity
+  let postsFromSanity = [];
+  try {
+    postsFromSanity = await getPosts();
+  } catch (error) {
+    console.warn("Could not fetch posts from Sanity, using fallback data.");
+  }
+
+  // Use Sanity data if available, otherwise use static data
+  const blogPosts = postsFromSanity.length > 0 ? postsFromSanity : staticBlogPosts;
   return (
     <main style={{ overflowX: 'hidden' }}>
       <Navbar />
@@ -33,101 +44,72 @@ export default function BlogPage() {
 
       <section className={styles.mainSection}>
         <div className="container">
-          <div className={styles.grid}>
-            
-            {/* Posts Area */}
-            <div className={styles.postsList}>
-              {blogPosts.map((post) => (
-                <article key={post.id} className={styles.postCard}>
-                  <div className={styles.imageWrapper}>
+          {/* Featured Post */}
+          {blogPosts.length > 0 && (
+            <div className={styles.featuredPost}>
+              <article className={styles.featuredCard}>
+                <div className={styles.featuredImageWrapper}>
+                  {blogPosts[0].image ? (
+                    <Image 
+                      src={blogPosts[0].image} 
+                      alt={blogPosts[0].title} 
+                      fill 
+                      className={styles.postImage}
+                    />
+                  ) : (
+                    <div className={styles.placeholderImage}>No Image</div>
+                  )}
+                  <span className={styles.category}>{blogPosts[0].category}</span>
+                </div>
+                <div className={styles.featuredContent}>
+                  <div className={styles.meta}>
+                    <span>BY {blogPosts[0].author.toUpperCase()}</span>
+                    <span>{blogPosts[0].date}</span>
+                  </div>
+                  <Link href={`/blog/${blogPosts[0].id}`}>
+                    <h2 className={styles.featuredTitle}>{blogPosts[0].title}</h2>
+                  </Link>
+                  <p className={styles.featuredExcerpt}>{blogPosts[0].excerpt}</p>
+                  <Link href={`/blog/${blogPosts[0].id}`} className={styles.readMore}>
+                    Read More
+                  </Link>
+                </div>
+              </article>
+            </div>
+          )}
+
+          {/* Grid for remaining posts */}
+          <div className={styles.postsList}>
+            {blogPosts.slice(1).map((post: any) => (
+              <article key={post.id} className={styles.postCard}>
+                <div className={styles.imageWrapper}>
+                  {post.image ? (
                     <Image 
                       src={post.image} 
                       alt={post.title} 
                       fill 
                       className={styles.postImage}
                     />
-                    <span className={styles.category}>{post.category}</span>
-                  </div>
-                  <div className={styles.postContent}>
-                    <div className={styles.meta}>
-                      <span>BY {post.author.toUpperCase()}</span>
-                      <span>{post.date}</span>
-                    </div>
-                    <Link href={`/blog/${post.id}`}>
-                      <h2 className={styles.postTitle}>{post.title}</h2>
-                    </Link>
-                    <p className={styles.excerpt}>{post.excerpt}</p>
-                    <Link href={`/blog/${post.id}`} className={styles.readMore}>
-                      Read More
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            {/* Sidebar */}
-            <aside className={styles.sidebar}>
-              
-              <div className={styles.widget}>
-                <h3 className={styles.widgetTitle}>Search</h3>
-                <div className={styles.searchBox}>
-                  <input type="text" placeholder="Search news..." className={styles.searchInput} />
+                  ) : (
+                    <div className={styles.placeholderImage}>No Image</div>
+                  )}
+                  <span className={styles.category}>{post.category}</span>
                 </div>
-              </div>
-
-              <div className={styles.widget}>
-                <h3 className={styles.widgetTitle}>Recent Posts</h3>
-                {blogPosts.slice(0, 3).map((post) => (
-                  <div key={post.id} className={styles.recentPost}>
-                    <div style={{ position: 'relative', width: '80px', height: '80px', flexShrink: 0 }}>
-                      <Image 
-                        src={post.image} 
-                        alt={post.title} 
-                        fill 
-                        className={styles.recentThumb} 
-                        style={{ objectFit: 'cover', borderRadius: '6px' }}
-                      />
-                    </div>
-                    <div>
-                      <h4 className={styles.recentTitle}>{post.title}</h4>
-                      <span className={styles.recentDate}>{post.date}</span>
-                    </div>
+                <div className={styles.postContent}>
+                  <div className={styles.meta}>
+                    <span>BY {post.author.toUpperCase()}</span>
+                    <span>{post.date}</span>
                   </div>
-                ))}
-              </div>
-
-              <div className={styles.widget}>
-                <h3 className={styles.widgetTitle}>Categories</h3>
-                <ul className={styles.categoryList}>
-                  <li className={styles.categoryItem}>
-                    <Link href="#" className={styles.categoryLink}>
-                      <span>Education</span>
-                      <span>(4)</span>
-                    </Link>
-                  </li>
-                  <li className={styles.categoryItem}>
-                    <Link href="#" className={styles.categoryLink}>
-                      <span>Management</span>
-                      <span>(12)</span>
-                    </Link>
-                  </li>
-                  <li className={styles.categoryItem}>
-                    <Link href="#" className={styles.categoryLink}>
-                      <span>Technology</span>
-                      <span>(8)</span>
-                    </Link>
-                  </li>
-                  <li className={styles.categoryItem}>
-                    <Link href="#" className={styles.categoryLink}>
-                      <span>Student Life</span>
-                      <span>(5)</span>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-            </aside>
-
+                  <Link href={`/blog/${post.id}`}>
+                    <h3 className={styles.postTitle}>{post.title}</h3>
+                  </Link>
+                  <p className={styles.excerpt}>{post.excerpt}</p>
+                  <Link href={`/blog/${post.id}`} className={styles.readMore}>
+                    Read More
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

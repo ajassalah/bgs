@@ -1,50 +1,95 @@
 import styles from "./ResourcesNews.module.css";
 import Link from "next/link";
+import { blogPosts } from "@/data/blog";
+import Image from "next/image";
+import { getPosts } from "@/sanity/lib/queries";
 
-export default function ResourcesNews() {
-  const sideArticles = [
-    { title: "What more can you learn?", date: "May 31, 2022" },
-    { title: "Why should a Teacher get a PgDip in Education Management?", date: "October 18, 2021" },
-    { title: "6 Benefits of MBA after Engineering", date: "October 8, 2021" }
-  ];
+export default async function ResourcesNews({ data }: { data?: any }) {
+  // Try to fetch from Sanity
+  let postsFromSanity = [];
+  try {
+    postsFromSanity = await getPosts();
+  } catch (error) {
+    console.warn("Could not fetch posts from Sanity, using fallback data.");
+  }
+
+  // Use Sanity data if available, otherwise use local static data
+  const postsToDisplay = postsFromSanity.length > 0 ? postsFromSanity : blogPosts;
+
+  const mainPosts = postsToDisplay.slice(0, 2);
+  const sidePosts = postsToDisplay.slice(2, 5);
+
+  const sectionTitle = data?.resourcesTitle || "Resources & News";
+  const sectionSubtitle = data?.resourcesSubtitle || "Explore valuable insights, educational updates, and expert guidance to support your professional growth.";
 
   return (
     <section className={styles.section}>
-      <div className="container" style={{ position: 'relative' }}>
+      <div className="container">
         <div className={styles.intro}>
           <div>
-            <h2 className={styles.title} style={{ color: 'white', background: '#333', display: 'inline-block', padding: '0 10px' }}>Resources & News</h2>
-            <p style={{ maxWidth: '500px', color: 'var(--text-muted)' }}>
-              Explore valuable insights, updates, and expert guidance to support your learning journey and professional growth.
+            <span style={{ color: '#eb4d4b', fontWeight: 700, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', display: 'block', marginBottom: '0.5rem' }}>Insights & Updates</span>
+            <h2 className={styles.title}>{sectionTitle}</h2>
+            <p style={{ maxWidth: '600px', color: '#666', fontSize: '1.1rem', lineHeight: '1.6' }}>
+              {sectionSubtitle}
             </p>
           </div>
-          <Link href="/blog" className="btn btn-outline" style={{ fontSize: '0.8rem', padding: '0.5rem 1.2rem', backgroundColor: '#e9ecef', border: 'none' }}>Browse Blog</Link>
+          <Link href="/blog" className="btn btn-primary" style={{ background: '#eb4d4b', borderColor: '#eb4d4b', padding: '12px 30px' }}>Explore All News</Link>
         </div>
 
         <div className={styles.grid}>
           <div className={styles.mainCard}>
-            <div className={styles.card}>
-              <div className={styles.image}>Graduation Ceremony</div>
-              <span className={styles.meta}>BLOG</span>
-              <h3 className={styles.cardTitle}>Kensley Graduate School - Graduation Ceremony 2024 - OTHM & ATHE</h3>
-              <span className={styles.date}>September 19, 2024</span>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.image}>AI Webinar</div>
-              <span className={styles.meta}>BLOG</span>
-              <h3 className={styles.cardTitle}>The Future of Artificial Intelligence-Webinar</h3>
-              <span className={styles.date}>March 22, 2024</span>
-            </div>
+            {mainPosts.map((post: any) => (
+              <div key={post.id} className={styles.card}>
+                <Link href={`/blog/${post.id}`}>
+                  <div className={styles.imageWrapper}>
+                    {post.image ? (
+                      <Image 
+                        src={post.image} 
+                        alt={post.title} 
+                        fill 
+                        style={{ objectFit: 'cover' }} 
+                      />
+                    ) : (
+                      <div style={{ width: '100%', height: '100%', background: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
+                        No Image
+                      </div>
+                    )}
+                  </div>
+                </Link>
+                <span className={styles.meta}>{post.category}</span>
+                <Link href={`/blog/${post.id}`}>
+                  <h3 className={styles.cardTitle}>{post.title}</h3>
+                </Link>
+                <span className={styles.date}>{post.date}</span>
+              </div>
+            ))}
           </div>
 
           <div className={styles.sideColumn}>
-            {sideArticles.map((article, idx) => (
-              <div key={idx} className={styles.smallCard}>
-                <div className={styles.smallImage}>Article {idx + 1}</div>
+            {sidePosts.map((post: any) => (
+              <div key={post.id} className={styles.smallCard}>
+                <Link href={`/blog/${post.id}`}>
+                  <div className={styles.smallImageWrapper}>
+                    {post.image ? (
+                      <Image 
+                        src={post.image} 
+                        alt={post.title} 
+                        fill 
+                        style={{ objectFit: 'cover' }} 
+                      />
+                    ) : (
+                      <div style={{ width: '100%', height: '100%', background: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', fontSize: '10px' }}>
+                        IMG
+                      </div>
+                    )}
+                  </div>
+                </Link>
                 <div>
-                  <span className={styles.meta}>BLOG</span>
-                  <h4 className={styles.cardTitle} style={{ fontSize: '0.95rem' }}>{article.title}</h4>
-                  <span className={styles.date}>{article.date}</span>
+                  <span className={styles.meta} style={{ marginBottom: '0.25rem' }}>{post.category}</span>
+                  <Link href={`/blog/${post.id}`}>
+                    <h4 className={styles.cardTitle} style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>{post.title}</h4>
+                  </Link>
+                  <span className={styles.date}>{post.date}</span>
                 </div>
               </div>
             ))}

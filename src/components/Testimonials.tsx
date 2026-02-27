@@ -1,7 +1,7 @@
 import styles from "./Testimonials.module.css";
 
-export default function Testimonials() {
-  const testimonials = [
+export default function Testimonials({ data }: { data?: any }) {
+  const testimonials = data?.testimonials || [
     {
       text: "The PGD program in Data Science at BGS was life-changing. The faculty is world-class and the support is amazing.",
       name: "Malith Perera",
@@ -27,7 +27,7 @@ export default function Testimonials() {
           <h2 style={{ fontSize: '2.5rem' }}>Student Testimonials</h2>
         </div>
         <div className={styles.grid}>
-          {testimonials.map((t, idx) => (
+          {testimonials.map((t: any, idx: number) => (
             <div key={idx} className={styles.card}>
               <div className={styles.quoteIcon}>&quot;</div>
               <p className={styles.text}>{t.text}</p>

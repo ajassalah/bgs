@@ -15,24 +15,28 @@ import OthmCertification from "@/components/OthmCertification";
 import TopUpCertification from "@/components/TopUpCertification";
 import CTASection from "@/components/CTASection";
 
-export default function Home() {
+import { getHomeData } from "@/sanity/lib/queries";
+
+export default async function Home() {
+  const homeData = await getHomeData();
+
   return (
     <main style={{ overflowX: 'hidden' }}>
       <Navbar />
-      <Hero />
-      <Introduction />
+      <Hero data={homeData} />
+      <Introduction data={homeData} />
       <ProgramCategories />
       <Accreditations />
-      <FeaturedCourses />
-      <WhyChooseUs />
-      <Welcome />
-      <Testimonials />
+      <FeaturedCourses data={homeData} />
+      <WhyChooseUs data={homeData} />
+      <Welcome data={homeData} />
+      <Testimonials data={homeData} />
       <QualifiCertification />
       <IsoCertification />
       <TopUpCertification />
       <OthmCertification />
-      <ResourcesNews />
-      <CTASection />
+      <ResourcesNews data={homeData} />
+      <CTASection data={homeData} />
       <Footer />
     </main>
   );
