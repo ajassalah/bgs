@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./HelpDesk.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import CTASection from "@/components/CTASection";
 
 export default function HelpDeskPage() {
@@ -70,7 +71,7 @@ export default function HelpDeskPage() {
                   <div className={styles.stepNumber}>2</div>
                   <div className={styles.stepContent}>
                     <h3>Confirmation of Application</h3>
-                    <p>Admissions requirements vary by program. Please consult the <a href="/courses">program website</a> to verify which information is required to complete the application.</p>
+                    <p>Admissions requirements vary by program. Please consult the <Link href="/courses">program website</Link> to verify which information is required to complete the application.</p>
                   </div>
                 </div>
 
