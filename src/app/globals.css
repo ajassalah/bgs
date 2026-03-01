@@ -151,8 +151,20 @@ img {
     --section-padding: 50px 0;
   }
   .container {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
   }
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.9rem; }
 }
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 40px 0;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.6rem; }
+}
+

@@ -197,14 +197,50 @@
 @media (max-width: 992px) {
   .grid, .flexGrid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: 350px;
+    padding-top: 120px;
+  }
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+  .heroContent {
+    padding: 0 1.5rem;
+  }
+  .section {
+    padding: 60px 0;
+  }
+  .grid, .flexGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .ctaBanner {
-    padding: 3rem 2rem;
+    padding: 2.5rem 1.5rem;
+  }
+  .ctaBanner h3 {
+    font-size: 1.8rem;
+  }
+  .mainTitle {
+    font-size: 2.2rem;
+  }
+  .premierSection {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+  .highlightCard {
+    padding: 1.5rem;
   }
 }

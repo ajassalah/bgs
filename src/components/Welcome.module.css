@@ -73,6 +73,7 @@
   .welcome {
     flex-direction: column;
     text-align: center;
+    gap: 2.5rem;
   }
   .title::after {
     left: 50%;
@@ -86,3 +87,26 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  .statNumber {
+    font-size: 2rem;
+  }
+  .stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .statItem {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+}
+

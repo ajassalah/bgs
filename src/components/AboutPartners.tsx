@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function AboutPartners() {
   const partners = [
-    { name: "Qualifi", img: "/Qualifi-headerlogo.png" },
-    { name: "CQHE", img: "/cqhe-logo-new.webp" },
-    { name: "NQUAL", img: "/nqual logo.avif" },
+    { name: "NQUAL", img: "/nqual logo.jpeg" },
+    { name: "Qualifi Endorsed", img: "/qualifi-endorsed-729x800.png" },
+    { name: "CGHE", img: "/cghe_logo.png" },
   ];
 
   return (
@@ -16,7 +16,7 @@ export default function AboutPartners() {
           {partners.map((partner, idx) => (
             <div key={idx} className={styles.item}>
               {partner.img ? (
-                <Image src={partner.img} alt={partner.name} width={120} height={40} className={styles.logoImg} style={{ objectFit: 'contain' }} />
+                <Image src={partner.img} alt={partner.name} width={220} height={160} className={styles.logoImg} style={{ objectFit: 'contain' }} />
               ) : (
                 <div className={styles.placeholder}>{partner.name}</div>
               )}

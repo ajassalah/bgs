@@ -193,18 +193,47 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 40px;
+  }
+  .heroContent {
+    align-items: center;
+    text-align: center;
+  }
   .title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   .subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    width: 95%;
+    margin: 0 auto 3rem;
   }
   .actions {
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
+  }
+  .statsRow {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    align-items: center;
+  }
+  .statItem {
+    justify-content: center;
   }
   .waves {
     height: 40px;
     min-height: 40px;
   }
 }
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+}
+

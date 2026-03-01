@@ -102,6 +102,9 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
   .mainCard {
     grid-template-columns: 1fr;
   }
@@ -113,4 +116,14 @@
   .title {
     font-size: 2rem;
   }
+  .imageWrapper {
+    height: 220px;
+  }
 }
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+}
+

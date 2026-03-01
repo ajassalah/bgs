@@ -228,6 +228,27 @@
   }
 }
 
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  .postsList {
+    grid-template-columns: 1fr;
+  }
+  .mainSection {
+    padding: 40px 0;
+  }
+  .featuredContent {
+    padding: 1.5rem;
+  }
+  .featuredCard {
+    min-height: auto;
+  }
+  .featuredPost {
+    margin-bottom: 2rem;
+  }
+}
+
 /* Sidebar Replaced by Full Width Grid */
 
 .categoryList {
@@ -282,12 +303,12 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
-  .postsList {
-    grid-template-columns: 1fr;
+  .hero {
+    min-height: 300px;
   }
 }
 .placeholderImage {

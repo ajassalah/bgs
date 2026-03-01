@@ -57,11 +57,14 @@
 
 .formContainer {
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   background: white;
   padding: 3.5rem;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .formHeader {
@@ -104,12 +107,15 @@
 }
 
 .input, .select, .textarea {
+  width: 100%;
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
   outline: none;
   transition: border-color 0.3s;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .input:focus, .select:focus, .textarea:focus {
@@ -138,15 +144,50 @@
 }
 
 @media (max-width: 768px) {
-  .heroTitle {
-    font-size: 2.5rem;
+  .hero {
+    min-height: 350px;
+    padding-top: 120px;
   }
-  
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  .heroContent {
+    padding: 0 1.5rem;
+  }
+  .section {
+    padding: 40px 0;
+  }
   .inputGrid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
-  
   .formContainer {
-    padding: 2rem;
+    padding: 2rem 1.25rem;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .formHeader {
+    margin-bottom: 2rem;
+  }
+  .formHeader h2 {
+    font-size: 1.8rem;
+  }
+  .applyForm {
+    gap: 1.5rem;
+  }
+  .submitBtn {
+    width: 100%;
+    text-align: center;
   }
 }
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+}
+

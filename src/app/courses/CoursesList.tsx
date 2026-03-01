@@ -6,10 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
 
+const PAGE_SIZE = 10;
+
 export default function CoursesList({ initialCourses }: { initialCourses: any[] }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [selectedBody, setSelectedBody] = useState("All Awarding Bodies");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const categories = useMemo(() => {
     const cats = new Set(initialCourses.map(c => c.category));
@@ -22,6 +25,7 @@ export default function CoursesList({ initialCourses }: { initialCourses: any[] 
   }, [initialCourses]);
 
   const filteredCourses = useMemo(() => {
+    setVisibleCount(PAGE_SIZE);
     return initialCourses.filter(course => {
       const matchesSearch = course.title?.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory === "All Categories" || course.category === selectedCategory;
@@ -29,6 +33,9 @@ export default function CoursesList({ initialCourses }: { initialCourses: any[] 
       return matchesSearch && matchesCategory && matchesBody;
     });
   }, [initialCourses, searchTerm, selectedCategory, selectedBody]);
+
+  const visibleCourses = filteredCourses.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredCourses.length;
 
   return (
     <section className={styles.mainContent}>
@@ -69,10 +76,15 @@ export default function CoursesList({ initialCourses }: { initialCourses: any[] 
           </div>
         </div>
 
+        {/* Results count */}
+        <p style={{ color: '#666', marginBottom: '1rem', fontSize: '0.9rem' }}>
+          Showing {visibleCourses.length} of {filteredCourses.length} courses
+        </p>
+
         {/* Courses Grid */}
         <div className={styles.coursesGrid}>
-          {filteredCourses.length > 0 ? (
-            filteredCourses.map((course) => (
+          {visibleCourses.length > 0 ? (
+            visibleCourses.map((course) => (
               <div key={course.id} className={styles.courseCard}>
                 <div className={styles.imageWrapper}>
                   {course.image ? (
@@ -109,6 +121,16 @@ export default function CoursesList({ initialCourses }: { initialCourses: any[] 
             </div>
           )}
         </div>
+
+        {/* See More Button */}
+        {hasMore && (
+          <button
+            className={styles.seeMoreBtn}
+            onClick={() => setVisibleCount(prev => prev + PAGE_SIZE)}
+          >
+            See More ({filteredCourses.length - visibleCount} remaining)
+          </button>
+        )}
       </div>
     </section>
   );

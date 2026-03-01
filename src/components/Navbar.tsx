@@ -7,6 +7,7 @@ import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,8 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <div className={`${styles.wrapper} ${scrolled ? styles.scrolled : ""}`}>
@@ -37,9 +40,6 @@ export default function Navbar() {
               <Link href="https://www.instagram.com/britishgraduateschool?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" className={styles.socialLink}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </Link>
-              <Link href="#" target="_blank" className={styles.socialLink}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-              </Link>
             </div>
           </div>
         </div>
@@ -57,8 +57,38 @@ export default function Navbar() {
             <Link href="/contact" className={styles.navLink}>Contact</Link>
             <Link href="/apply" className={styles.cta}>Inquire Now</Link>
           </div>
+
+          {/* Hamburger Button */}
+          <button
+            className={styles.hamburger}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`${styles.bar} ${menuOpen ? styles.bar1Open : ""}`}></span>
+            <span className={`${styles.bar} ${menuOpen ? styles.bar2Open : ""}`}></span>
+            <span className={`${styles.bar} ${menuOpen ? styles.bar3Open : ""}`}></span>
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      {menuOpen && (
+        <div className={styles.mobileOverlay} onClick={closeMenu}></div>
+      )}
+
+      {/* Mobile Menu Drawer */}
+      <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
+        <button className={styles.closeBtn} onClick={closeMenu}>✕</button>
+        <Link href="/" className={styles.mobileLink} onClick={closeMenu}>Home</Link>
+        <Link href="/blog" className={styles.mobileLink} onClick={closeMenu}>Blog</Link>
+        <Link href="/about" className={styles.mobileLink} onClick={closeMenu}>About</Link>
+        <Link href="/courses" className={styles.mobileLink} onClick={closeMenu}>Courses</Link>
+        <Link href="/study-abroad" className={styles.mobileLink} onClick={closeMenu}>Study Abroad</Link>
+        <Link href="/othm" className={styles.mobileLink} onClick={closeMenu}>OTHM Sri Lanka</Link>
+        <Link href="/qualifi" className={styles.mobileLink} onClick={closeMenu}>Qualifi Endorsement</Link>
+        <Link href="/contact" className={styles.mobileLink} onClick={closeMenu}>Contact</Link>
+        <Link href="/apply" className={styles.mobileCta} onClick={closeMenu}>Inquire Now</Link>
+      </div>
     </div>
   );
 }

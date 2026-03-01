@@ -53,7 +53,7 @@ export default function AboutPage() {
             <div className={styles.imageBox}>
                <div style={{ position: 'relative', width: '100%', height: '400px' }}>
                 <Image 
-                  src="/online-student-5d.jpg" 
+                  src="/pexels-tara-winstead-8386434.jpg" 
                   alt="BGS Foundation" 
                   fill
                   style={{ objectFit: 'cover', borderRadius: '12px' }}

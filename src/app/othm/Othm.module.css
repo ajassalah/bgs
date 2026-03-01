@@ -228,14 +228,34 @@
 @media (max-width: 992px) {
   .grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: 350px;
+    padding-top: 60px;
+  }
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+  .heroContent {
+    padding: 0 1.5rem;
+  }
+  .section {
+    padding: 50px 0;
   }
   .levelsSection {
-    padding: 2rem;
+    padding: 2rem 1rem;
+  }
+  .mainTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.8rem;
   }
 }

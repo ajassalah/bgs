@@ -131,15 +131,54 @@
     gap: 2rem;
   }
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   .facultyList {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .hero {
+    min-height: 400px;
+    padding-top: 120px;
+  }
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  .heroContent {
+    padding: 0 1.5rem;
+  }
+  .intro {
+    padding: 60px 0;
+  }
+  .faculties {
+    padding: 60px 0;
+  }
+  .sectionTitle {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .text {
+    text-align: center;
+  }
+  .imageBox {
+    display: none;
+  }
+  .grid {
+    text-align: center;
+  }
   .facultyList {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.8rem;
   }
 }

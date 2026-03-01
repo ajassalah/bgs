@@ -4,17 +4,17 @@ export default function Testimonials({ data }: { data?: any }) {
   const testimonials = data?.testimonials || [
     {
       text: "The PGD program in Data Science at BGS was life-changing. The faculty is world-class and the support is amazing.",
-      name: "Malith Perera",
+      name: "Julian Mark ",
       role: "Data Scientist at TechCorp"
     },
     {
       text: "Highly recommend BGS for anyone looking to upskill in Management. Flexible learning and great networking opportunities.",
-      name: "Sarah de Silva",
+      name: "Sarah Frang",
       role: "HR Manager"
     },
     {
       text: "The environment at BGS is truly supportive. I've gained practical skills that I use every day in my current role.",
-      name: "Ahmed Rizvi",
+      name: " Zaidul Fariq",
       role: "Project Manager"
     }
   ];

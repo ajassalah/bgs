@@ -121,15 +121,52 @@
   .top {
     grid-template-columns: 1fr;
     gap: 3rem;
+    text-align: center;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .brand .logo {
+    display: flex;
+    justify-content: center;
   }
   .linksGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .brand .description {
+    margin: 0 auto;
+  }
+  .linkColumn h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .socials {
+    justify-content: center;
+  }
+  .contactItem {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 576px) {
+  .footer {
+    padding: 50px 0 30px;
+  }
   .linksGrid {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .linkColumn h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .contactItem {
+    justify-content: center;
+  }
+  .socials {
+    justify-content: center;
   }
   .bottom {
     flex-direction: column;
