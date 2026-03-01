@@ -107,7 +107,7 @@ export async function getCourse(id: string) {
 
 export async function getHomeData() {
   const query = `*[_type == "home"][0] {
-    "heroImage": heroImage.asset->url,
+    heroImage,
     heroTitle,
     heroSubtitle,
     heroCTAText,
@@ -125,18 +125,39 @@ export async function getHomeData() {
     introSubtitle,
     introDescription,
     introFeatures,
-    "introImages": introImages[].asset->url,
+    introImages,
     welcomeTitle,
     welcomeContent,
-    "welcomeImage": welcomeImage.asset->url,
+    welcomeImage,
     welcomeStats,
     testimonials,
     whyChooseTitle,
     whyChooseSubtitle,
     whyChoosePoints,
-    "whyChooseImage": whyChooseImage.asset->url,
+    whyChooseImage,
     resourcesTitle,
     resourcesSubtitle,
+    "programCategories": programCategories[] {
+      title,
+      image,
+      "imageUrl": image.asset->url,
+      link
+    },
+    "benefitItems": benefitItems[] {
+      name,
+      label
+    },
+    "certificationBlocks": certificationBlocks[] {
+      blockId,
+      logo,
+      title,
+      text,
+      mainImage,
+      buttonText,
+      buttonLink,
+      isReverse,
+      isDarkBg
+    },
     ctaTitle,
     ctaSubtitle,
     ctaButtonText

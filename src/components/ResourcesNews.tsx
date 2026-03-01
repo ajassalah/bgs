@@ -38,7 +38,7 @@ export default async function ResourcesNews({ data }: { data?: any }) {
 
         <div className={styles.grid}>
           <div className={styles.mainCard}>
-            {mainPosts.map((post: any) => (
+            {mainPosts.map((post: any, idx: number) => (
               <div key={post.id} className={styles.card}>
                 <Link href={`/blog/${post.id}`}>
                   <div className={styles.imageWrapper}>
@@ -47,12 +47,17 @@ export default async function ResourcesNews({ data }: { data?: any }) {
                         src={post.image} 
                         alt={post.title} 
                         fill 
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         style={{ objectFit: 'cover' }} 
                       />
                     ) : (
-                      <div style={{ width: '100%', height: '100%', background: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888' }}>
-                        No Image
-                      </div>
+                      <Image 
+                        src={idx === 0 ? "/cat-undergrad.png" : "/cat-masters.png"} 
+                        alt="Default" 
+                        fill 
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        style={{ objectFit: 'cover' }} 
+                      />
                     )}
                   </div>
                 </Link>
@@ -60,13 +65,13 @@ export default async function ResourcesNews({ data }: { data?: any }) {
                 <Link href={`/blog/${post.id}`}>
                   <h3 className={styles.cardTitle}>{post.title}</h3>
                 </Link>
-                <span className={styles.date}>{post.date}</span>
+                <span className={styles.date}>{post.date || "March 1, 2026"}</span>
               </div>
             ))}
           </div>
 
           <div className={styles.sideColumn}>
-            {sidePosts.map((post: any) => (
+            {sidePosts.map((post: any, sIdx: number) => (
               <div key={post.id} className={styles.smallCard}>
                 <Link href={`/blog/${post.id}`}>
                   <div className={styles.smallImageWrapper}>
@@ -75,12 +80,17 @@ export default async function ResourcesNews({ data }: { data?: any }) {
                         src={post.image} 
                         alt={post.title} 
                         fill 
+                        sizes="(max-width: 768px) 100vw, 25vw"
                         style={{ objectFit: 'cover' }} 
                       />
                     ) : (
-                      <div style={{ width: '100%', height: '100%', background: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', fontSize: '10px' }}>
-                        IMG
-                      </div>
+                      <Image 
+                        src={sIdx % 2 === 0 ? "/cat-postgrad.png" : "/cat-foundation.png"} 
+                        alt="Default" 
+                        fill 
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                        style={{ objectFit: 'cover' }} 
+                      />
                     )}
                   </div>
                 </Link>

@@ -1,6 +1,7 @@
 import styles from "./WhyChooseUs.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { urlForImage } from "@/sanity/lib/image";
 
 export default function WhyChooseUs({ data }: { data?: any }) {
   const title = data?.whyChooseTitle || "We go to great lengths to identify impressive new talent self starters with specific skill sets to produce truly amazing results.";
@@ -14,7 +15,14 @@ export default function WhyChooseUs({ data }: { data?: any }) {
     "Free study abroad consultation and free CPD progression."
   ];
 
-  const image = data?.whyChooseImage || "/Gemini_Generated_Image_f8hkv8f8hkv8f8hk.png";
+  let image = "/Gemini_Generated_Image_f8hkv8f8hkv8f8hk.png";
+  if (data?.whyChooseImage) {
+    if (typeof data.whyChooseImage === 'string') {
+      image = data.whyChooseImage;
+    } else if (data.whyChooseImage.asset) {
+      image = urlForImage(data.whyChooseImage)?.url() || image;
+    }
+  }
 
   return (
     <section className={styles.section}>

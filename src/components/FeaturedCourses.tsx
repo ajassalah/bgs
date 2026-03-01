@@ -47,6 +47,7 @@ export default async function FeaturedCourses({ data }: { data?: any }) {
                     src={typeof course.image === 'string' ? course.image : (urlForImage(course.image)?.url() || "")} 
                     alt={course.title} 
                     fill 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     style={{ objectFit: 'cover' }} 
                   />
                 ) : (

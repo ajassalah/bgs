@@ -17,6 +17,8 @@ import CTASection from "@/components/CTASection";
 
 import { getHomeData } from "@/sanity/lib/queries";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const homeData = await getHomeData();
 
@@ -25,16 +27,16 @@ export default async function Home() {
       <Navbar />
       <Hero data={homeData} />
       <Introduction data={homeData} />
-      <ProgramCategories />
-      <Accreditations />
+      <ProgramCategories data={homeData} />
+      <Accreditations data={homeData} />
       <FeaturedCourses data={homeData} />
       <WhyChooseUs data={homeData} />
       <Welcome data={homeData} />
       <Testimonials data={homeData} />
-      <QualifiCertification />
-      <IsoCertification />
-      <TopUpCertification />
-      <OthmCertification />
+      <QualifiCertification data={homeData} />
+      <IsoCertification data={homeData} />
+      <TopUpCertification data={homeData} />
+      <OthmCertification data={homeData} />
       <ResourcesNews data={homeData} />
       <CTASection data={homeData} />
       <Footer />

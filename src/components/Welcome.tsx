@@ -1,11 +1,20 @@
 import styles from "./Welcome.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { urlForImage } from "@/sanity/lib/image";
 
 export default function Welcome({ data }: { data?: any }) {
   const title = data?.welcomeTitle || "Experience More Than Just Lectures";
   const content = data?.welcomeContent || "At British Graduates School (BGS), we believe in a holistic educational experience. Beyond the classroom, our students engage in a vibrant community that fosters growth, leadership, and lifelong connections.\n\nFrom interactive webinars to global networking events, life at BGS is designed to prepare you for the real world while creating memories that last a lifetime.";
-  const image = data?.welcomeImage || "/Gemini_Generated_Image_91k04k91k04k91k0.png";
+  
+  let image = "/Gemini_Generated_Image_91k04k91k04k91k0.png";
+  if (data?.welcomeImage) {
+    if (typeof data.welcomeImage === 'string') {
+      image = data.welcomeImage;
+    } else if (data.welcomeImage.asset) {
+      image = urlForImage(data.welcomeImage)?.url() || image;
+    }
+  }
 
   return (
     <section className={`section ${styles.welcomeContainer}`} style={{ background: '#f8f9fa' }}>

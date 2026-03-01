@@ -1,11 +1,20 @@
 import styles from "./Hero.module.css";
 import Link from "next/link";
+import { urlForImage } from "@/sanity/lib/image";
 
 export default function Hero({ data }: { data?: any }) {
   const title = data?.heroTitle || "Empowering Minds, Redefining Boundaries In Education";
   const subtitle = data?.heroSubtitle || "Unlock Your Potential With British Graduate School — Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.";
   const ctaText = data?.heroCTAText || "Find Courses";
-  const bgImage = data?.heroImage;
+  
+  let bgImage = "/home-hero-2.jpg";
+  if (data?.heroImage) {
+    if (typeof data.heroImage === 'string') {
+      bgImage = data.heroImage;
+    } else if (data.heroImage.asset) {
+      bgImage = urlForImage(data.heroImage)?.url() || bgImage;
+    }
+  }
 
   return (
     <section className={styles.hero}>

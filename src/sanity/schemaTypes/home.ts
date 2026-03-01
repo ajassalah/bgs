@@ -159,6 +159,62 @@ export default {
       options: { hotspot: true }
     },
 
+    // Program Categories
+    {
+      name: 'programCategories',
+      title: 'Program Categories',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', title: 'Category Title', type: 'string' },
+            { name: 'image', title: 'Category Image', type: 'image', options: { hotspot: true } },
+            { name: 'link', title: 'Category Link (internal)', type: 'string' },
+          ]
+        }
+      ]
+    },
+
+    // Benefits Strip (formerly Accreditations)
+    {
+      name: 'benefitItems',
+      title: 'Benefits Strip (Accreditations Items)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'name', title: 'Line 1 (e.g. Global)', type: 'string' },
+            { name: 'label', title: 'Line 2 (e.g. Recognition)', type: 'string' },
+          ]
+        }
+      ]
+    },
+
+    // Certification Sections (Qualifi, ISO, OTHM, Top-Up)
+    {
+      name: 'certificationBlocks',
+      title: 'Certification/Accreditation Contrast Blocks',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'blockId', title: 'Internal Block Label (e.g. Qualifi)', type: 'string' },
+            { name: 'logo', title: 'Logo Image', type: 'image', options: { hotspot: true } },
+            { name: 'title', title: 'Main Title / Bold Text', type: 'string' },
+            { name: 'text', title: 'Description Text', type: 'text' },
+            { name: 'mainImage', title: 'Main Illustration Image', type: 'image', options: { hotspot: true } },
+            { name: 'buttonText', title: 'Button Text', type: 'string' },
+            { name: 'buttonLink', title: 'Button Link', type: 'string' },
+            { name: 'isReverse', title: 'Reverse Layout (Image on Left)', type: 'boolean' },
+            { name: 'isDarkBg', title: 'Dark Background (Blue)', type: 'boolean' },
+          ]
+        }
+      ]
+    },
+
     // Resources & News Section
     {
       name: 'resourcesTitle',
