@@ -1,4 +1,4 @@
-export default {
+const homeSchema = {
   name: 'home',
   title: 'Home Page',
   type: 'document',
@@ -245,3 +245,5 @@ export default {
     },
   ],
 }
+
+export default homeSchema;

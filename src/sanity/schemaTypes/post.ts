@@ -1,4 +1,4 @@
-export default {
+const postSchema = {
   name: 'post',
   title: 'Post',
   type: 'document',
@@ -144,3 +144,5 @@ export default {
     },
   ],
 }
+
+export default postSchema;
