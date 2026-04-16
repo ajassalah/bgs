@@ -77,6 +77,15 @@
   animation: fadeInUp 1s ease-out 0.4s both;
 }
 
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
 .mainBtn {
   display: inline-block;
   padding: 1rem 2.5rem;
@@ -93,6 +102,27 @@
 .mainBtn:hover {
   background: white;
   color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.admissionBtn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: #a0142d; /* Brand red */
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: 1.5px solid #a0142d;
+  margin-right: 1.5rem;
+}
+
+.admissionBtn:hover {
+  background: transparent;
+  color: white;
+  border-color: white;
   transform: translateY(-3px);
 }
 
@@ -212,9 +242,23 @@
     margin: 0 auto 3rem;
   }
   .actions {
+    display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
+  }
+  .admissionBtn {
+    margin-right: 0;
+    width: 100%;
+    max-width: 250px;
+    padding: 0.7rem 1.8rem;
+    font-size: 0.9rem;
+  }
+  .mainBtn {
+    width: 100%;
+    max-width: 250px;
+    padding: 0.7rem 1.8rem;
+    font-size: 0.9rem;
   }
   .statsRow {
     flex-direction: column;

@@ -36,6 +36,7 @@ export default function Hero({ data }: { data?: any }) {
           {subtitle}
         </p>
         <div className={styles.actions}>
+          <Link href="/admissions" className={styles.admissionBtn}>Admission</Link>
           <Link href="/courses" className={styles.mainBtn}>{ctaText}</Link>
         </div>
         <div className={styles.statsRow}>

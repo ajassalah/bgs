@@ -243,3 +243,26 @@
     left: 0;
   }
 }
+
+.admissionBtn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: #a0142d; /* Brand red */
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid #a0142d;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.admissionBtn:hover {
+  background: transparent;
+  color: #a0142d;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(160, 20, 45, 0.2);
+}
