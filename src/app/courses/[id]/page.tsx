@@ -29,10 +29,12 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
     notFound();
   }
 
-  // Handle the image path - use course image if available, else fallback
-  const heroImageUrl = typeof course.image === 'string' 
-    ? course.image 
-    : (urlForImage(course.image)?.url() || "/course inside hero section .jpg");
+  // Handle the image path - use hero image if available, then course image, else fallback
+  const heroImageUrl = course.heroImage
+    ? urlForImage(course.heroImage)?.url()
+    : (typeof course.image === 'string' 
+        ? course.image 
+        : (urlForImage(course.image)?.url() || "/course inside hero section .jpg"));
 
   return (
     <main className={styles.main}>

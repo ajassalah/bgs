@@ -87,9 +87,13 @@ export default function CoursesList({ initialCourses }: { initialCourses: any[] 
             visibleCourses.map((course) => (
               <div key={course.id} className={styles.courseCard}>
                 <div className={styles.imageWrapper}>
-                  {course.image ? (
+                  {course.image || course.heroImage ? (
                     <Image 
-                      src={typeof course.image === 'string' ? course.image : (urlForImage(course.image)?.url() || "")} 
+                      src={
+                        typeof course.image === 'string' 
+                          ? course.image 
+                          : (urlForImage(course.image || course.heroImage)?.url() || "/course inside hero section .jpg")
+                      } 
                       alt={course.title} 
                       fill 
                       className={styles.cardImage}

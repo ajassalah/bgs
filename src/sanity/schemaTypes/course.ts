@@ -32,7 +32,16 @@ const courseSchema = {
       name: 'courseImage',
       title: 'Course Thumbnail Image',
       type: 'image',
-      description: 'Upload a high-quality image for this course.',
+      description: 'Upload the thumbnail image that appears in the courses list.',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'heroImage',
+      title: 'Course Hero Image',
+      type: 'image',
+      description: 'Upload the large hero image that appears at the top of the course detail page.',
       options: {
         hotspot: true,
       },

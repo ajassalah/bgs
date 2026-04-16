@@ -59,6 +59,7 @@ export async function getCourses() {
     category,
     awardingBody,
     "image": courseImage,
+    "heroImage": heroImage,
     overview,
     learningOutcomes,
     progression,
@@ -86,6 +87,7 @@ export async function getCourse(id: string) {
     category,
     awardingBody,
     "image": courseImage,
+    "heroImage": heroImage,
     overview,
     learningOutcomes,
     progression,
@@ -119,7 +121,8 @@ export async function getHomeData() {
       level,
       category,
       awardingBody,
-      "image": courseImage
+      "image": courseImage,
+      "heroImage": heroImage
     },
     introTitle,
     introSubtitle,
