@@ -1,10 +1,32 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./Contact.module.css";
+import JsonLd from "@/components/JsonLd";
 
 export default function ContactPage() {
   return (
     <main style={{ overflowX: 'hidden' }}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact British Graduate School",
+          "description": "Get in touch with British Graduate School for inquiries about our programmes, admissions, and partnerships.",
+          "mainEntity": {
+            "@type": "EducationalOrganization",
+            "name": "British Graduate School",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "4 De Montfort St",
+              "addressLocality": "Leicester",
+              "postalCode": "LE1 7GA",
+              "addressCountry": "UK"
+            },
+            "telephone": "+44 756 675 6499",
+            "email": "info@britishgraduateschool.co.uk"
+          }
+        }}
+      />
       <Navbar />
       
       {/* Hero Section - Same as About Us */}

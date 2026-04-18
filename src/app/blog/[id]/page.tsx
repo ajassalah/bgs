@@ -10,6 +10,8 @@ import { getPost } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import CommentSection from "./CommentSection";
 import { urlForImage } from "@/sanity/lib/image";
+import JsonLd from "@/components/JsonLd";
+
 
 const PORTABLE_TEXT_COMPONENTS = {
   types: {
@@ -66,6 +68,28 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
 
   return (
     <main className={styles.main}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.excerpt,
+          "image": post.image,
+          "datePublished": post.date,
+          "author": {
+            "@type": "Person",
+            "name": post.author
+          },
+          "publisher": {
+            "@type": "EducationalOrganization",
+            "name": "British Graduate School",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://britishgraduateschool.co.uk/bgs-logo-cropped.webp"
+            }
+          }
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}

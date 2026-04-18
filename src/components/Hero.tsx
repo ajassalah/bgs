@@ -1,6 +1,8 @@
 import styles from "./Hero.module.css";
 import Link from "next/link";
+import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
+
 
 export default function Hero({ data }: { data?: any }) {
   const title = data?.heroTitle || "Empowering Minds, Redefining Boundaries In Education";
@@ -18,10 +20,16 @@ export default function Hero({ data }: { data?: any }) {
 
   return (
     <section className={styles.hero}>
-      <div 
-        className={styles.heroImage} 
-        style={bgImage ? { backgroundImage: `url("${bgImage}")` } : {}}
-      ></div>
+      <div className={styles.heroImage}>
+        <Image
+          src={bgImage}
+          alt="British Graduate School Campus"
+          fill
+          priority
+          style={{ objectFit: 'cover' }}
+          quality={90}
+        />
+      </div>
       <div className={styles.heroOverlay}></div>
       <div className={styles.bgElements}>
         <div className={styles.circle1}></div>

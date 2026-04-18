@@ -8,6 +8,8 @@ import { notFound } from "next/navigation";
 import { getCourse } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@/sanity/lib/image";
+import JsonLd from "@/components/JsonLd";
+
 
 export default async function CourseDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -38,6 +40,24 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
 
   return (
     <main className={styles.main}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": course.title,
+          "description": course.overview,
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "British Graduate School",
+            "sameAs": "https://britishgraduateschool.co.uk"
+          },
+          "educationalLevel": course.level,
+          "offers": {
+            "@type": "Offer",
+            "category": course.category
+          }
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}

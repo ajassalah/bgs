@@ -63,6 +63,8 @@ export default function Navbar() {
             className={styles.hamburger}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             <span className={`${styles.bar} ${menuOpen ? styles.bar1Open : ""}`}></span>
             <span className={`${styles.bar} ${menuOpen ? styles.bar2Open : ""}`}></span>
@@ -77,7 +79,13 @@ export default function Navbar() {
       )}
 
       {/* Mobile Menu Drawer */}
-      <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
+      <div 
+        id="mobile-menu"
+        className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile Navigation"
+      >
         <button className={styles.closeBtn} onClick={closeMenu}>✕</button>
         <Link href="/" className={styles.mobileLink} onClick={closeMenu}>Home</Link>
         <Link href="/blog" className={styles.mobileLink} onClick={closeMenu}>Blog</Link>
