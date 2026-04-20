@@ -4,6 +4,13 @@ import CTASection from "@/components/CTASection";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Life.module.css";
+import JsonLd from "@/components/JsonLd";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Life at BGS | Student Experience & Campus Culture",
+  description: "Experience vibrant student life at British Graduate School. Explore our clubs, cultural activities, and support services designed for holistic growth.",
+};
 
 export default function LifeAtBGSPage() {
   const activities = [
@@ -15,6 +22,15 @@ export default function LifeAtBGSPage() {
 
   return (
     <main style={{ overflowX: 'hidden' }}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Student Life at BGS",
+          "description": "Discover the holistic student experience at British Graduate School, including facilities, activities, and support.",
+          "breadcrumb": "Home > Student Life"
+        }}
+      />
       <Navbar />
       
       {/* Hero Section */}
@@ -25,6 +41,7 @@ export default function LifeAtBGSPage() {
           loop 
           playsInline 
           className={styles.heroVideo}
+          poster="/student-life-stairs.png"
         >
           <source src="https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4" type="video/mp4" />
         </video>

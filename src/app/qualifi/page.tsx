@@ -3,10 +3,26 @@ import Footer from "@/components/Footer";
 import styles from "./Qualifi.module.css";
 import Image from "next/image";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Qualifi Endorsement | Global Quality Standards",
+  description: "British Graduate School is a Qualifi Endorsed institution. Our provision meets rigorous internationally accepted standards for academic excellence.",
+};
 
 export default function QualifiPage() {
   return (
     <main style={{ overflowX: 'hidden' }}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Qualifi Endorsement Status",
+          "description": "Information about the Qualifi endorsement and academic standards at British Graduate School.",
+          "breadcrumb": "Home > Qualifi Endorsement"
+        }}
+      />
       <Navbar />
       
       {/* Hero Section */}
@@ -51,7 +67,7 @@ export default function QualifiPage() {
 
             <div className={styles.imageCol}>
               <div className={styles.logoCard}>
-                <Image src="/qualifi-endorsed-729x800.png" alt="Qualifi Endorsed" width={300} height={200} style={{ objectFit: 'contain' }} />
+                <Image src="/Qualifi-headerlogo - Copy.png" alt="Qualifi Endorsed" width={300} height={200} style={{ objectFit: 'contain' }} />
                 <p className={styles.caption}>Official Endorsement Status</p>
               </div>
             </div>

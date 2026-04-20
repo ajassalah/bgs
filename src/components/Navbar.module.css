@@ -98,14 +98,14 @@
 
 .navLinks {
   display: flex;
-  gap: 2rem;
+  gap: 1.65rem;
   align-items: center;
 }
 
 .navLink {
   color: white;
-  font-weight: 500;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 1.05rem;
   position: relative;
 }
 

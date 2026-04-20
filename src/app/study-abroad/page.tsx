@@ -3,10 +3,26 @@ import Footer from "@/components/Footer";
 import styles from "./StudyAbroad.module.css";
 import Image from "next/image";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Study Abroad | Global Pathways & Global Transfers",
+  description: "Explore study abroad opportunities with British Graduate School. Transfer to top universities in the UK, USA, and worldwide through our recognized pathways.",
+};
 
 export default function StudyAbroadPage() {
   return (
     <main style={{ overflowX: 'hidden' }}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Study Abroad Pathways",
+          "description": "Information about international university transfer programs and study abroad opportunities at BGS.",
+          "breadcrumb": "Home > Study Abroad"
+        }}
+      />
       <Navbar />
       
       {/* Hero Section */}
@@ -51,7 +67,7 @@ export default function StudyAbroadPage() {
               <div className={styles.destContent}>
                 <h3>Study in the USA</h3>
                 <p>Explore world-class opportunities at leading American universities through our exclusive pathways.</p>
-                <a href="/apply" className={styles.btnOutline}>Apply Now</a>
+                <a href="https://register.findmycareer.org.uk/apply" className={styles.btnOutline}>Apply Now</a>
               </div>
             </div>
 
@@ -62,7 +78,7 @@ export default function StudyAbroadPage() {
               <div className={styles.destContent}>
                 <h3>Study in the UK</h3>
                 <p>Access prestigious British institutions including Southampton Solent University and University of Wolverhampton.</p>
-                <a href="/apply" className={styles.btnOutline}>Apply Now</a>
+                <a href="https://register.findmycareer.org.uk/apply" className={styles.btnOutline}>Apply Now</a>
               </div>
             </div>
           </div>
@@ -84,8 +100,8 @@ export default function StudyAbroadPage() {
           </div>
 
           <div className={styles.progressionSection}>
-            <h2 className={styles.subTitle}>OTHM Progression Route</h2>
-            <p>Students who complete their OTHM qualifications through British Graduate School gain access to exclusive progression routes with leading international universities. These globally recognized pathways enable our students to seamlessly advance their studies—paving the way for internationally accredited degrees and globally respected career opportunities.</p>
+            <h2 className={styles.subTitle}>CQHE Progression Route</h2>
+            <p>Students who complete their CQHE qualifications through British Graduate School gain access to exclusive progression routes with leading international universities. These globally recognized pathways enable our students to seamlessly advance their studies—paving the way for internationally accredited degrees and globally respected career opportunities.</p>
           </div>
         </div>
       </section>

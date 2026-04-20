@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./Courses.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +13,17 @@ export default function CoursesList({ initialCourses }: { initialCourses: any[] 
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [selectedBody, setSelectedBody] = useState("All Awarding Bodies");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+    const body = params.get("body");
+    const search = params.get("search");
+
+    if (category) setSelectedCategory(category);
+    if (body) setSelectedBody(body);
+    if (search) setSearchTerm(search);
+  }, []);
 
   const categories = useMemo(() => {
     const cats = new Set(initialCourses.map(c => c.category));

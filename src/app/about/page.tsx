@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./About.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import { AboutMissionSection, AboutVisionSection, AboutGlobalOutlookSection } from "@/components/AboutMission";
 import AboutWhyChoose from "@/components/AboutWhyChoose";
 import AboutStats from "@/components/AboutStats";
@@ -11,10 +12,26 @@ import AboutAccreditationDetails from "@/components/AboutAccreditationDetails";
 import AboutPartnershipUniversities from "@/components/AboutPartnershipUniversities";
 import AboutFutureModel from "@/components/AboutFutureModel";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | British Graduate School",
+  description: "Learn more about British Graduate School, our mission to provide high-quality international qualifications, and our global network of education hubs.",
+};
 
 export default function AboutPage() {
   return (
     <main style={{ overflowX: 'hidden' }}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About British Graduate School",
+          "description": "British Graduate School (BGS) provides internationally recognized qualifications and empowers students through global expertise.",
+          "breadcrumb": "Home > About Us"
+        }}
+      />
       <Navbar />
       
       {/* Hero Section - Video Background from Kensley */}
@@ -25,6 +42,7 @@ export default function AboutPage() {
           loop 
           playsInline 
           className={styles.heroVideo}
+          poster="/pexels-tara-winstead-8386434.jpg"
         >
           <source src="https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4" type="video/mp4" />
         </video>
@@ -94,12 +112,12 @@ export default function AboutPage() {
             We&apos;ve designed our schools to equip you with the knowledge and skills needed for success in today&apos;s global landscape.
           </p>
           <div className={styles.facultyList}>
-            <div className={styles.facultyItem}>School of Management</div>
-            <div className={styles.facultyItem}>School of Computing</div>
-            <div className={styles.facultyItem}>School of Health & Social Sciences</div>
-            <div className={styles.facultyItem}>School of Education</div>
-            <div className={styles.facultyItem}>School of Hospitality and Tourism</div>
-            <div className={styles.facultyItem}>School of Engineering and Surveying</div>
+            <Link href="/courses?category=Management" className={styles.facultyItem}>School of Management</Link>
+            <Link href="/courses?category=IT%20%26%20Cyber%20Security" className={styles.facultyItem}>School of Computing</Link>
+            <Link href="/courses?category=Health%20%26%20Social%20Care" className={styles.facultyItem}>School of Health & Social Sciences</Link>
+            <Link href="/courses?category=Education%20%26%20Training" className={styles.facultyItem}>School of Education</Link>
+            <Link href="/courses?category=Tourism%20and%20Hospitality" className={styles.facultyItem}>School of Hospitality and Tourism</Link>
+            <Link href="/courses?category=Engineering%20and%20Surveying" className={styles.facultyItem}>School of Engineering and Surveying</Link>
           </div>
         </div>
       </section>

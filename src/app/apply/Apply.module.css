@@ -100,6 +100,10 @@
   color: #00234a;
 }
 
+.required {
+  color: #eb4d4b;
+}
+
 .inputGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;

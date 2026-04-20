@@ -27,6 +27,7 @@ export default function Navbar() {
             <Link href="/">Home</Link>
             <Link href="/blog">Blog</Link>
             <Link href="/about">About</Link>
+            <Link href="/career">Career</Link>
           </div>
           <div className={styles.topLinks}>
             <Link href="https://studentportal.britishgraduateschool.co.uk/" target="_blank">Student Portal</Link>
@@ -52,9 +53,10 @@ export default function Navbar() {
           <div className={styles.navLinks}>
             <Link href="/courses" className={styles.navLink}>Courses</Link>
             <Link href="/study-abroad" className={styles.navLink}>Study Abroad</Link>
-            <Link href="/othm" className={styles.navLink}>OTHM Sri Lanka</Link>
+            <Link href="/cqhe" className={styles.navLink}>CQHE</Link>
             <Link href="/qualifi" className={styles.navLink}>Qualifi Endorsement</Link>
             <Link href="/contact" className={styles.navLink}>Contact</Link>
+            <Link href="https://app.cqhe.org.uk/certificate-verification" target="_blank" rel="noopener noreferrer" className={styles.navLink}>Verification</Link>
             <Link href="/apply" className={styles.cta}>Inquire Now</Link>
           </div>
 
@@ -90,11 +92,13 @@ export default function Navbar() {
         <Link href="/" className={styles.mobileLink} onClick={closeMenu}>Home</Link>
         <Link href="/blog" className={styles.mobileLink} onClick={closeMenu}>Blog</Link>
         <Link href="/about" className={styles.mobileLink} onClick={closeMenu}>About</Link>
+        <Link href="/career" className={styles.mobileLink} onClick={closeMenu}>Career</Link>
         <Link href="/courses" className={styles.mobileLink} onClick={closeMenu}>Courses</Link>
         <Link href="/study-abroad" className={styles.mobileLink} onClick={closeMenu}>Study Abroad</Link>
-        <Link href="/othm" className={styles.mobileLink} onClick={closeMenu}>OTHM Sri Lanka</Link>
+        <Link href="/cqhe" className={styles.mobileLink} onClick={closeMenu}>CQHE</Link>
         <Link href="/qualifi" className={styles.mobileLink} onClick={closeMenu}>Qualifi Endorsement</Link>
         <Link href="/contact" className={styles.mobileLink} onClick={closeMenu}>Contact</Link>
+        <Link href="https://app.cqhe.org.uk/certificate-verification" target="_blank" rel="noopener noreferrer" className={styles.mobileLink} onClick={closeMenu}>Verification</Link>
         <Link href="/apply" className={styles.mobileCta} onClick={closeMenu}>Inquire Now</Link>
       </div>
     </div>

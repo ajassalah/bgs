@@ -4,10 +4,26 @@ import styles from "./HelpDesk.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import CTASection from "@/components/CTASection";
+import JsonLd from "@/components/JsonLd";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Help Desk | Application Support & Guidance",
+  description: "Get support for your application to British Graduate School. Step-by-step guidance on the application process, requirements, and interviews.",
+};
 
 export default function HelpDeskPage() {
   return (
     <main style={{ overflowX: 'hidden' }}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "BGS Help Desk",
+          "description": "Guidance on the application process and student support at British Graduate School.",
+          "breadcrumb": "Home > Help Desk"
+        }}
+      />
       <Navbar />
       
       {/* Hero Section - Matching Contact Page Style */}

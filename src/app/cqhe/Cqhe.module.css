@@ -1,0 +1,476 @@
+.page {
+  overflow-x: hidden;
+  background: #ffffff;
+}
+
+.hero {
+  min-height: 680px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+  padding: 170px 1.5rem 150px;
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 35, 74, 0.7);
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  width: min(800px, 100%);
+}
+
+.logoPanel {
+  width: min(230px, 76vw);
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  padding: 1rem 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.logo {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.kicker,
+.eyebrow {
+  color: #d4af37;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.heroTitle {
+  font-size: clamp(2.8rem, 8vw, 5.8rem);
+  font-weight: 900;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+}
+
+.heroSubtitle {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #f3f7fb;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.heroActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: -70px 0 5rem;
+  position: relative;
+  z-index: 15;
+}
+
+.statCard {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 18px 45px rgba(0, 35, 74, 0.12);
+  border: 1px solid #eef1f5;
+}
+
+.statCard span {
+  display: block;
+  color: #b22222;
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+
+.statCard p {
+  color: #00234a;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.92rem;
+}
+
+.introGrid,
+.contentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 3.5rem;
+  align-items: start;
+  margin-bottom: 5rem;
+}
+
+.mainTitle {
+  color: #00234a;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 850;
+  margin-bottom: 1.5rem;
+}
+
+.subTitle {
+  font-size: 1.7rem;
+  color: #00234a;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  color: #586474;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.recognitionBand {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: #00234a;
+  color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  margin-bottom: 5rem;
+}
+
+.recognitionLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  padding: 1.25rem;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.recognitionBand h3 {
+  color: #ffffff;
+  font-size: 1.8rem;
+}
+
+.recognitionBand p {
+  color: #e8eef5;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.levelsSection {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 4rem;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.levelsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.levelCard {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  border: 1px solid #edf0f4;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.levelCard:hover {
+  transform: translateY(-4px);
+  border-color: #d4af37;
+}
+
+.levelNum {
+  display: block;
+  color: #b22222;
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin-bottom: 0.7rem;
+}
+
+.levelCard p {
+  color: #536172;
+  line-height: 1.45;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 12px 30px rgba(0, 35, 74, 0.06);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  position: relative;
+  color: #3f4c5d;
+  line-height: 1.55;
+  padding: 0 0 1rem 1.8rem;
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 9px;
+  height: 9px;
+  background: #b22222;
+  border-radius: 50%;
+}
+
+.categoryGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.categoryGrid span,
+.valuesGrid span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0.65rem 0.9rem;
+  color: #00234a;
+  background: #f5f7fa;
+  border: 1px solid #e6ebf1;
+  border-radius: 6px;
+  font-size: 0.93rem;
+  font-weight: 700;
+}
+
+.ukrlpSection {
+  width: min(760px, 100%);
+  margin: 0 auto 5rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 35, 74, 0.06);
+}
+
+.ukrlpImage {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.valuesSection {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.valuesGrid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.ctaBox {
+  text-align: center;
+  max-width: 830px;
+  margin: 0 auto;
+  border-top: 1px solid #edf0f4;
+  padding-top: 4rem;
+}
+
+.ctaBox p {
+  color: #536172;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin-bottom: 1.8rem;
+}
+
+.btnRed,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.9rem 2rem;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.btnRed {
+  background: #b22222;
+  color: #ffffff;
+}
+
+.btnGhost {
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+}
+
+.btnRed:hover,
+.btnGhost:hover {
+  transform: translateY(-2px);
+}
+
+.btnRed:hover {
+  background: #00234a;
+}
+
+.btnGhost:hover {
+  background: #ffffff;
+  color: #00234a;
+}
+
+@media (max-width: 992px) {
+  .statsGrid,
+  .levelsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .introGrid,
+  .contentGrid,
+  .recognitionBand {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .recognitionLogo {
+    width: min(260px, 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 600px;
+    padding: 135px 1.25rem 90px;
+  }
+
+  .heroContent {
+    margin-top: 0;
+  }
+
+  .logoPanel {
+    width: min(190px, 64vw);
+    min-height: 84px;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 55px 0;
+  }
+
+  .statsGrid,
+  .levelsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statsGrid {
+    margin: -45px 0 4rem;
+  }
+
+  .levelsSection,
+  .recognitionBand {
+    padding: 1.5rem 1rem;
+  }
+
+  .recognitionBand {
+    gap: 1.25rem;
+    margin-bottom: 4rem;
+  }
+
+  .recognitionLogo {
+    width: min(210px, 100%);
+    min-height: 96px;
+    padding: 0.8rem;
+    margin: 0 auto;
+  }
+
+  .recognitionBand h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .recognitionBand p {
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 590px;
+  }
+
+  .logoPanel {
+    width: min(170px, 66vw);
+    min-height: 76px;
+  }
+
+  .heroActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .btnRed,
+  .btnGhost {
+    width: 100%;
+  }
+
+  .statCard,
+  .panel {
+    padding: 1.5rem;
+  }
+
+  .ukrlpSection {
+    padding: 0.75rem;
+  }
+}

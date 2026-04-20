@@ -38,6 +38,16 @@ const courseSchema = {
       },
     },
     {
+      name: 'image',
+      title: 'Legacy Course Image',
+      type: 'image',
+      description: 'Existing course image field kept for older course documents and imports.',
+      options: {
+        hotspot: true,
+      },
+      hidden: true,
+    },
+    {
       name: 'heroImage',
       title: 'Course Hero Image',
       type: 'image',

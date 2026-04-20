@@ -162,7 +162,7 @@ const homeDoc = {
       title: 'NQUAL Awarding Body',
       text: 'NQUAL (National Qualification Organisation for Applied Learning) is an emerging UK-based awarding body committed to applied and technical education.',
       buttonText: 'Learn More',
-      buttonLink: '/othm',
+      buttonLink: '/cqhe',
       isReverse: true,
       isDarkBg: false,
     }

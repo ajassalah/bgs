@@ -7,32 +7,41 @@ type Course = {
   id: string;
   title: string;
   category: string;
+  awardingBody?: string;
 };
 
 export default function ApplyForm({ courses }: { courses: Course[] }) {
+  const [selectedAwardingBody, setSelectedAwardingBody] = useState("");
   const [selectedProgram, setSelectedProgram] = useState("");
   const [otherProgram, setOtherProgram] = useState("");
 
-  // Group courses by category
-  const grouped = courses.reduce<Record<string, Course[]>>((acc, course) => {
-    const cat = course.category || "General";
-    if (!acc[cat]) acc[cat] = [];
-    acc[cat].push(course);
+  const awardingBodies = Array.from(
+    new Set(courses.map((course) => course.awardingBody || "Other").filter(Boolean))
+  ).sort();
+
+  const filteredCourses = selectedAwardingBody
+    ? courses.filter((course) => (course.awardingBody || "Other") === selectedAwardingBody)
+    : [];
+
+  const groupedPrograms = filteredCourses.reduce<Record<string, Course[]>>((acc, course) => {
+    const category = course.category || "General";
+    if (!acc[category]) acc[category] = [];
+    acc[category].push(course);
     return acc;
   }, {});
 
-  const categories = Object.keys(grouped).sort();
+  const categories = Object.keys(groupedPrograms).sort();
 
   return (
     <form className={styles.applyForm}>
       <div className={styles.formSection}>
         <div className={styles.inputGrid}>
           <div className={styles.formGroup}>
-            <label>First Name*</label>
+            <label>First Name<span className={styles.required}>*</span></label>
             <input type="text" className={styles.input} placeholder="Enter your first name" required />
           </div>
           <div className={styles.formGroup}>
-            <label>Last Name*</label>
+            <label>Last Name<span className={styles.required}>*</span></label>
             <input type="text" className={styles.input} placeholder="Enter your last name" required />
           </div>
         </div>
@@ -40,31 +49,54 @@ export default function ApplyForm({ courses }: { courses: Course[] }) {
 
       <div className={styles.inputGrid}>
         <div className={styles.formGroup}>
-          <label>Email Address*</label>
+          <label>Email Address<span className={styles.required}>*</span></label>
           <input type="email" className={styles.input} placeholder="Enter your email" required />
         </div>
         <div className={styles.formGroup}>
-          <label>Phone Number*</label>
+          <label>Phone Number<span className={styles.required}>*</span></label>
           <input type="tel" className={styles.input} placeholder="Enter your phone number" required />
         </div>
       </div>
 
-      {/* Dynamic Program Dropdown */}
       <div className={styles.formGroup}>
-        <label>Select Program of Interest*</label>
+        <label>Select Awarding Body<span className={styles.required}>*</span></label>
+        <select
+          className={styles.select}
+          required
+          value={selectedAwardingBody}
+          onChange={(e) => {
+            setSelectedAwardingBody(e.target.value);
+            setSelectedProgram("");
+            setOtherProgram("");
+          }}
+        >
+          <option value="">Choose an awarding body...</option>
+          {awardingBodies.map((body) => (
+            <option key={body} value={body}>
+              {body}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className={styles.formGroup}>
+        <label>Select Program of Interest<span className={styles.required}>*</span></label>
         <select
           className={styles.select}
           required
           value={selectedProgram}
+          disabled={!selectedAwardingBody}
           onChange={(e) => {
             setSelectedProgram(e.target.value);
             if (e.target.value !== "other") setOtherProgram("");
           }}
         >
-          <option value="">Choose a program...</option>
+          <option value="">
+            {selectedAwardingBody ? "Choose a program..." : "Select an awarding body first..."}
+          </option>
           {categories.map((cat) => (
             <optgroup key={cat} label={cat}>
-              {grouped[cat].map((course) => (
+              {groupedPrograms[cat].map((course) => (
                 <option key={course.id} value={course.id}>
                   {course.title}
                 </option>

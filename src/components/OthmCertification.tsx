@@ -6,12 +6,14 @@ import { urlForImage } from "@/sanity/lib/image";
 export default function OthmCertification({ data }: { data?: any }) {
   const rawBlock = (data?.certificationBlocks && data.certificationBlocks[3]) ? data.certificationBlocks[3] : null;
 
+  const buttonLink = rawBlock?.buttonLink === "/othm" ? "/cqhe" : rawBlock?.buttonLink || "/cqhe";
+
   const block = {
     logo: "/nqual logo.jpeg",
     text: rawBlock?.text || "NQUAL (National Qualification Organisation for Applied Learning) is an emerging UK-based awarding body committed to applied and technical education.",
     mainImage: "/Gemini_Generated_Image_hbcxkqhbcxkqhbcx.png",
     buttonText: rawBlock?.buttonText || "Learn More",
-    buttonLink: rawBlock?.buttonLink || "/othm"
+    buttonLink
   };
 
   // Resolve Images
@@ -41,7 +43,7 @@ export default function OthmCertification({ data }: { data?: any }) {
             <p className={styles.text}>
               {block.text || "NQUAL (National Qualification Organisation for Applied Learning) is an emerging UK-based awarding body..."}
             </p>
-            <Link href={block.buttonLink || "/othm"} className={styles.btnRed}>{block.buttonText || "Learn More"}</Link>
+            <Link href={block.buttonLink || "/cqhe"} className={styles.btnRed}>{block.buttonText || "Learn More"}</Link>
           </div>
           <div className={`${styles.imageBox} ${styles.asicImageBox}`}>
             <Image 

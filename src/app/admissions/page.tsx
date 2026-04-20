@@ -4,6 +4,13 @@ import CTASection from "@/components/CTASection";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Admissions.module.css";
+import JsonLd from "@/components/JsonLd";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admissions | British Graduate School",
+  description: "Join British Graduate School. Explore our admission process, entry requirements, and scholarships to start your global education journey.",
+};
 
 export default function AdmissionsPage() {
   const steps = [
@@ -17,6 +24,15 @@ export default function AdmissionsPage() {
 
   return (
     <main style={{ overflowX: 'hidden' }}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Admissions",
+          "description": "Information about the admission process and requirements at British Graduate School.",
+          "breadcrumb": "Home > Admissions"
+        }}
+      />
       <Navbar />
       
       {/* Hero Section */}
