@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
@@ -8,6 +8,9 @@ import styles from "./Navbar.module.css";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [verificationOpen, setVerificationOpen] = useState(false);
+  const [mobileVerificationOpen, setMobileVerificationOpen] = useState(false);
+  const verificationRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +20,34 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
+  useEffect(() => {
+    if (!verificationOpen) return;
+
+    const handlePointerDown = (event: MouseEvent) => {
+      if (!verificationRef.current?.contains(event.target as Node)) {
+        setVerificationOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setVerificationOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [verificationOpen]);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setMobileVerificationOpen(false);
+  };
 
   return (
     <div className={`${styles.wrapper} ${scrolled ? styles.scrolled : ""}`}>
@@ -56,7 +86,56 @@ export default function Navbar() {
             <Link href="/cqhe" className={styles.navLink}>CQHE</Link>
             <Link href="/qualifi" className={styles.navLink}>Qualifi Endorsement</Link>
             <Link href="/contact" className={styles.navLink}>Contact</Link>
-            <Link href="https://app.cqhe.org.uk/certificate-verification" target="_blank" rel="noopener noreferrer" className={styles.navLink}>Verification</Link>
+            <div className={styles.navDropdown} ref={verificationRef}>
+              <button
+                type="button"
+                className={`${styles.navLink} ${styles.dropdownToggle}`}
+                onClick={() => setVerificationOpen((open) => !open)}
+                aria-expanded={verificationOpen}
+                aria-haspopup="menu"
+              >
+                Verification
+                <svg
+                  className={`${styles.chevron} ${verificationOpen ? styles.chevronOpen : ""}`}
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              {verificationOpen && (
+                <div className={styles.dropdownMenu} role="menu">
+                  <Link
+                    href="https://app.cqhe.org.uk/certificate-verification"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.dropdownItem}
+                    role="menuitem"
+                    onClick={() => setVerificationOpen(false)}
+                  >
+                    CQHE Verification
+                  </Link>
+                  <Link
+                    href="https://qualifi.net/e-cert-verify/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.dropdownItem}
+                    role="menuitem"
+                    onClick={() => setVerificationOpen(false)}
+                  >
+                    Qualifi Verification
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link href="/apply" className={styles.cta}>Inquire Now</Link>
           </div>
 
@@ -98,7 +177,52 @@ export default function Navbar() {
         <Link href="/cqhe" className={styles.mobileLink} onClick={closeMenu}>CQHE</Link>
         <Link href="/qualifi" className={styles.mobileLink} onClick={closeMenu}>Qualifi Endorsement</Link>
         <Link href="/contact" className={styles.mobileLink} onClick={closeMenu}>Contact</Link>
-        <Link href="https://app.cqhe.org.uk/certificate-verification" target="_blank" rel="noopener noreferrer" className={styles.mobileLink} onClick={closeMenu}>Verification</Link>
+        <button
+          type="button"
+          className={`${styles.mobileLink} ${styles.mobileDropdownToggle}`}
+          onClick={() => setMobileVerificationOpen((open) => !open)}
+          aria-expanded={mobileVerificationOpen}
+          aria-controls="mobile-verification-menu"
+        >
+          Verification
+          <svg
+            className={`${styles.chevron} ${mobileVerificationOpen ? styles.chevronOpen : ""}`}
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+        {mobileVerificationOpen && (
+          <div id="mobile-verification-menu" className={styles.mobileSubmenu}>
+            <Link
+              href="https://app.cqhe.org.uk/certificate-verification"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mobileSubLink}
+              onClick={closeMenu}
+            >
+              CQHE Verification
+            </Link>
+            <Link
+              href="https://qualifi.net/e-cert-verify/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mobileSubLink}
+              onClick={closeMenu}
+            >
+              Qualifi Verification
+            </Link>
+          </div>
+        )}
         <Link href="/apply" className={styles.mobileCta} onClick={closeMenu}>Inquire Now</Link>
       </div>
     </div>

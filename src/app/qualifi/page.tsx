@@ -39,10 +39,34 @@ export default function QualifiPage() {
         </video>
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Qualifi Endorsement</h1>
+          <div className={styles.logoPanel}>
+            <Image
+              src="/Qualifi-headerlogo - Copy.png"
+              alt="Qualifi logo"
+              width={220}
+              height={95}
+              priority
+              className={styles.logo}
+            />
+          </div>
+          <p className={styles.kicker}>UK Awarding Organisation</p>
+          <h1 className={styles.heroTitle}>Qualifi</h1>
           <p className={styles.heroSubtitle}>
             A Premier Education Distinction. British Graduate School is proud to be a Qualifi Endorsed institution, ensuring the highest standards of academic excellence.
           </p>
+          <div className={styles.heroActions}>
+            <a href="/apply" className={styles.btnRed}>
+              Inquire Now
+            </a>
+            <a
+              href="https://qualifi.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.btnGhost}
+            >
+              Visit Qualifi
+            </a>
+          </div>
         </div>
       </section>
 
