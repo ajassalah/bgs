@@ -1,7 +1,7 @@
 import styles from "./AboutFutureModel.module.css";
 import Image from "next/image";
 
-export default function AboutFutureModel() {
+export default function AboutFutureModel({ data }: { data?: any }) {
   return (
     <section className={styles.section}>
       <div className="container">
