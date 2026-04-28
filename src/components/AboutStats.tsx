@@ -1,18 +1,20 @@
 import styles from "./AboutStats.module.css";
 
-export default function AboutStats() {
-  const stats = [
+export default function AboutStats({ data }: { data?: any }) {
+  const stats = (data?.stats && data.stats.length > 0) ? data.stats : [
     { value: "2,500+", label: "Students worldwide" },
     { value: "13+", label: "Specializations to choose from" },
     { value: "Qualifi Endorsed", label: "Recognised Higher Education College" },
     { value: "ISO 9001:2015", label: "QMS certified" }
   ];
 
+  const motivationalText = data?.motivationalText || "Making Wholesome Individuals, Preparing Each One For The Real World And; Serving The Stereotype That You Need Work Experience Prior To Working Itself";
+
   return (
     <section className={styles.section}>
       <div className="container">
         <div className={styles.statsGrid}>
-          {stats.map((stat, idx) => (
+          {stats.map((stat: any, idx: number) => (
             <div key={idx} className={styles.statItem}>
               <div className={styles.statValue}>{stat.value}</div>
               <div className={styles.statLabel}>{stat.label}</div>
@@ -22,10 +24,11 @@ export default function AboutStats() {
         
         <div className={styles.motivationalBox}>
           <h2 className={styles.motivationalText}>
-            Making Wholesome Individuals, Preparing Each One For The Real World And; Serving The Stereotype That You Need Work Experience Prior To Working Itself
+            {motivationalText}
           </h2>
         </div>
       </div>
     </section>
   );
 }
+

@@ -9,7 +9,7 @@ export default function TopUpCertification({ data }: { data?: any }) {
   const block = {
     text: rawBlock?.text || "BGS programmes open pathways to globally recognised Bachelor's and Master's top-up degrees, available both locally and internationally.",
     mainImage: "/programes home page.jpg",
-    buttonText: rawBlock?.buttonText || "Find Courses",
+    buttonText: rawBlock?.buttonText || "Find Programs",
     buttonLink: rawBlock?.buttonLink || "/courses"
   };
 
@@ -27,7 +27,7 @@ export default function TopUpCertification({ data }: { data?: any }) {
             <p className={styles.text} style={{ fontSize: '1.4rem', fontWeight: 600 }}>
               {block.text || "BGS programmes open pathways to globally recognised Bachelor's and Master's top-up degrees..."}
             </p>
-            <Link href={block.buttonLink || "/courses"} className={styles.btnRed}>{block.buttonText || "Find Courses"}</Link>
+            <Link href={block.buttonLink || "/courses"} className={styles.btnRed}>{block.buttonText || "Find Programs"}</Link>
           </div>
           <div className={`${styles.imageBox} ${styles.asicImageBox}`}>
             <Image 

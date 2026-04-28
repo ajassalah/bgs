@@ -39,11 +39,40 @@
   position: relative;
   width: calc(50% - 0.5rem);
   height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imgWrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 .img {
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  transition: transform 0.5s ease;
+}
+
+.imgWrapper:hover .img {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.content {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.imageGrid {
+  animation: fadeIn 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 @media (max-width: 992px) {

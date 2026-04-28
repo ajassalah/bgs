@@ -30,6 +30,15 @@ export default function OthmCertification({ data }: { data?: any }) {
     <section className={styles.section}>
       <div className="container">
         <div className={`${styles.grid} ${styles.reverse} ${styles.asicGrid}`}>
+          <div className={`${styles.imageBox} ${styles.asicImageBox} ${styles.imageLeft}`}>
+            <Image 
+              src={block.mainImage || "/Gemini_Generated_Image_hbcxkqhbcxkqhbcx.png"} 
+              alt="BGS Graduation Ceremony" 
+              width={600} 
+              height={400} 
+              className={styles.gradImage}
+            />
+          </div>
           <div className={styles.content}>
             <div className={styles.logoItem}>
               <Image 
@@ -44,15 +53,6 @@ export default function OthmCertification({ data }: { data?: any }) {
               {block.text || "NQUAL (National Qualification Organisation for Applied Learning) is an emerging UK-based awarding body..."}
             </p>
             <Link href={block.buttonLink || "/cqhe"} className={styles.btnRed}>{block.buttonText || "Learn More"}</Link>
-          </div>
-          <div className={`${styles.imageBox} ${styles.asicImageBox}`}>
-            <Image 
-              src={block.mainImage || "/Gemini_Generated_Image_hbcxkqhbcxkqhbcx.png"} 
-              alt="BGS Graduation Ceremony" 
-              width={600} 
-              height={400} 
-              className={styles.gradImage}
-            />
           </div>
         </div>
       </div>

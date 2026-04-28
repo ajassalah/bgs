@@ -69,7 +69,7 @@ export default async function FeaturedCourses({ data }: { data?: any }) {
         </div>
         <br />
         <div className="text-center mt-5">
-          <Link href="/courses" className="btn btn-primary" style={{ background: '#eb4d4b', padding: '12px 30px', borderRadius: '5px', borderColor: '#eb4d4b' }}>View All Courses</Link>
+          <Link href="/courses" className="btn btn-primary" style={{ background: '#eb4d4b', padding: '12px 30px', borderRadius: '5px', borderColor: '#eb4d4b' }}>View All Programs</Link>
         </div>
       </div>
     </section>

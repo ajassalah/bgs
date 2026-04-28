@@ -7,6 +7,7 @@ export default function AboutFutureModel() {
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.content}>
+            <span className="text-muted uppercase font-bold tracking-widest text-sm" style={{ letterSpacing: '2px', display: 'block', marginBottom: '1rem' }}>OUR VISION</span>
             <h2 className={styles.title}>A Model for the Future</h2>
             <div className={styles.textContent}>
               <p>The growing demand for flexible, skill-based, and accredited education is clear. As more students seek alternatives to rigid university systems, qualifications offered through regulated awarding bodies become ever more vital. The ability to earn while learning, to gain experience while studying, and to progress through levels with academic integrity and flexibility, represents a future-facing model of education that addresses the needs of learners and employers alike.</p>
@@ -21,18 +22,18 @@ export default function AboutFutureModel() {
           <div className={styles.imageGrid}>
              <div className={styles.imgRow}>
                 <div className={styles.imgWrapper}>
-                  <Image src="/student-2.jpg" alt="Student 1" fill className={styles.img} style={{ objectFit: 'cover' }} />
+                  <Image src="/future.jpg" alt="Student 1" fill className={styles.img} style={{ objectFit: 'cover' }} />
                 </div>
                 <div className={styles.imgWrapper}>
-                  <Image src="/online-student-2r.jpg" alt="Student 2" fill className={styles.img} style={{ objectFit: 'cover' }} />
+                  <Image src="/future2.jpg" alt="Student 2" fill className={styles.img} style={{ objectFit: 'cover' }} />
                 </div>
              </div>
              <div className={styles.imgRow}>
                 <div className={styles.imgWrapper}>
-                  <Image src="/about-thumb-2.png" alt="Student 3" fill className={styles.img} style={{ objectFit: 'cover' }} />
+                  <Image src="/future3.jfif" alt="Student 3" fill className={styles.img} style={{ objectFit: 'cover' }} />
                 </div>
                 <div className={styles.imgWrapper}>
-                  <Image src="/online-student-5d.jpg" alt="Student 4" fill className={styles.img} style={{ objectFit: 'cover' }} />
+                  <Image src="/future4.jfif" alt="Student 4" fill className={styles.img} style={{ objectFit: 'cover' }} />
                 </div>
              </div>
           </div>

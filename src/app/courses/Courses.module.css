@@ -1,5 +1,5 @@
 .hero {
-  min-height: 400px;
+  min-height: 500px;
   position: relative;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
   padding-top: 100px;
 }
 
-.heroVideo {
+.heroImage {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,20 +54,200 @@
 }
 
 .mainContent {
-  padding: 80px 0;
+  padding: 0;
   background: #f8f9fa;
 }
 
-.filterBar {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+.searchSection {
+  background: #00234a;
+  padding: 2.5rem 0;
+  color: white;
+}
+
+.searchBarContainer {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
   align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.searchTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+  color: white;
+  flex-shrink: 0;
+}
+
+.searchRow {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  max-width: 800px;
+}
+
+.searchWrapper {
+  flex: 1;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  padding-right: 3.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  outline: none;
+  background: white;
+  color: #333;
+}
+
+.filterBtn {
+  background: white;
+  color: #00234a;
+  border: 1px solid white;
+  padding: 0 2rem;
+  height: 60px;
+  border-radius: 6px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filterBtn:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+}
+
+.coursesContainer {
+  padding: 80px 0;
+}
+
+/* Sidebar Styles */
+.sidebarOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.sidebarOverlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  background: #00234a;
+  z-index: 1001;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  color: white;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.sidebarTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.closeBtn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.closeBtn:hover {
+  background: #eb4d4b;
+  border-color: #eb4d4b;
+}
+
+.filterGroup {
+  margin-bottom: 2.5rem;
+}
+
+.groupTitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.sidebarSelect {
+  width: 100%;
+  padding: 1.2rem;
+  background: white;
+  color: #00234a;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2300234a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  background-size: 1.2rem;
+  cursor: pointer;
+}
+
+.clearFilters {
+  margin-top: 4rem;
+  color: white;
+  opacity: 0.7;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.clearFilters:hover {
+  opacity: 1;
 }
 
 .searchWrapper {
@@ -232,6 +412,26 @@
 .seeMoreBtn:hover {
   background: #eb4d4b;
   transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+  .searchBarContainer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .searchRow {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .filterBtn {
+    justify-content: center;
+  }
+  .sidebar {
+    width: 100%;
+    right: -100%;
+  }
 }
 
 @media (max-width: 768px) {

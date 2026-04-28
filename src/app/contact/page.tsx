@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./Contact.module.css";
 import JsonLd from "@/components/JsonLd";
+import Image from "next/image";
 
 export default function ContactPage() {
   return (
@@ -31,15 +32,13 @@ export default function ContactPage() {
       
       {/* Hero Section - Same as About Us */}
       <section className={styles.hero}>
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className={styles.heroVideo}
-        >
-          <source src="https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-        </video>
+        <Image 
+          src="/contact hero image .png" 
+          alt="Contact Us" 
+          fill 
+          priority
+          className={styles.heroImage}
+        />
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Contact Us</h1>

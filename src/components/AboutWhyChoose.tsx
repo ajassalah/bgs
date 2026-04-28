@@ -1,7 +1,10 @@
 import styles from "./AboutWhyChoose.module.css";
 
-export default function AboutWhyChoose() {
-  const items = [
+export default function AboutWhyChoose({ data }: { data?: any }) {
+  const title = data?.whyChooseTitle || "Why Choose US?";
+  const subtitle = data?.whyChooseSubtitle || "We go to great lengths to identify impressive new talent self starters with specific skill sets to produce truly amazing results.";
+  
+  const items = (data?.whyChooseItems && data.whyChooseItems.length > 0) ? data.whyChooseItems : [
     {
       title: "Affiliate Rankings",
       desc: "The University of Gloucestershire and was ranked 54th in the UK",
@@ -38,11 +41,11 @@ export default function AboutWhyChoose() {
     <section className={styles.section}>
       <div className="container">
         <div className={styles.header}>
-          <h2 className={styles.sectionTitle}>Why Choose US?</h2>
-          <p className={styles.sectionDesc}>We go to great lengths to identify impressive new talent self starters with specific skill sets to produce truly amazing results.</p>
+          <h2 className={styles.sectionTitle}>{title}</h2>
+          <p className={styles.sectionDesc}>{subtitle}</p>
         </div>
         <div className={styles.grid}>
-          {items.map((item, idx) => (
+          {items.map((item: any, idx: number) => (
             <div key={idx} className={styles.item}>
               <div className={styles.iconWrapper}>
                 <span className={styles.icon}>{item.icon}</span>
@@ -56,3 +59,4 @@ export default function AboutWhyChoose() {
     </section>
   );
 }
+

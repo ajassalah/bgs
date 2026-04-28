@@ -28,6 +28,15 @@ export default function IsoCertification({ data }: { data?: any }) {
     <section className={styles.section}>
       <div className="container">
         <div className={`${styles.grid} ${styles.reverse} ${styles.asicGrid}`}>
+          <div className={`${styles.imageBox} ${styles.asicImageBox} ${styles.imageLeft}`}>
+            <Image 
+              src={block.mainImage || "/cqhe homea.jpeg"} 
+              alt="Graduation Flowers ISO" 
+              width={600} 
+              height={400} 
+              className={styles.gradImage}
+            />
+          </div>
           <div className={styles.content}>
             <div className={styles.logoItem}>
               <Image 
@@ -42,15 +51,6 @@ export default function IsoCertification({ data }: { data?: any }) {
               {block.text || "CQHE operates as a global accrediting authority..."}
             </p>
             <Link href={block.buttonLink || "/about"} className={styles.btnRed}>{block.buttonText || "Learn More"}</Link>
-          </div>
-          <div className={`${styles.imageBox} ${styles.asicImageBox}`}>
-            <Image 
-              src={block.mainImage || "/cqhe homea.jpeg"} 
-              alt="Graduation Flowers ISO" 
-              width={600} 
-              height={400} 
-              className={styles.gradImage}
-            />
           </div>
         </div>
       </div>

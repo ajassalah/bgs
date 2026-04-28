@@ -1,6 +1,6 @@
 .section {
-  background-color: #eb4d4b; /* Matching the red color used in other buttons */
-  padding: 40px 0;
+  background-color: #542b74;
+  padding: 60px 0;
   color: white;
 }
 
@@ -8,42 +8,93 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
+}
+
+.textContent {
+  flex: 1;
 }
 
 .title {
   color: white;
-  margin: 0;
-  font-size: 2rem;
+  margin: 0 0 10px 0;
+  font-size: 2.2rem;
   font-weight: 700;
   font-family: var(--font-heading);
 }
 
-.btn {
-  background-color: white;
-  color: #eb4d4b;
-  padding: 0.8rem 2.5rem;
+.description {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #fff;
+  opacity: 0.9;
+  font-family: var(--font-body);
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btnPrimary {
+  background-color: #f5a623;
+  color: #000;
+  padding: 0.8rem 2rem;
   border-radius: 6px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
   white-space: nowrap;
+  display: inline-block;
+  text-decoration: none;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  background-color: #f8f9fa;
+.btnPrimary:hover {
+  background-color: #e0961b;
+  transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+.btnOutline {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.7rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btnOutline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
   .content {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
+    align-items: flex-start;
     gap: 1.5rem;
   }
-  
+}
+
+@media (max-width: 576px) {
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btnPrimary, .btnOutline {
+    width: 100%;
+    text-align: center;
+  }
   .title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 }

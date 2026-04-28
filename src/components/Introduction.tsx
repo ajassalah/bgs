@@ -2,7 +2,7 @@ import styles from "./Introduction.module.css";
 
 export default function Introduction({ data }: { data?: any }) {
   const title = data?.introTitle || "Welcome to <br />British Graduate School";
-  const content = data?.introDescription || "We specialise in flexible, online higher education designed to fit around work and life. With over 20 years of excellence, we offer globally recognised qualifications tailored for working professionals, adult learners, and students worldwide.\n\nOur mission is simple: to make quality education accessible to all through flexible learning paths, affordable payment options, and practical, career-focused programmes that empower learners to study, work, and succeed at the same time.";
+  const content = data?.introDescription || "We specialize in delivering flexible, online higher education designed to complement the demands of modern professional and personal life. With over two decades of academic excellence, we provide globally recognized qualifications that cater to working professionals, adult learners, and ambitious students across the world.Our approach is rooted in accessibility, quality, and real-world relevance. We are committed to widening participation in higher education through flexible study pathways, competitive fee structures, and career-focused programs. Each course is thoughtfully designed to equip learners with the knowledge, skills, and confidence required to progress academically and succeed within an increasingly competitive global landscape.";
 
   return (
     <section className={styles.section}>

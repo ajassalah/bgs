@@ -37,6 +37,8 @@ const homeDoc = {
   heroSubtitle:
     'Unlock Your Potential With British Graduate School — Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.',
   heroCTAText: 'Find Courses',
+  heroAdmissionText: 'Admission',
+  heroAdmissionLink: '/admissions',
 
   // ── Featured Courses ─────────────────────────────────────────────
   featuredCoursesTitle: 'Shape Your Professional Future',

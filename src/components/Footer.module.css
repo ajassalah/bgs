@@ -123,7 +123,35 @@
   font-weight: 600;
 }
 
+.middleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.partnerLogos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.partnerLogo {
+  object-fit: contain;
+}
+
 @media (max-width: 992px) {
+  .middleRow {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
   .top {
     grid-template-columns: 1fr;
     gap: 3rem;

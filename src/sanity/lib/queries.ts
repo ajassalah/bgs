@@ -174,3 +174,37 @@ export async function getHomeData() {
     return null
   }
 }
+export async function getAboutData() {
+  const query = `*[_type == "about"][0] {
+    heroVideo,
+    heroPoster,
+    heroTitle,
+    heroSubtitle,
+    storyTitle,
+    storyContent,
+    storyImage,
+    missionTitle,
+    missionContent,
+    visionTitle,
+    visionContent,
+    globalTitle,
+    globalContent,
+    whyChooseTitle,
+    whyChooseSubtitle,
+    whyChooseItems,
+    stats,
+    motivationalText,
+    futureModelTitle,
+    futureModelBadge,
+    futureModelContent,
+    futureModelImages
+  }`
+
+  try {
+    const data = await client.fetch(query)
+    return data
+  } catch (error) {
+    console.error('Error fetching about data:', error)
+    return null
+  }
+}

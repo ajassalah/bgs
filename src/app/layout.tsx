@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import Analytics from "@/components/Analytics";
+import TidioChat from "@/components/TidioChat";
 
 
 
@@ -11,16 +12,22 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "British Graduate School | Empowering Minds, Redefining Boundaries",
+  metadataBase: new URL("https://britishgraduateschool.co.uk"),
+  title: {
+    default: "British Graduate School",
+    template: "%s | British Graduate School",
+  },
   description: "Unlock your potential with British Graduate School - where global expertise meets local excellence, preparing you for a future without limits.",
   icons: {
-    icon: "/bgs-logo-cropped.webp",
+    icon: "/Tab%20Image%20.png",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "British Graduate School",
+    url: "https://britishgraduateschool.co.uk",
+    title: "British Graduate School",
+    description: "Unlock your potential with British Graduate School - where global expertise meets local excellence.",
   },
 };
 
@@ -32,16 +39,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/bgs-logo-cropped.webp" />
+        <link rel="icon" href="/Tab%20Image%20.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://rsms.me/" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </head>
-      <body className={`${inter.variable} ${outfit.variable}`}>
+      <body className={inter.variable}>
         <JsonLd
           data={{
             "@context": "https://schema.org",
             "@type": "EducationalOrganization",
             "name": "British Graduate School",
             "url": "https://britishgraduateschool.co.uk",
-            "logo": "https://britishgraduateschool.co.uk/bgs-logo-cropped.webp",
+            "logo": "https://britishgraduateschool.co.uk/BGS%20UK%20Logo.png",
             "description": "Unlock your potential with British Graduate School - where global expertise meets local excellence.",
             "address": {
               "@type": "PostalAddress",
@@ -54,6 +66,7 @@ export default function RootLayout({
           }}
         />
         <Analytics />
+        <TidioChat />
         {children}
       </body>
     </html>

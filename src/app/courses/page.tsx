@@ -5,6 +5,7 @@ import styles from "./Courses.module.css";
 import { allCourses as staticCourses } from "@/data/courses";
 import { getCourses } from "@/sanity/lib/queries";
 import CoursesList from "./CoursesList";
+import Image from "next/image";
 
 export default async function CoursesPage() {
   // Try to fetch from Sanity
@@ -24,15 +25,13 @@ export default async function CoursesPage() {
       
       {/* Hero Section */}
       <section className={styles.hero}>
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className={styles.heroVideo}
-        >
-          <source src="https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-        </video>
+        <Image 
+          src="/Programms hero image .png" 
+          alt="Our Programs" 
+          fill 
+          priority
+          className={styles.heroImage}
+        />
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Our Programs</h1>

@@ -21,6 +21,11 @@ const homeSchema = {
       type: 'string',
     },
     {
+      name: 'heroTagline',
+      title: 'Hero Tagline (Text above title)',
+      type: 'string',
+    },
+    {
       name: 'heroSubtitle',
       title: 'Hero Subtitle',
       type: 'text',
@@ -28,6 +33,16 @@ const homeSchema = {
     {
       name: 'heroCTAText',
       title: 'Hero CTA Button Text',
+      type: 'string',
+    },
+    {
+      name: 'heroAdmissionText',
+      title: 'Hero Admission Button Text',
+      type: 'string',
+    },
+    {
+      name: 'heroAdmissionLink',
+      title: 'Hero Admission Button Link',
       type: 'string',
     },
 

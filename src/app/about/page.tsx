@@ -14,13 +14,16 @@ import AboutFutureModel from "@/components/AboutFutureModel";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 import { Metadata } from "next";
+import { getAboutData } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "About Us | British Graduate School",
   description: "Learn more about British Graduate School, our mission to provide high-quality international qualifications, and our global network of education hubs.",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const aboutData = await getAboutData();
+
   return (
     <main style={{ overflowX: 'hidden' }}>
       <JsonLd
@@ -42,15 +45,15 @@ export default function AboutPage() {
           loop 
           playsInline 
           className={styles.heroVideo}
-          poster="/pexels-tara-winstead-8386434.jpg"
+          poster={aboutData?.heroPoster ? (typeof aboutData.heroPoster === 'string' ? aboutData.heroPoster : '/pexels-tara-winstead-8386434.jpg') : "/pexels-tara-winstead-8386434.jpg"}
         >
-          <source src="https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+          <source src={aboutData?.heroVideo || "https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4"} type="video/mp4" />
         </video>
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>About Us</h1>
+          <h1 className={styles.heroTitle}>{aboutData?.heroTitle || "About Us"}</h1>
           <p className={styles.heroSubtitle}>
-            Unlock Your Potential With British Graduate School – Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.
+            {aboutData?.heroSubtitle || "Unlock Your Potential With British Graduate School – Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits."}
           </p>
         </div>
       </section>
@@ -60,18 +63,18 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.grid}>
             <div>
-              <h2 className={styles.sectionTitle}>Our Story</h2>
-              <p className={styles.text}>
-                British Graduates School (BGS) was founded with campuses and operational hubs in both the United Kingdom and Sri Lanka. The institution was established with a clear purpose: to provide high-quality, internationally recognized qualifications to learners across the globe.
-              </p>
-              <p className={styles.text}>
-                Business corporations always prefer employing individuals who possess both the theoretical as well as the practical knowledge. Therefore, our methodology is not only limited to theoretical teaching, but it is also putting that theoretical teaching into practice by showing them real examples as well as exposing them to the businesses related to the fields that they are pursuing.
-              </p>
+              <h2 className={styles.sectionTitle}>{aboutData?.storyTitle || "Our Story"}</h2>
+              {(aboutData?.storyContent || [
+                "British Graduates School (BGS) was founded with campuses and operational hubs in both the United Kingdom and Sri Lanka. The institution was established with a clear purpose: to provide high-quality, internationally recognized qualifications to learners across the globe.",
+                "Business corporations always prefer employing individuals who possess both the theoretical as well as the practical knowledge. Therefore, our methodology is not only limited to theoretical teaching, but it is also putting that theoretical teaching into practice by showing them real examples as well as exposing them to the businesses related to the fields that they are pursuing."
+              ]).map((para: string, i: number) => (
+                <p key={i} className={styles.text}>{para}</p>
+              ))}
             </div>
             <div className={styles.imageBox}>
                <div style={{ position: 'relative', width: '100%', height: '400px' }}>
                 <Image 
-                  src="/pexels-tara-winstead-8386434.jpg" 
+                  src={aboutData?.storyImage ? (typeof aboutData.storyImage === 'string' ? aboutData.storyImage : '/pexels-tara-winstead-8386434.jpg') : "/pexels-tara-winstead-8386434.jpg"} 
                   alt="BGS Foundation" 
                   fill
                   style={{ objectFit: 'cover', borderRadius: '12px' }}
@@ -87,23 +90,23 @@ export default function AboutPage() {
       <AboutAccreditationDetails />
 
       {/* 3. Our Mission Section */}
-      <AboutMissionSection />
+      <AboutMissionSection data={aboutData} />
 
       {/* 4. Our Vision Section */}
-      <AboutVisionSection />
+      <AboutVisionSection data={aboutData} />
 
       {/* 5. Global Outlook and Partnerships Section */}
-      <AboutGlobalOutlookSection />
+      <AboutGlobalOutlookSection data={aboutData} />
 
       {/* 6. Why Choose US? Section */}
-      <AboutWhyChoose />
+      <AboutWhyChoose data={aboutData} />
 
       {/* Additional Stats and Sections */}
-      <AboutStats />
+      <AboutStats data={aboutData} />
       
       <AboutPartnershipUniversities />
 
-      <AboutFutureModel />
+      <AboutFutureModel data={aboutData} />
 
       <section className={styles.faculties}>
         <div className="container">

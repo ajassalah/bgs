@@ -221,6 +221,7 @@
 .inquiryCard h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
+  color: #ffffff; /* Explicitly white */
 }
 
 .inquiryCard p {

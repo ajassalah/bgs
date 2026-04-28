@@ -3,35 +3,61 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  
   const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [verificationOpen, setVerificationOpen] = useState(false);
+  const [studyAbroadOpen, setStudyAbroadOpen] = useState(false);
   const [mobileVerificationOpen, setMobileVerificationOpen] = useState(false);
+  const [mobileStudyAbroadOpen, setMobileStudyAbroadOpen] = useState(false);
+  
   const verificationRef = useRef<HTMLDivElement>(null);
+  const studyAbroadRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+
+      if (isHomePage) {
+        if (currentScrollY > 100) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
+      } else {
+        setIsVisible(true);
+      }
+      
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]);
 
   useEffect(() => {
-    if (!verificationOpen) return;
-
     const handlePointerDown = (event: MouseEvent) => {
-      if (!verificationRef.current?.contains(event.target as Node)) {
+      if (verificationOpen && !verificationRef.current?.contains(event.target as Node)) {
         setVerificationOpen(false);
+      }
+      if (studyAbroadOpen && !studyAbroadRef.current?.contains(event.target as Node)) {
+        setStudyAbroadOpen(false);
       }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setVerificationOpen(false);
+        setStudyAbroadOpen(false);
       }
     };
 
@@ -42,19 +68,25 @@ export default function Navbar() {
       document.removeEventListener("mousedown", handlePointerDown);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [verificationOpen]);
+  }, [verificationOpen, studyAbroadOpen]);
 
   const closeMenu = () => {
     setMenuOpen(false);
     setMobileVerificationOpen(false);
+    setMobileStudyAbroadOpen(false);
   };
 
   return (
-    <div className={`${styles.wrapper} ${scrolled ? styles.scrolled : ""}`}>
+    <div className={`
+      ${styles.wrapper} 
+      ${isHomePage && !isVisible ? styles.hidden : ""}
+      ${isHomePage && !scrolled ? styles.transparent : ""}
+      ${!isHomePage ? styles.solid : ""}
+    `}>
       <div className={styles.topBar}>
         <div className={styles.container}>
           <div className={styles.topLinks}>
-            <Link href="/">Home</Link>
+            {!isHomePage && <Link href="/">Home</Link>}
             <Link href="/blog">Blog</Link>
             <Link href="/about">About</Link>
             <Link href="/career">Career</Link>
@@ -78,11 +110,48 @@ export default function Navbar() {
       <nav className={styles.navbar}>
         <div className={styles.container}>
           <Link href="/" className={styles.logo}>
-            <Image src="/bgs-logo-cropped.webp" alt="BGS Logo" width={180} height={60} style={{ height: '60px', width: 'auto' }} />
+            <Image src="/BGS UK Logo.png" alt="BGS Logo" width={180} height={60} style={{ height: '60px', width: '180px', objectFit: 'contain', backgroundColor: 'white', padding: '5px', borderRadius: '6px' }} />
           </Link>
           <div className={styles.navLinks}>
-            <Link href="/courses" className={styles.navLink}>Courses</Link>
-            <Link href="/study-abroad" className={styles.navLink}>Study Abroad</Link>
+            <Link href="/courses" className={styles.navLink}>Programs</Link>
+            
+            <div 
+              className={styles.navDropdown} 
+              ref={studyAbroadRef}
+              onMouseEnter={() => setStudyAbroadOpen(true)}
+              onMouseLeave={() => setStudyAbroadOpen(false)}
+            >
+              <Link
+                href="/study-abroad"
+                className={`${styles.navLink} ${styles.dropdownToggle}`}
+              >
+                Study Abroad
+                <svg
+                  className={`${styles.chevron} ${studyAbroadOpen ? styles.chevronOpen : ""}`}
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </Link>
+              {studyAbroadOpen && (
+                <div className={styles.dropdownMenu} role="menu">
+                  <Link href="/study-abroad#uk" className={styles.dropdownItem} role="menuitem" onClick={() => setStudyAbroadOpen(false)}>Study in UK</Link>
+                  <Link href="/study-abroad#australia" className={styles.dropdownItem} role="menuitem" onClick={() => setStudyAbroadOpen(false)}>Study in Australia</Link>
+                  <Link href="/study-abroad#new-zealand" className={styles.dropdownItem} role="menuitem" onClick={() => setStudyAbroadOpen(false)}>Study in New Zealand</Link>
+                  <Link href="/study-abroad#germany" className={styles.dropdownItem} role="menuitem" onClick={() => setStudyAbroadOpen(false)}>Study in Germany</Link>
+                  <Link href="/study-abroad#canada" className={styles.dropdownItem} role="menuitem" onClick={() => setStudyAbroadOpen(false)}>Study in Canada</Link>
+                </div>
+              )}
+            </div>
+
             <Link href="/cqhe" className={styles.navLink}>CQHE</Link>
             <Link href="/qualifi" className={styles.navLink}>Qualifi Endorsement</Link>
             <Link href="/contact" className={styles.navLink}>Contact</Link>
@@ -100,8 +169,7 @@ export default function Navbar() {
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
                   height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
+                  viewBox="0 0 24 24" fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
                   strokeLinecap="round"
@@ -172,8 +240,41 @@ export default function Navbar() {
         <Link href="/blog" className={styles.mobileLink} onClick={closeMenu}>Blog</Link>
         <Link href="/about" className={styles.mobileLink} onClick={closeMenu}>About</Link>
         <Link href="/career" className={styles.mobileLink} onClick={closeMenu}>Career</Link>
-        <Link href="/courses" className={styles.mobileLink} onClick={closeMenu}>Courses</Link>
-        <Link href="/study-abroad" className={styles.mobileLink} onClick={closeMenu}>Study Abroad</Link>
+        <Link href="/courses" className={styles.mobileLink} onClick={closeMenu}>Programs</Link>
+        
+        <button
+          type="button"
+          className={`${styles.mobileLink} ${styles.mobileDropdownToggle}`}
+          onClick={() => setMobileStudyAbroadOpen((open) => !open)}
+          aria-expanded={mobileStudyAbroadOpen}
+        >
+          Study Abroad
+          <svg
+            className={`${styles.chevron} ${mobileStudyAbroadOpen ? styles.chevronOpen : ""}`}
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+        {mobileStudyAbroadOpen && (
+          <div className={styles.mobileSubmenu}>
+            <Link href="/study-abroad#uk" className={styles.mobileSubLink} onClick={closeMenu}>Study in UK</Link>
+            <Link href="/study-abroad#australia" className={styles.mobileSubLink} onClick={closeMenu}>Study in Australia</Link>
+            <Link href="/study-abroad#new-zealand" className={styles.mobileSubLink} onClick={closeMenu}>Study in New Zealand</Link>
+            <Link href="/study-abroad#germany" className={styles.mobileSubLink} onClick={closeMenu}>Study in Germany</Link>
+            <Link href="/study-abroad#canada" className={styles.mobileSubLink} onClick={closeMenu}>Study in Canada</Link>
+          </div>
+        )}
+
         <Link href="/cqhe" className={styles.mobileLink} onClick={closeMenu}>CQHE</Link>
         <Link href="/qualifi" className={styles.mobileLink} onClick={closeMenu}>Qualifi Endorsement</Link>
         <Link href="/contact" className={styles.mobileLink} onClick={closeMenu}>Contact</Link>

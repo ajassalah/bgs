@@ -14,10 +14,19 @@ import IsoCertification from "@/components/IsoCertification";
 import OthmCertification from "@/components/OthmCertification";
 import TopUpCertification from "@/components/TopUpCertification";
 import CTASection from "@/components/CTASection";
+import type { Metadata } from "next";
 
 import { getHomeData } from "@/sanity/lib/queries";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "British Graduate School | BGS",
+  description: "Unlock your potential with British Graduate School - where global expertise meets local excellence, preparing you for a future without limits.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function Home() {
   const homeData = await getHomeData();
