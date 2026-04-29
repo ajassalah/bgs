@@ -4,6 +4,7 @@ import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import { client } from "@/sanity/lib/client";
 import { Metadata } from "next";
+import Image from "next/image";
 import CareerBoard, { CareerJob } from "./CareerBoard";
 import styles from "./Career.module.css";
 
@@ -126,19 +127,13 @@ export default async function CareerPage() {
       <Navbar />
 
       <section className={styles.hero}>
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className={styles.heroVideo}
-          poster="/student-life-stairs.png"
-        >
-          <source
-            src="https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <Image
+          src="/student-life-stairs.png"
+          alt="Careers at British Graduate School"
+          fill
+          priority
+          className={styles.heroImage}
+        />
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
           <p className={styles.kicker}>Careers at BGS</p>

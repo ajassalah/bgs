@@ -1,5 +1,5 @@
 .hero {
-  min-height: 500px;
+  min-height: 620px;
   position: relative;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
   padding-top: 100px;
 }
 
-.heroVideo {
+.heroImage {
   position: absolute;
   top: 0;
   left: 0;
@@ -38,16 +38,16 @@
 }
 
 .heroTitle {
-  font-size: 4rem;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
   font-weight: 800;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   color: white;
 }
 
 .heroSubtitle {
-  font-size: 1.15rem;
+  font-size: 1rem;
   line-height: 1.6;
-  max-width: 700px;
+  max-width: 620px;
   margin: 0 auto;
   color: white;
   opacity: 0.9;
@@ -131,7 +131,7 @@
     gap: 2rem;
   }
   .heroTitle {
-    font-size: 3rem;
+    font-size: 2.7rem;
   }
   .facultyList {
     grid-template-columns: 1fr 1fr;
@@ -140,14 +140,14 @@
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 400px;
+    min-height: 500px;
     padding-top: 120px;
   }
   .heroTitle {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   .heroSubtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   .heroContent {
     padding: 0 1.5rem;
@@ -178,7 +178,11 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    min-height: 460px;
+  }
+
   .heroTitle {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 }

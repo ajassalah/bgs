@@ -4,7 +4,7 @@
 }
 
 .hero {
-  min-height: 500px;
+  min-height: 620px;
   position: relative;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
   padding-top: 100px;
 }
 
-.heroVideo {
+.heroImage {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -49,17 +49,17 @@
 
 .heroTitle {
   color: #ffffff;
-  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
   font-weight: 900;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .heroSubtitle {
   color: #ffffff;
   opacity: 0.92;
   line-height: 1.7;
-  font-size: 1.12rem;
-  max-width: 730px;
+  font-size: 1rem;
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -387,8 +387,16 @@
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 390px;
+    min-height: 500px;
     padding-top: 120px;
+  }
+
+  .heroTitle {
+    font-size: 1.95rem;
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
   }
 
   .boardSection {
@@ -413,5 +421,11 @@
   .cardFooter button,
   .submitBtn {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 460px;
   }
 }

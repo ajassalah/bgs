@@ -39,16 +39,13 @@ export default async function AboutPage() {
       
       {/* Hero Section - Video Background from Kensley */}
       <section className={styles.hero}>
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className={styles.heroVideo}
-          poster={aboutData?.heroPoster ? (typeof aboutData.heroPoster === 'string' ? aboutData.heroPoster : '/pexels-tara-winstead-8386434.jpg') : "/pexels-tara-winstead-8386434.jpg"}
-        >
-          <source src={aboutData?.heroVideo || "https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4"} type="video/mp4" />
-        </video>
+        <Image
+          src="/about us hero section .png"
+          alt="About British Graduate School"
+          fill
+          priority
+          className={styles.heroImage}
+        />
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>{aboutData?.heroTitle || "About Us"}</h1>

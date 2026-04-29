@@ -74,19 +74,13 @@ export default function CqhePage() {
       <Navbar />
 
       <section className={styles.hero}>
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className={styles.heroVideo}
-          poster="/help desk hero.jpg"
-        >
-          <source
-            src="https://kensleygraduateschool.com/wp-content/uploads/2025/03/4508070-uhd_3840_2160_25fps.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <Image
+          src="/Hero.jpg"
+          alt="Students on campus"
+          fill
+          priority
+          className={styles.heroImage}
+        />
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
           <div className={styles.logoPanel}>

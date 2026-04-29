@@ -22,7 +22,7 @@ export default function Hero({ data }: { data?: any }) {
   }
 
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} data-home-hero>
       <div className={styles.heroImage}>
         <Image
           src={bgImage}

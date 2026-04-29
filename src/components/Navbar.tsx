@@ -11,6 +11,7 @@ export default function Navbar() {
   const isHomePage = pathname === "/";
   
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [verificationOpen, setVerificationOpen] = useState(false);
@@ -28,12 +29,16 @@ export default function Navbar() {
       setScrolled(currentScrollY > 50);
 
       if (isHomePage) {
-        if (currentScrollY > 100) {
-          setIsVisible(false);
-        } else {
-          setIsVisible(true);
-        }
+        const heroSection = document.querySelector<HTMLElement>("[data-home-hero]");
+        const heroThreshold = heroSection
+          ? heroSection.offsetTop + heroSection.offsetHeight - 120
+          : window.innerHeight - 120;
+        const hasPassedHero = currentScrollY >= heroThreshold;
+
+        setPastHero(hasPassedHero);
+        setIsVisible(hasPassedHero || currentScrollY <= 100);
       } else {
+        setPastHero(false);
         setIsVisible(true);
       }
       
@@ -41,6 +46,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHomePage]);
 
@@ -81,7 +87,7 @@ export default function Navbar() {
       ${styles.wrapper} 
       ${isHomePage && !isVisible ? styles.hidden : ""}
       ${isHomePage && !scrolled ? styles.transparent : ""}
-      ${!isHomePage ? styles.solid : ""}
+      ${!isHomePage || (isHomePage && pastHero) ? styles.solid : ""}
     `}>
       <div className={styles.topBar}>
         <div className={styles.container}>
