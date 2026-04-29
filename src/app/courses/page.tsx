@@ -7,6 +7,8 @@ import { getCourses } from "@/sanity/lib/queries";
 import CoursesList from "./CoursesList";
 import Image from "next/image";
 
+export const dynamic = "force-dynamic";
+
 export default async function CoursesPage() {
   // Try to fetch from Sanity
   let coursesFromSanity = [];

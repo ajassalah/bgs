@@ -5,6 +5,8 @@ import CTASection from "@/components/CTASection";
 import ApplyForm from "./ApplyForm";
 import { getCourses } from "@/sanity/lib/queries";
 
+export const dynamic = "force-dynamic";
+
 export default async function ApplyPage() {
   const courses = await getCourses();
 
