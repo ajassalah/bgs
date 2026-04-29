@@ -44,7 +44,7 @@ const locations = [
     btnText: "Study in Australia",
     cities: [
       { name: "Melbourne", desc: "World-class education meets vibrant city life in Melbourne, home to a thriving arts scene, spacious green parks plus iconic sport and entertainment.", img: "/Melbourne.jpg" },
-      { name: "Sydney", desc: "With its natural beauty, iconic attractions and rich cultural heritage, Sydney provides a unique backdrop for academic and personal growth.", img: "/sydney.jpg" },
+      { name: "Sydney", desc: "With its natural beauty, iconic attractions and rich cultural heritage, Sydney provides a unique backdrop for academic and personal growth.", img: "/Sydney.jpg" },
       { name: "Perth", desc: "A safe, sun-soaked city with stunning beaches and a relaxed lifestyle, Perth offers the perfect environment to study, work and explore.", img: "/pertish.jpg", large: true },
     ]
   },
@@ -83,7 +83,7 @@ const locations = [
     description: "Experience world-class education in a country known for its stunning natural beauty and high quality of life.",
     btnText: "Study in New Zealand",
     cities: [
-      { name: "Auckland", desc: "Study in New Zealand's largest city, a hub for innovation and cultural diversity.", img: "/online-student-3ff-1.jpg", large: true },
+      { name: "Auckland", desc: "Study in New Zealand's largest city, a hub for innovation and cultural diversity.", img: "/Newzeland.png", large: true },
     ]
   }
 ];
@@ -186,7 +186,7 @@ export default function StudyAbroadPage() {
                       <Image src={city.img} alt={city.name} fill className={styles.cityImage} />
                       <div className={styles.cityOverlay}></div>
                       <div className={styles.cityContent}>
-                        <h4>{city.name} <span>→</span></h4>
+                        <h4>{city.name}</h4>
                         <p>{city.desc}</p>
                       </div>
                     </div>
