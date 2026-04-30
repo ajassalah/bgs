@@ -28,7 +28,7 @@ export default async function ApplyPage() {
         </video>
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>Schedule a Tour</h1>
+          <h1 className={styles.heroTitle}>Schedule a Meeting with us</h1>
           <p className={styles.heroSubtitle}>
             Unlock Your Potential With British Graduate School – Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.
           </p>

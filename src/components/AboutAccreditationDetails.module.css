@@ -25,11 +25,11 @@
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  border-left: 4px solid #eb4d4b;
+  border-left: 4px solid #bc0000;
 }
 
 .card h3 {
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }

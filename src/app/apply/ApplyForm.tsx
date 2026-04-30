@@ -106,7 +106,6 @@ export default function ApplyForm({ courses }: { courses: Course[] }) {
           <option value="other">Other (please specify)</option>
         </select>
 
-        {/* Manual input when "Other" is selected */}
         {selectedProgram === "other" && (
           <input
             type="text"
@@ -122,15 +121,15 @@ export default function ApplyForm({ courses }: { courses: Course[] }) {
 
       <div className={styles.formGroup}>
         <label>Preferred Contact Method</label>
-        <div style={{ display: "flex", gap: "1rem", marginTop: "0.5rem", flexWrap: "wrap" }}>
-          <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontWeight: "400" }}>
-            <input type="radio" name="contact" value="email" /> Email
+        <div className={styles.radioGroup}>
+          <label className={styles.radioOption}>
+            <input className={styles.radioInput} type="radio" name="contact" value="email" /> Email
           </label>
-          <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontWeight: "400" }}>
-            <input type="radio" name="contact" value="phone" /> Phone
+          <label className={styles.radioOption}>
+            <input className={styles.radioInput} type="radio" name="contact" value="phone" /> Phone
           </label>
-          <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontWeight: "400" }}>
-            <input type="radio" name="contact" value="whatsapp" /> WhatsApp
+          <label className={styles.radioOption}>
+            <input className={styles.radioInput} type="radio" name="contact" value="whatsapp" /> WhatsApp
           </label>
         </div>
       </div>

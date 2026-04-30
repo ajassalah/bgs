@@ -7,7 +7,7 @@ import { urlForImage } from "@/sanity/lib/image";
 export default function Hero({ data }: { data?: any }) {
   const title = data?.heroTitle || "Empowering Minds, Redefining Boundaries In Education";
   const tagline = data?.heroTagline || "British Graduate School";
-  const subtitle = data?.heroSubtitle || "Unlock Your Potential With British Graduate School — Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.";
+  const subtitle = data?.heroSubtitle || "Unlock Your Potential With British Graduate School - Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.";
   const ctaText = data?.heroCTAText || "Find Programs";
   const admissionText = data?.heroAdmissionText || "Admission";
   const admissionLink = data?.heroAdmissionLink || "/admissions";

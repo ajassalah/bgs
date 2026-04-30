@@ -24,7 +24,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 35, 74, 0.7);
+  background: rgba(0, 0, 97, 0.7);
   z-index: 2;
 }
 
@@ -100,7 +100,7 @@
 .mainTitle {
   font-size: 2.8rem;
   font-weight: 800;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 2rem;
 }
 
@@ -114,14 +114,14 @@
 .subTitle {
   font-size: 2rem;
   font-weight: 700;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1.5rem;
 }
 
 .highlightCard {
   background: #f8f9fa;
   padding: 3rem;
-  border-left: 6px solid #eb4d4b;
+  border-left: 6px solid #bc0000;
   border-radius: 0 12px 12px 0;
   margin-top: 3rem;
 }
@@ -181,7 +181,7 @@
 .flexItem h4 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1rem;
 }
 
@@ -191,7 +191,7 @@
 }
 
 .ctaBanner {
-  background: #eb4d4b;
+  background: #bc0000;
   color: white;
   padding: 5rem;
   border-radius: 20px;
@@ -214,7 +214,7 @@
   display: inline-block;
   padding: 1rem 3.5rem;
   background: white;
-  color: #eb4d4b;
+  color: #bc0000;
   text-decoration: none;
   font-weight: 800;
   border-radius: 4px;
@@ -224,7 +224,7 @@
 }
 
 .btnWhite:hover {
-  background: #00234a;
+  background: #000061;
   color: white;
   transform: translateY(-3px);
 }
@@ -244,7 +244,7 @@
 }
 
 .btnRed {
-  background: #b22222;
+  background: #bc0000;
   color: #ffffff;
 }
 
@@ -259,12 +259,12 @@
 }
 
 .btnRed:hover {
-  background: #00234a;
+  background: #000061;
 }
 
 .btnGhost:hover {
   background: #ffffff;
-  color: #00234a;
+  color: #000061;
 }
 
 @media (max-width: 992px) {

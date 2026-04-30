@@ -20,7 +20,7 @@
 }
 
 .wrapper.solid .navbar {
-  background: #00234a;
+  background: #000061;
 }
 
 .wrapper.solid .topBar {
@@ -92,7 +92,7 @@
 }
 
 .scrolled .navbar {
-  background: #00234a;
+  background: #000061;
   box-shadow: var(--shadow-md);
 }
 
@@ -198,7 +198,7 @@
   position: relative;
   z-index: 1;
   display: block;
-  color: #00234a;
+  color: #000061;
   font-size: 0.95rem;
   font-weight: 700;
   padding: 0.75rem 0.9rem;
@@ -208,8 +208,8 @@
 }
 
 .dropdownItem:hover {
-  background: rgba(0, 35, 74, 0.08);
-  color: #eb4d4b;
+  background: rgba(0, 0, 97, 0.08);
+  color: #bc0000;
 }
 
 .chevron {
@@ -222,7 +222,7 @@
 }
 
 .cta {
-  background-color: #eb4d4b; /* Red Inquire Now button */
+  background-color: #bc0000; /* Red Inquire Now button */
   color: white;
   padding: 0.7rem 1.8rem;
   border-radius: 4px;
@@ -234,7 +234,7 @@
 
 .cta:hover {
   background-color: white;
-  color: #eb4d4b;
+  color: #bc0000;
   transform: translateY(-2px);
 }
 
@@ -245,7 +245,7 @@
   left: 0;
   width: 100%;
   background: white;
-  color: #00234a;
+  color: #000061;
   box-shadow: 0 10px 40px rgba(0,0,0,0.1);
   padding: 4rem 2rem 2rem;
   z-index: 999;
@@ -272,7 +272,7 @@
 .megaTitle {
   font-size: 2rem;
   font-weight: 800;
-  color: #00234a;
+  color: #000061;
 }
 
 .closeMega {
@@ -335,7 +335,7 @@
 .locationLinks h4 {
   font-size: 1.1rem;
   margin-bottom: 1rem;
-  color: #00234a;
+  color: #000061;
 }
 
 .locationLinks ul {
@@ -350,7 +350,7 @@
 }
 
 .locationLinks a:hover {
-  color: #eb4d4b;
+  color: #bc0000;
 }
 
 .megaFooter {
@@ -376,7 +376,7 @@
 .footerBtnPrimary {
   background: #ffb800;
   border-color: #ffb800;
-  color: #00234a;
+  color: #000061;
 }
 
 @keyframes slideDown {
@@ -432,7 +432,7 @@
   right: -320px;
   width: 300px;
   height: 100vh;
-  background: #00234a;
+  background: #000061;
   z-index: 1100;
   display: flex;
   flex-direction: column;
@@ -513,7 +513,7 @@
 .mobileCta {
   display: block;
   margin-top: 1rem;
-  background: #eb4d4b;
+  background: #bc0000;
   color: white;
   text-align: center;
   padding: 1rem;
@@ -527,7 +527,7 @@
 
 .mobileCta:hover {
   background: white;
-  color: #eb4d4b;
+  color: #bc0000;
 }
 
 @media (max-width: 992px) {

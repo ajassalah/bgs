@@ -27,13 +27,13 @@ export default async function ResourcesNews({ data }: { data?: any }) {
       <div className="container">
         <div className={styles.intro}>
           <div>
-            <span style={{ color: '#eb4d4b', fontWeight: 700, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', display: 'block', marginBottom: '0.5rem' }}>Insights & Updates</span>
+            <span style={{ color: '#bc0000', fontWeight: 700, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '2px', display: 'block', marginBottom: '0.5rem' }}>Insights & Updates</span>
             <h2 className={styles.title}>{sectionTitle}</h2>
             <p style={{ maxWidth: '600px', color: '#666', fontSize: '1.1rem', lineHeight: '1.6' }}>
               {sectionSubtitle}
             </p>
           </div>
-          <Link href="/blog" className="btn btn-primary" style={{ background: '#eb4d4b', borderColor: '#eb4d4b', padding: '12px 30px' }}>Explore All News</Link>
+          <Link href="/blog" className="btn btn-primary" style={{ background: '#bc0000', borderColor: '#bc0000', padding: '12px 30px' }}>Explore All News</Link>
         </div>
 
         <div className={styles.grid}>

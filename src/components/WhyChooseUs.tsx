@@ -41,7 +41,7 @@ export default function WhyChooseUs({ data }: { data?: any }) {
                 </div>
               ))}
             </div>
-            <Link href="/contact#contact-form" className="btn btn-secondary" style={{ backgroundColor: '#eb4d4b', color: 'white' }}>Join Now</Link>
+            <Link href="/contact#contact-form" className="btn btn-secondary" style={{ backgroundColor: '#bc0000', color: 'white' }}>Join Now</Link>
           </div>
           <div className={styles.imageContainer}>
             <Image

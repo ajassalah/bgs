@@ -4,7 +4,7 @@
 }
 
 .asicBg {
-  background-color: #00234a;
+  background-color: #000061;
   color: white;
 }
 
@@ -53,8 +53,13 @@
   margin-bottom: 2.5rem;
 }
 
+.topUpText {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
 .btnRed {
-  background-color: #eb4d4b;
+  background-color: #bc0000;
   color: white;
   padding: 0.8rem 2rem;
   border-radius: 4px;
@@ -71,6 +76,7 @@
 
 .imageBox {
   grid-area: image;
+  width: 100%;
   max-width: 800px;
   height: 300px;
   margin-left: auto;
@@ -110,14 +116,23 @@
 @media (max-width: 992px) {
   .grid {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "image";
     text-align: center;
     gap: 3rem;
   }
+  .asicGrid {
+    grid-template-columns: 1fr;
+  }
   .reverse {
-    grid-template-areas: none;
+    grid-template-areas:
+      "content"
+      "image";
   }
   .content {
     margin: 0 auto;
+    max-width: 640px;
   }
   .logoItem {
     margin: 0 auto 2rem;
@@ -127,5 +142,45 @@
     margin: 0 auto;
     max-width: 100%;
     height: auto;
+    aspect-ratio: 16 / 10;
+  }
+  .asicImageBox {
+    max-width: 560px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding: 3.5rem 0;
+  }
+  .grid {
+    gap: 2rem;
+  }
+  .content {
+    max-width: 100%;
+  }
+  .logoItem {
+    width: 96px;
+    margin-bottom: 1.25rem;
+  }
+  .text {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
+  }
+  .topUpText {
+    font-size: 1.08rem;
+  }
+  .btnRed {
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+  }
+  .imageBox,
+  .asicImageBox {
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
   }
 }

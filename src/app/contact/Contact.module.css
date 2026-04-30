@@ -26,7 +26,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 35, 74, 0.7);
+  background: rgba(0, 0, 97, 0.7);
   z-index: 2;
 }
 
@@ -70,11 +70,25 @@
   margin-bottom: 3rem;
 }
 
+.keepInTouchSection {
+  margin-top: 4rem;
+}
+
+.keepInTouchDesc {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: #666;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+}
+
 .infoCard {
   background: #f8f9fa;
   padding: 2rem;
   border-radius: 8px;
-  border-left: 4px solid #eb4d4b;
+  border-left: 4px solid #bc0000;
   transition: transform 0.3s ease;
 }
 
@@ -84,7 +98,7 @@
 }
 
 .infoCard h3 {
-  color: #00234a;
+  color: #000061;
   font-size: 1.25rem;
   margin: 1rem 0 0.5rem;
   font-weight: 700;
@@ -110,12 +124,13 @@
 
 .formSection {
   background: white;
+  width: 100%;
 }
 
 .formTitle {
   font-size: 2.2rem;
   font-weight: 800;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1rem;
 }
 
@@ -127,6 +142,7 @@
 .contactForm {
   display: grid;
   gap: 1.5rem;
+  width: 100%;
 }
 
 .inputGroup {
@@ -137,20 +153,40 @@
 
 .input, .textarea {
   width: 100%;
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.95rem 1rem;
+  border: 1px solid #cfd7e2;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: inherit;
   font-size: 1rem;
+  line-height: 1.45;
   outline: none;
-  transition: border-color 0.3s;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input {
+  min-height: 54px;
+}
+
+.textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.input::placeholder, .textarea::placeholder {
+  color: #667385;
+  opacity: 1;
 }
 
 .input:focus, .textarea:focus {
-  border-color: #00234a;
+  border-color: #bc0000;
+  box-shadow: 0 0 0 3px rgba(188, 0, 0, 0.12);
 }
 
 .submitBtn {
-  background-color: #eb4d4b;
+  background-color: #bc0000;
   color: white;
   padding: 1rem 2.5rem;
   border: none;
@@ -164,7 +200,7 @@
 }
 
 .submitBtn:hover {
-  background-color: #00234a;
+  background-color: #000061;
   transform: translateY(-2px);
 }
 
@@ -208,12 +244,20 @@
   .infoCards {
     grid-template-columns: 1fr;
   }
+  .keepInTouchSection {
+    margin-top: 3rem;
+  }
+  .keepInTouchDesc {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
   .mapContainer {
     height: 300px;
     margin-top: 2rem;
   }
   .formTitle {
     font-size: 1.8rem;
+    line-height: 1.15;
   }
 }
 
@@ -224,5 +268,11 @@
   .submitBtn {
     width: 100%;
     text-align: center;
+  }
+  .contactForm {
+    gap: 1rem;
+  }
+  .input, .textarea {
+    font-size: 0.95rem;
   }
 }

@@ -35,7 +35,7 @@ const homeDoc = {
   // ── Hero ────────────────────────────────────────────────────────────
   heroTitle: 'Empowering Minds, Redefining Boundaries In Education',
   heroSubtitle:
-    'Unlock Your Potential With British Graduate School — Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.',
+    'Unlock Your Potential With British Graduate School - Where Global Expertise Meets Local Excellence, Preparing You For A Future Without Limits.',
   heroCTAText: 'Find Courses',
   heroAdmissionText: 'Admission',
   heroAdmissionLink: '/admissions',

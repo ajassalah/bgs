@@ -145,7 +145,7 @@
   bottom: 0;
   width: 50px;
   height: 3px;
-  background-color: #eb4d4b; /* BGS Primary Color */
+  background-color: #bc0000; /* BGS Primary Color */
 }
 
 .section p {
@@ -171,7 +171,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #eb4d4b;
+  color: #bc0000;
   font-weight: bold;
 }
 
@@ -192,12 +192,12 @@
 }
 
 .curriculumItem:hover {
-  border-color: #eb4d4b;
+  border-color: #bc0000;
   transform: translateX(5px);
 }
 
 .curriculumNumber {
-  background: #eb4d4b;
+  background: #bc0000;
   color: #fff;
   width: 30px;
   height: 30px;
@@ -232,7 +232,7 @@
 
 .btnApply {
   display: block;
-  background: #eb4d4b;
+  background: #bc0000;
   color: #fff;
   text-decoration: none;
   padding: 15px;

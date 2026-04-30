@@ -11,7 +11,7 @@
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1rem;
 }
 
@@ -44,13 +44,13 @@
 
 .icon {
   font-size: 2.5rem;
-  color: #eb4d4b;
+  color: #bc0000;
 }
 
 .title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 0.75rem;
 }
 

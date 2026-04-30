@@ -73,9 +73,9 @@ export default function ContactPage() {
             </div>
 
             {/* Bottom section: Intro and Cards */}
-            <div style={{ marginTop: '4rem' }}>
+            <div className={styles.keepInTouchSection}>
               <h2 className={styles.formTitle} style={{ textAlign: 'center' }}>Keep In Touch With Us.</h2>
-              <p style={{ textAlign: 'center', marginBottom: '3rem', fontSize: '1.2rem', fontWeight: '500', color: '#666', maxWidth: '800px', margin: '0 auto' }}>If you have any questions about the programmes we provide, simply use the form below. We try and respond to all queries and comments within 24 hours.</p>
+              <p className={styles.keepInTouchDesc}>If you have any questions about the programmes we provide, simply use the form below. We try and respond to all queries and comments within 24 hours.</p>
               
               <div className={styles.infoCards}>
                 <div className={styles.infoCard}>

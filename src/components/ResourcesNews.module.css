@@ -46,7 +46,7 @@
 }
 
 .meta {
-  color: #eb4d4b;
+  color: #bc0000;
   font-weight: 700;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -65,7 +65,7 @@
 }
 
 .cardTitle:hover {
-  color: #eb4d4b;
+  color: #bc0000;
 }
 
 .date {

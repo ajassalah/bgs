@@ -27,7 +27,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 35, 74, 0.72);
+  background: rgba(0, 0, 97, 0.72);
   z-index: 2;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .boardIntro h2 {
-  color: #00234a;
+  color: #000061;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 850;
 }
@@ -92,7 +92,7 @@
   padding: 1.25rem;
   border: 1px solid #edf0f4;
   border-radius: 8px;
-  box-shadow: 0 12px 30px rgba(0, 35, 74, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 97, 0.06);
   margin-bottom: 1.25rem;
 }
 
@@ -113,7 +113,7 @@
 .select:focus,
 .applicationForm input:focus,
 .applicationForm textarea:focus {
-  border-color: #eb4d4b;
+  border-color: #bc0000;
   outline: none;
 }
 
@@ -133,13 +133,13 @@
   border: 1px solid #edf0f4;
   border-radius: 8px;
   padding: 1.7rem;
-  box-shadow: 0 12px 30px rgba(0, 35, 74, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 97, 0.06);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .jobCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 42px rgba(0, 35, 74, 0.11);
+  box-shadow: 0 18px 42px rgba(0, 0, 97, 0.11);
 }
 
 .jobCardHeader {
@@ -151,7 +151,7 @@
 }
 
 .jobCard h3 {
-  color: #00234a;
+  color: #000061;
   font-size: 1.35rem;
   margin-bottom: 0.8rem;
 }
@@ -216,7 +216,7 @@
 .submitBtn {
   border: none;
   border-radius: 4px;
-  background: #eb4d4b;
+  background: #bc0000;
   color: #ffffff;
   padding: 0.75rem 1.2rem;
   font-weight: 800;
@@ -227,7 +227,7 @@
 .cardFooter button:hover,
 .noResults button:hover,
 .submitBtn:hover {
-  background: #00234a;
+  background: #000061;
   transform: translateY(-2px);
 }
 
@@ -270,14 +270,14 @@
 }
 
 .modalHeader h2 {
-  color: #00234a;
+  color: #000061;
   margin: 0;
 }
 
 .modalHeader button {
   border: none;
   background: #f4f7fb;
-  color: #00234a;
+  color: #000061;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -295,7 +295,7 @@
 
 .jobDetailGrid h3,
 .jobDetailGrid h4 {
-  color: #00234a;
+  color: #000061;
 }
 
 .jobDetailGrid p,
@@ -323,7 +323,7 @@
 }
 
 .jobFacts strong {
-  color: #00234a;
+  color: #000061;
 }
 
 .applicationForm {
@@ -341,12 +341,12 @@
 .applicationForm label {
   display: grid;
   gap: 0.55rem;
-  color: #00234a;
+  color: #000061;
   font-weight: 800;
 }
 
 .applicationForm label span {
-  color: #eb4d4b;
+  color: #bc0000;
 }
 
 .submitBtn {

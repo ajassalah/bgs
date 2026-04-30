@@ -1,14 +1,14 @@
 :root {
-  --primary: #00234a;
-  --primary-light: #003a7d;
+  --primary: #000061;
+  --primary-light: #10108a;
   --secondary: #d4af37;
-  --accent: #b22222;
+  --accent: #bc0000;
   --text-dark: #1a1a1a;
   --text-light: #ffffff;
   --text-muted: #6c757d;
   --bg-light: #ffffff;
   --bg-gray: #f8f9fa;
-  --bg-dark: #00152e;
+  --bg-dark: #000044;
   
   --font-heading: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -143,7 +143,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 35, 74, 0.7), rgba(0, 35, 74, 0.9));
+  background: linear-gradient(rgba(0, 0, 97, 0.7), rgba(0, 0, 97, 0.9));
 }
 
 @media (max-width: 768px) {

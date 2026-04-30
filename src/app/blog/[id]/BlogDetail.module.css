@@ -115,7 +115,7 @@
 }
 
 .category {
-  color: #eb4d4b;
+  color: #bc0000;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -167,7 +167,7 @@
 }
 
 .socialBtn:hover {
-  background: #eb4d4b;
+  background: #bc0000;
   color: #fff;
 }
 
@@ -193,6 +193,7 @@
   padding: 50px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #edf0f4;
 }
 
 .commentTitle {
@@ -200,7 +201,7 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #1a1a1a;
+  color: #000061;
 }
 
 .commentNote {
@@ -235,18 +236,33 @@
 
 .formGroup input, 
 .formGroup textarea {
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid #cfd7e2;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a1a1a;
   font-family: inherit;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  line-height: 1.45;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formGroup input {
+  min-height: 52px;
+}
+
+.formGroup textarea {
+  min-height: 180px;
+  resize: vertical;
 }
 
 .formGroup input:focus, 
 .formGroup textarea:focus {
   outline: none;
-  border-color: #eb4d4b;
+  border-color: #bc0000;
+  box-shadow: 0 0 0 3px rgba(188, 0, 0, 0.12);
 }
 
 .formGroupCheckbox {
@@ -260,10 +276,14 @@
 
 .formGroupCheckbox input {
   margin-top: 4px;
+  width: 16px;
+  height: 16px;
+  accent-color: #bc0000;
+  flex: 0 0 auto;
 }
 
 .commentBtn {
-  background: #1a1a1a;
+  background: #bc0000;
   color: #fff;
   padding: 15px 30px;
   border: none;
@@ -277,7 +297,7 @@
 }
 
 .commentBtn:hover {
-  background: #eb4d4b;
+  background: #000061;
 }
 
 /* Related Posts Styles */
@@ -325,7 +345,7 @@
 }
 
 .relatedMeta {
-  color: #eb4d4b;
+  color: #bc0000;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -357,5 +377,25 @@
   }
   .formRow {
     grid-template-columns: 1fr;
+  }
+  .commentSection {
+    margin-top: 40px;
+    padding: 28px 18px;
+    border-radius: 10px;
+  }
+  .commentTitle {
+    font-size: 1.45rem;
+  }
+  .commentNote {
+    margin-bottom: 22px;
+  }
+  .commentForm {
+    gap: 18px;
+  }
+  .formGroupCheckbox {
+    line-height: 1.5;
+  }
+  .commentBtn {
+    width: 100%;
   }
 }

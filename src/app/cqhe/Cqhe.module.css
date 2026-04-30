@@ -27,7 +27,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 35, 74, 0.7);
+  background: rgba(0, 0, 97, 0.7);
   z-index: 2;
 }
 
@@ -107,13 +107,13 @@
   border-radius: 8px;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 18px 45px rgba(0, 35, 74, 0.12);
+  box-shadow: 0 18px 45px rgba(0, 0, 97, 0.12);
   border: 1px solid #eef1f5;
 }
 
 .statCard span {
   display: block;
-  color: #b22222;
+  color: #bc0000;
   font-size: 2.6rem;
   font-weight: 900;
   line-height: 1;
@@ -121,7 +121,7 @@
 }
 
 .statCard p {
-  color: #00234a;
+  color: #000061;
   font-weight: 800;
   text-transform: uppercase;
   font-size: 0.92rem;
@@ -137,7 +137,7 @@
 }
 
 .mainTitle {
-  color: #00234a;
+  color: #000061;
   font-size: clamp(2rem, 4vw, 3.1rem);
   font-weight: 850;
   margin-bottom: 1.5rem;
@@ -145,7 +145,7 @@
 
 .subTitle {
   font-size: 1.7rem;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1.5rem;
 }
 
@@ -161,7 +161,7 @@
   grid-template-columns: 250px 1fr;
   gap: 2rem;
   align-items: center;
-  background: #00234a;
+  background: #000061;
   color: #ffffff;
   padding: 2.5rem;
   border-radius: 8px;
@@ -223,7 +223,7 @@
 
 .levelNum {
   display: block;
-  color: #b22222;
+  color: #bc0000;
   font-size: 1.3rem;
   font-weight: 900;
   margin-bottom: 0.7rem;
@@ -239,7 +239,7 @@
   border: 1px solid #edf0f4;
   border-radius: 8px;
   padding: 2rem;
-  box-shadow: 0 12px 30px rgba(0, 35, 74, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 97, 0.06);
 }
 
 .list {
@@ -261,7 +261,7 @@
   top: 0.55rem;
   width: 9px;
   height: 9px;
-  background: #b22222;
+  background: #bc0000;
   border-radius: 50%;
 }
 
@@ -277,7 +277,7 @@
   align-items: center;
   min-height: 42px;
   padding: 0.65rem 0.9rem;
-  color: #00234a;
+  color: #000061;
   background: #f5f7fa;
   border: 1px solid #e6ebf1;
   border-radius: 6px;
@@ -292,7 +292,7 @@
   background: #ffffff;
   border: 1px solid #edf0f4;
   border-radius: 8px;
-  box-shadow: 0 12px 30px rgba(0, 35, 74, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 97, 0.06);
 }
 
 .ukrlpImage {
@@ -343,7 +343,7 @@
 }
 
 .btnRed {
-  background: #b22222;
+  background: #bc0000;
   color: #ffffff;
 }
 
@@ -358,12 +358,12 @@
 }
 
 .btnRed:hover {
-  background: #00234a;
+  background: #000061;
 }
 
 .btnGhost:hover {
   background: #ffffff;
-  color: #00234a;
+  color: #000061;
 }
 
 @media (max-width: 992px) {

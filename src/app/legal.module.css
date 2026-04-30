@@ -26,7 +26,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 35, 74, 0.7);
+  background: rgba(0, 0, 97, 0.7);
   z-index: 2;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .content h1, .content h2, .content h3, .content h4, .content h5 {
-  color: #00234a;
+  color: #000061;
   margin: 2rem 0 1rem;
 }
 

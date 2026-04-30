@@ -79,7 +79,7 @@
 
 .heroBtn:hover {
   background: white;
-  color: #00234a;
+  color: #000061;
 }
 
 /* Intro Section Styles */
@@ -97,7 +97,7 @@
 .mainTitle {
   font-size: 2.8rem;
   font-weight: 800;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 2rem;
 }
 
@@ -140,7 +140,7 @@
 
 .destContent h3 {
   font-size: 1.6rem;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1rem;
   font-weight: 800;
 }
@@ -154,8 +154,8 @@
 .btnApply {
   display: inline-block;
   padding: 0.8rem 2rem;
-  border: 1px solid #eb4d4b;
-  color: #eb4d4b;
+  border: 1px solid #bc0000;
+  color: #bc0000;
   text-decoration: none;
   font-weight: 700;
   border-radius: 4px;
@@ -163,7 +163,7 @@
 }
 
 .btnApply:hover {
-  background: #eb4d4b;
+  background: #bc0000;
   color: white;
 }
 
@@ -177,7 +177,7 @@
 .subTitle {
   font-size: 2rem;
   font-weight: 800;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1.5rem;
 }
 
@@ -203,7 +203,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: #eb4d4b;
+  color: #bc0000;
   font-weight: bold;
 }
 
@@ -286,7 +286,7 @@
 .locationsHeader h2 {
   font-size: 3rem;
   font-weight: 800;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1rem;
 }
 
@@ -310,7 +310,7 @@
 .sidebar h3 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #00234a;
+  color: #000061;
   margin-bottom: 1.5rem;
 }
 
@@ -329,9 +329,9 @@
 
 .sidebarBtn {
   padding: 1rem 1.8rem;
-  border: 2px solid #00234a;
+  border: 2px solid #000061;
   border-radius: 8px;
-  color: #00234a;
+  color: #000061;
   text-decoration: none;
   font-weight: 800;
   display: flex;
@@ -341,7 +341,7 @@
 }
 
 .sidebarBtn:hover {
-  background: #00234a;
+  background: #000061;
   color: white;
 }
 
@@ -362,7 +362,7 @@
   padding: 2.5rem;
   color: white;
   transition: transform 0.4s;
-  background: #00234a; /* Fallback background */
+  background: #000061; /* Fallback background */
 }
 
 .cityCard:hover {

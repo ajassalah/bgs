@@ -64,7 +64,7 @@ export default function ProgramCategories({ data }: { data?: any }) {
 
             return (
               <Link href={categoryLink} key={`${cat.title}-${idx}`} className={styles.card}>
-                <div className={styles.imageContainer} style={{ position: 'relative', overflow: 'hidden', background: '#00234a' }}>
+                <div className={styles.imageContainer} style={{ position: 'relative', overflow: 'hidden', background: '#000061' }}>
                   <Image 
                     src={imageSrc} 
                     alt={cat.title || "Program Category"} 

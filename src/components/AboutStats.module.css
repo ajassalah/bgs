@@ -1,5 +1,5 @@
 .section {
-  background-color: #00234a;
+  background-color: #000061;
   color: white;
   padding: 60px 0;
 }
@@ -33,7 +33,7 @@
 
 .motivationalBox {
   padding: 100px 2rem;
-  background: linear-gradient(to bottom, #00234a 0%, #eb4d4b 100%);
+  background: linear-gradient(to bottom, #000061 0%, #bc0000 100%);
   text-align: center;
   border-radius: 8px;
 }

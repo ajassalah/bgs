@@ -1,5 +1,5 @@
 .section {
-  background-color: #542b74;
+  background-color: #bc0000;
   padding: 60px 0;
   color: white;
 }
@@ -40,8 +40,8 @@
 }
 
 .btnPrimary {
-  background-color: #f5a623;
-  color: #000;
+  background-color: #000061;
+  color: #fff;
   padding: 0.8rem 2rem;
   border-radius: 6px;
   font-weight: 600;
@@ -53,7 +53,7 @@
 }
 
 .btnPrimary:hover {
-  background-color: #e0961b;
+  background-color: #000044;
   transform: translateY(-2px);
 }
 

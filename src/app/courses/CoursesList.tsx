@@ -169,7 +169,7 @@ export default function CoursesList({ initialCourses }: { initialCourses: any[] 
                 <h3>No courses found matching your criteria.</h3>
                 <button 
                   onClick={() => {setSearchTerm(""); setSelectedCategory("All Categories"); setSelectedBody("All Awarding Bodies");}}
-                  style={{ color: '#eb4d4b', fontSize: '1rem', marginTop: '1rem', cursor: 'pointer', background: 'none', border: 'none', textDecoration: 'underline' }}
+                  style={{ color: '#bc0000', fontSize: '1rem', marginTop: '1rem', cursor: 'pointer', background: 'none', border: 'none', textDecoration: 'underline' }}
                 >
                   Clear all filters
                 </button>

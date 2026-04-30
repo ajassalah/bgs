@@ -207,17 +207,17 @@ export default function LifeAtBGSPage() {
                 </p>
               </div>
               <div className={styles.categoriesGrid}>
-                <div className={styles.facilityCard} style={{ borderTopColor: '#00234a' }}>
+                <div className={styles.facilityCard} style={{ borderTopColor: '#000061' }}>
                   <span className={styles.facilityIcon}>🎯</span>
                   <h4>Skill Workshops</h4>
                   <p>Public speaking, leadership, coding, and language training to sharpen your edge.</p>
                 </div>
-                <div className={styles.facilityCard} style={{ borderTopColor: '#00234a' }}>
+                <div className={styles.facilityCard} style={{ borderTopColor: '#000061' }}>
                   <span className={styles.facilityIcon}>🤝</span>
                   <h4>Networking</h4>
                   <p>Career fairs, guest lectures, and alumni meetups to build your professional circle.</p>
                 </div>
-                <div className={styles.facilityCard} style={{ borderTopColor: '#00234a' }}>
+                <div className={styles.facilityCard} style={{ borderTopColor: '#000061' }}>
                   <span className={styles.facilityIcon}>🎉</span>
                   <h4>Social Gatherings</h4>
                   <p>Movie nights, themed parties, and talent shows to unwind and connect with peers.</p>

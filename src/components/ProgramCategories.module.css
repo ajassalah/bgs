@@ -1,6 +1,6 @@
 .section {
   padding: 4rem 0;
-  background: white;
+  background: #000061;
 }
 
 .grid {
@@ -16,6 +16,7 @@
   overflow: hidden;
   display: block;
   transition: transform 0.3s ease;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
 }
 
 .card:hover {

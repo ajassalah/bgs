@@ -20,11 +20,11 @@ export default function TopUpCertification({ data }: { data?: any }) {
   }
 
   return (
-    <section className={`${styles.section} ${styles.asicBg}`} style={{ backgroundColor: '#00234a' }}>
+    <section className={`${styles.section} ${styles.asicBg}`}>
       <div className="container">
         <div className={`${styles.grid} ${styles.asicGrid}`}>
           <div className={styles.content}>
-            <p className={styles.text} style={{ fontSize: '1.4rem', fontWeight: 600 }}>
+            <p className={`${styles.text} ${styles.topUpText}`}>
               {block.text || "BGS programmes open pathways to globally recognised Bachelor's and Master's top-up degrees..."}
             </p>
             <Link href={block.buttonLink || "/courses"} className={styles.btnRed}>{block.buttonText || "Find Programs"}</Link>
