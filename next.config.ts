@@ -16,7 +16,6 @@ const securityHeaders = [
       "connect-src 'self' https://*.api.sanity.io https://*.apicdn.sanity.io https://cdn.sanity.io https://registry.npmjs.org https://sentry-new.tidio.co https://socket.tidio.co wss://socket.tidio.co https://uploads.tidio.com https://www.google-analytics.com https://analytics.google.com",
       "media-src 'self' https://code.tidio.co https://kensleygraduateschool.com",
       "frame-src 'self' https://www.google.com https://docs.google.com",
-      "upgrade-insecure-requests",
     ].join("; "),
   },
   {
