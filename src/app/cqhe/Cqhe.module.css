@@ -97,7 +97,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
-  margin: -70px 0 5rem;
+  margin: 1rem 0 5rem;
   position: relative;
   z-index: 15;
 }
@@ -415,7 +415,7 @@
   }
 
   .statsGrid {
-    margin: -45px 0 4rem;
+    margin: 0.75rem 0 4rem;
   }
 
   .levelsSection,
