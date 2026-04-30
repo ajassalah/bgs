@@ -40,11 +40,16 @@ jobs:
 
       - name: Prepare deployment bundle
         run: |
+          rm -rf deploy
           mkdir -p deploy/.next
           cp -a .next/standalone/. deploy/
           cp -r .next/static deploy/.next/static
+          cp -r .next/server deploy/.next/server
+          cp .next/BUILD_ID deploy/.next/BUILD_ID
+          cp .next/*.json deploy/.next/
           cp -r public deploy/public
           cp ecosystem.config.cjs deploy/ecosystem.config.cjs
+          ls -la deploy/.next
           tar -czf release.tar.gz -C deploy .
 
       - name: Upload bundle to server
