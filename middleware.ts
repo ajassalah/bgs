@@ -6,9 +6,8 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get("host")?.split(":")[0];
   const forwardedProto = request.headers.get("x-forwarded-proto");
   const isLocalHost = host ? LOCAL_HOSTS.has(host) : false;
-  const isHttp = forwardedProto === "http" || request.nextUrl.protocol === "http:";
 
-  if (!isLocalHost && isHttp) {
+  if (!isLocalHost && forwardedProto === "http") {
     const url = request.nextUrl.clone();
     url.protocol = "https:";
     return NextResponse.redirect(url, 308);
