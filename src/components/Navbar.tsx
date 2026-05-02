@@ -116,7 +116,21 @@ export default function Navbar() {
       <nav className={styles.navbar}>
         <div className={styles.container}>
           <Link href="/" className={styles.logo}>
-            <Image src="/BGS UK Logo.png" alt="BGS Logo" width={180} height={60} style={{ height: '60px', width: '180px', objectFit: 'contain', backgroundColor: 'white', padding: '5px', borderRadius: '6px' }} />
+            <Image
+              src="/BGS UK Logo.png"
+              alt="BGS Logo"
+              width={180}
+              height={60}
+              className={styles.logoImage}
+            />
+            <Image
+              src="/BGS UK Logo White.png"
+              alt=""
+              width={180}
+              height={60}
+              aria-hidden="true"
+              className={styles.logoImageWhite}
+            />
           </Link>
           <div className={styles.navLinks}>
             <Link href="/courses" className={styles.navLink}>Programs</Link>

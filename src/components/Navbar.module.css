@@ -19,8 +19,17 @@
   background: transparent;
 }
 
+.wrapper.transparent .navLink {
+  color: white;
+}
+
+.wrapper.transparent .bar {
+  background: white;
+}
+
 .wrapper.solid .navbar {
-  background: #000061;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .wrapper.solid .topBar {
@@ -92,8 +101,8 @@
 }
 
 .scrolled .navbar {
-  background: #000061;
-  box-shadow: var(--shadow-md);
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .scrolled .topBar {
@@ -101,11 +110,11 @@
 }
 
 .scrolled .navLink {
-  color: white;
+  color: #000061;
 }
 
 .scrolled .logo {
-  color: white;
+  color: #000061;
 }
 
 .container {
@@ -113,23 +122,70 @@
   margin: 0 auto;
   padding: 1.25rem 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.navbar .container {
+  justify-content: flex-start;
+  gap: clamp(2rem, 5vw, 4.5rem);
 }
 
 .logo {
   font-family: var(--font-heading);
   color: white;
+  position: relative;
+  display: flex;
+  width: 180px;
+  height: 60px;
+  align-items: center;
+  flex: 0 0 180px;
+}
+
+.logoImage,
+.logoImageWhite {
+  position: absolute;
+  inset: 0;
+  width: 180px;
+  height: 60px;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+
+.logoImage {
+  opacity: 1;
+}
+
+.logoImageWhite {
+  opacity: 0;
+}
+
+.wrapper.transparent .logoImage {
+  opacity: 0;
+}
+
+.wrapper.transparent .logoImageWhite {
+  opacity: 1;
+}
+
+.wrapper.transparent .logo:hover .logoImage,
+.wrapper.transparent .logo:focus-visible .logoImage {
+  opacity: 1;
+}
+
+.wrapper.transparent .logo:hover .logoImageWhite,
+.wrapper.transparent .logo:focus-visible .logoImageWhite {
+  opacity: 0;
 }
 
 .navLinks {
   display: flex;
   gap: 1.65rem;
   align-items: center;
+  margin-left: auto;
 }
 
 .navLink {
-  color: white;
+  color: #000061;
   font-weight: 700;
   font-size: 1.05rem;
   position: relative;
@@ -400,7 +456,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background: white;
+  background: #000061;
   border-radius: 3px;
   transition: all 0.3s ease;
 }

@@ -50,7 +50,13 @@ export default function Footer() {
         <div className={styles.middleRow}>
           <div className={styles.middleLogo}>
             <Link href="/" className={styles.logo}>
-              <Image src="/BGS UK Logo.png" alt="BGS Logo" width={240} height={80} style={{ height: '80px', width: '240px', objectFit: 'contain', backgroundColor: 'white', padding: '10px', borderRadius: '8px' }} />
+              <Image
+                src="/BGS UK Logo White.png"
+                alt="BGS Logo"
+                width={240}
+                height={80}
+                className={styles.footerLogo}
+              />
             </Link>
           </div>
 

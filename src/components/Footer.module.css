@@ -134,6 +134,12 @@
   gap: 2rem;
 }
 
+.footerLogo {
+  width: 240px;
+  height: 80px;
+  object-fit: contain;
+}
+
 .partnerLogos {
   display: flex;
   justify-content: center;
