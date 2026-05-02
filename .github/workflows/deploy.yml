@@ -98,7 +98,9 @@ jobs:
             . "$SHARED_DIR/.env.production"
             set +a
 
-            pm2 startOrReload ecosystem.config.cjs --update-env
+            pm2 delete british-graduate-school 2>/dev/null || true
+            env -u HOSTNAME HOSTNAME=0.0.0.0 HOST=0.0.0.0 PORT=3000 NODE_ENV=production \
+              pm2 start server.js --name british-graduate-school
             pm2 save
 
             rm -f /tmp/release.tar.gz
