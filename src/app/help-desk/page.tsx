@@ -6,6 +6,7 @@ import Link from "next/link";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 import { Metadata } from "next";
+import { buildApplyHref } from "@/lib/applyLink";
 
 export const metadata: Metadata = {
   title: "Help Desk | Application Support & Guidance",
@@ -13,6 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default function HelpDeskPage() {
+  const applyHref = buildApplyHref({
+    title: "Help Desk application support",
+    path: "/help-desk",
+  });
+
   return (
     <main style={{ overflowX: 'hidden' }}>
       <JsonLd
@@ -78,7 +84,7 @@ export default function HelpDeskPage() {
                   <div className={styles.stepContent}>
                     <h3>Complete Application Form</h3>
                     <p>The University of Acadia uses Apply web for the processing of graduate applications. Proceed to the link below to create an Apply web account, submit an application review a submitted application, and access post-submission functionality.</p>
-                    <a href="/apply" className={styles.btnRedSmall}>Application Form</a>
+                    <a href={applyHref} className={styles.btnRedSmall}>Application Form</a>
                   </div>
                 </div>
 

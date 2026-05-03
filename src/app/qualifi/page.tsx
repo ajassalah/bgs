@@ -5,6 +5,7 @@ import Image from "next/image";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 import { Metadata } from "next";
+import { buildApplyHref } from "@/lib/applyLink";
 
 export const metadata: Metadata = {
   title: "Qualifi Endorsement | Global Quality Standards",
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
 };
 
 export default function QualifiPage() {
+  const applyHref = buildApplyHref({
+    title: "Qualifi Endorsement",
+    path: "/qualifi",
+  });
+
   return (
     <main style={{ overflowX: 'hidden' }}>
       <JsonLd
@@ -52,7 +58,7 @@ export default function QualifiPage() {
             A Premier Education Distinction. British Graduate School is proud to be a Qualifi Endorsed institution, ensuring the highest standards of academic excellence.
           </p>
           <div className={styles.heroActions}>
-            <a href="/apply" className={styles.btnRed}>
+            <a href={applyHref} className={styles.btnRed}>
               Inquire Now
             </a>
             <a
@@ -118,7 +124,7 @@ export default function QualifiPage() {
           <div className={styles.ctaBanner}>
             <h3>Ready to join a premier institution?</h3>
             <p>Start your journey with British Graduate School today.</p>
-            <a href="/apply" className={styles.btnWhite}>Inquire Now</a>
+            <a href={applyHref} className={styles.btnWhite}>Inquire Now</a>
           </div>
         </div>
       </section>

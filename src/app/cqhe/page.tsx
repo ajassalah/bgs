@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import { Metadata } from "next";
+import { buildApplyHref } from "@/lib/applyLink";
 import Image from "next/image";
 import styles from "./Cqhe.module.css";
 
@@ -59,6 +60,11 @@ const values = [
 ];
 
 export default function CqhePage() {
+  const applyHref = buildApplyHref({
+    title: "CQHE",
+    path: "/cqhe",
+  });
+
   return (
     <main className={styles.page}>
       <JsonLd
@@ -101,7 +107,7 @@ export default function CqhePage() {
             global learners.
           </p>
           <div className={styles.heroActions}>
-            <a href="/apply" className={styles.btnRed}>
+            <a href={applyHref} className={styles.btnRed}>
               Inquire Now
             </a>
             <a href="https://cqhe.org.uk/" target="_blank" className={styles.btnGhost}>
@@ -225,7 +231,7 @@ export default function CqhePage() {
               qualification pathways with guidance, flexible study support, and
               progression-focused academic advice.
             </p>
-            <a href="/apply" className={styles.btnRed}>
+            <a href={applyHref} className={styles.btnRed}>
               Inquire Now
             </a>
           </div>

@@ -20,8 +20,6 @@ export default function AdmissionsPage() {
     { title: "Confirmation", desc: "Await confirmation and personalized guidance from our team." }
   ];
 
-  const googleFormUrl = "https://docs.google.com/forms/d/1Tzzp3Pi2byK0x4TeLBFRS39kX0wbDoAdA3-saD9nOH4/viewform?edit_requested=true";
-
   return (
     <main style={{ overflowX: 'hidden' }}>
       <JsonLd
@@ -44,7 +42,7 @@ export default function AdmissionsPage() {
             Become a student of British Graduate School of Business. Together, let&apos;s continue to motivate the next generation to dream big, aim high, and achieve greatness.
           </p>
           <div className="mt-8">
-            <Link href={googleFormUrl} target="_blank" className={styles.admissionBtn}>
+            <Link href="/apply" className={styles.admissionBtn}>
               APPLY NOW
             </Link>
           </div>
@@ -128,7 +126,7 @@ export default function AdmissionsPage() {
                   <div className={styles.listItem}>Flexible monthly payment plans available</div>
                 </div>
                 <div className="mt-8">
-                  <Link href={googleFormUrl} target="_blank" className={styles.admissionBtn}>
+                  <Link href="/apply" className={styles.admissionBtn}>
                     Submit Your Application
                   </Link>
                 </div>

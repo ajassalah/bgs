@@ -1,5 +1,5 @@
-import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { escapeHtml, getMailSettings, isMissingEmailConfig } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -11,6 +11,7 @@ type ApplyPayload = {
   awardingBody: string;
   program: string;
   contactMethod: string;
+  subject: string;
   message: string;
 };
 
@@ -18,26 +19,9 @@ function asString(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
 
-function requireEnv(name: string) {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(`Missing ${name}`);
-  }
-  return value;
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
 function buildTextEmail(payload: ApplyPayload) {
   return [
-    "New application enquiry",
+    payload.subject || "New application enquiry",
     "",
     `Name: ${payload.firstName} ${payload.lastName}`,
     `Email: ${payload.email}`,
@@ -53,6 +37,7 @@ function buildTextEmail(payload: ApplyPayload) {
 
 function buildHtmlEmail(payload: ApplyPayload) {
   const rows = [
+    ["Subject", payload.subject || "New application enquiry"],
     ["Name", `${payload.firstName} ${payload.lastName}`],
     ["Email", payload.email],
     ["Phone", payload.phone],
@@ -62,7 +47,7 @@ function buildHtmlEmail(payload: ApplyPayload) {
   ];
 
   return `
-    <h2>New application enquiry</h2>
+    <h2>${escapeHtml(payload.subject || "New application enquiry")}</h2>
     <table cellpadding="8" cellspacing="0" style="border-collapse:collapse">
       ${rows
         .map(
@@ -80,6 +65,34 @@ function buildHtmlEmail(payload: ApplyPayload) {
   `;
 }
 
+function buildConfirmationText(payload: ApplyPayload) {
+  return [
+    `Dear ${payload.firstName},`,
+    "",
+    "Thank you for contacting British Graduate School. We have received your enquiry and our admissions team will review it shortly.",
+    "",
+    "Your enquiry summary:",
+    `Subject: ${payload.subject || "Application enquiry"}`,
+    `Awarding Body: ${payload.awardingBody}`,
+    `Program: ${payload.program}`,
+    "",
+    "Kind regards,",
+    "British Graduate School",
+  ].join("\n");
+}
+
+function buildConfirmationHtml(payload: ApplyPayload) {
+  return `
+    <p>Dear ${escapeHtml(payload.firstName)},</p>
+    <p>Thank you for contacting British Graduate School. We have received your enquiry and our admissions team will review it shortly.</p>
+    <h3>Your enquiry summary</h3>
+    <p><strong>Subject:</strong> ${escapeHtml(payload.subject || "Application enquiry")}</p>
+    <p><strong>Awarding Body:</strong> ${escapeHtml(payload.awardingBody)}</p>
+    <p><strong>Program:</strong> ${escapeHtml(payload.program)}</p>
+    <p>Kind regards,<br>British Graduate School</p>
+  `;
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -91,6 +104,7 @@ export async function POST(request: Request) {
       awardingBody: asString(body.awardingBody),
       program: asString(body.program),
       contactMethod: asString(body.contactMethod),
+      subject: asString(body.subject),
       message: asString(body.message),
     };
 
@@ -108,41 +122,31 @@ export async function POST(request: Request) {
       );
     }
 
-    const smtpHost = requireEnv("SMTP_HOST");
-    const smtpPort = Number(process.env.SMTP_PORT || 587);
-    const smtpUser = requireEnv("SMTP_USER");
-    const smtpPass = requireEnv("SMTP_PASS");
-    const from = process.env.SMTP_FROM || smtpUser;
-    const to = process.env.APPLY_NOTIFICATION_EMAIL || "info@britishgraduateschool.co.uk";
+    const { from, notificationEmail, transporter } = getMailSettings();
+    const subject = payload.subject || `New BGS application enquiry - ${payload.firstName} ${payload.lastName}`;
 
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpPort === 465,
-      requireTLS: smtpPort === 587,
-      tls: {
-        rejectUnauthorized: process.env.SMTP_TLS_REJECT_UNAUTHORIZED !== "false",
-      },
-      auth: {
-        user: smtpUser,
-        pass: smtpPass,
-      },
+    await transporter.sendMail({
+      from,
+      to: notificationEmail,
+      replyTo: payload.email,
+      subject,
+      text: buildTextEmail(payload),
+      html: buildHtmlEmail(payload),
     });
 
     await transporter.sendMail({
       from,
-      to,
-      replyTo: payload.email,
-      subject: `New BGS application enquiry - ${payload.firstName} ${payload.lastName}`,
-      text: buildTextEmail(payload),
-      html: buildHtmlEmail(payload),
+      to: payload.email,
+      subject: "We received your British Graduate School enquiry",
+      text: buildConfirmationText(payload),
+      html: buildConfirmationHtml(payload),
     });
 
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Apply form submission failed:", error);
     const message = error instanceof Error ? error.message : "";
-    const isMissingConfig = message.startsWith("Missing SMTP_");
+    const isMissingConfig = isMissingEmailConfig(error);
     const isDevelopment = process.env.NODE_ENV === "development";
 
     return NextResponse.json(

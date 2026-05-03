@@ -14,9 +14,9 @@ export default function CTASection({ data }: { data?: any }) {
             <p className={styles.description}>{desc}</p>
           </div>
           <div className={styles.buttons}>
-            <a href="https://docs.google.com/forms/d/1Tzzp3Pi2byK0x4TeLBFRS39kX0wbDoAdA3-saD9nOH4/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" className={styles.btnPrimary}>
+            <Link href="/apply" className={styles.btnPrimary}>
               Apply now
-            </a>
+            </Link>
             <Link href="/contact" className={styles.btnOutline}>
               Contact us
             </Link>

@@ -7,8 +7,34 @@ import { getCourses } from "@/sanity/lib/queries";
 
 export const dynamic = "force-dynamic";
 
-export default async function ApplyPage() {
+type ApplySearchParams = {
+  subject?: string;
+  sourceTitle?: string;
+  sourcePath?: string;
+};
+
+function asParam(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] || "" : value || "";
+}
+
+export default async function ApplyPage({
+  searchParams,
+}: {
+  searchParams?: Promise<ApplySearchParams>;
+}) {
   const courses = await getCourses();
+  const params = searchParams ? await searchParams : {};
+  const sourceTitle = asParam(params.sourceTitle);
+  const subject = asParam(params.subject) || (sourceTitle ? `Enquiry about ${sourceTitle}` : "");
+  const initialMessage = sourceTitle
+    ? [
+        `I am interested in ${sourceTitle}.`,
+        "",
+        "Please send me more information about entry requirements, fees, and next intakes.",
+      ]
+        .filter(Boolean)
+        .join("\n")
+    : "";
 
   return (
     <main style={{ overflowX: 'hidden' }}>
@@ -43,7 +69,11 @@ export default async function ApplyPage() {
               <p>Fill out the application form below to begin your journey with British Graduate School. We will review your application and get back to you shortly.</p>
             </div>
 
-            <ApplyForm courses={courses} />
+            <ApplyForm
+              courses={courses}
+              initialSubject={subject}
+              initialMessage={initialMessage}
+            />
           </div>
         </div>
       </section>

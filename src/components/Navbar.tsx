@@ -4,11 +4,35 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { buildApplyHref } from "@/lib/applyLink";
 import styles from "./Navbar.module.css";
+
+const pageTitles: Record<string, string> = {
+  "/": "British Graduate School",
+  "/about": "About British Graduate School",
+  "/admissions": "Admissions",
+  "/blog": "Blog",
+  "/career": "Career",
+  "/contact": "Contact",
+  "/courses": "Programs",
+  "/cqhe": "CQHE",
+  "/help-desk": "Help Desk",
+  "/life": "Student Life",
+  "/othm": "OTHM",
+  "/qualifi": "Qualifi Endorsement",
+  "/study-abroad": "Study Abroad",
+};
 
 export default function Navbar() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const currentPageTitle =
+    pageTitles[pathname] ||
+    (pathname.startsWith("/courses/") ? "Course enquiry" : "British Graduate School");
+  const applyHref = buildApplyHref({
+    title: currentPageTitle,
+    path: pathname,
+  });
   
   const [scrolled, setScrolled] = useState(false);
   const [pastHero, setPastHero] = useState(false);
@@ -224,7 +248,7 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-            <Link href="/apply" className={styles.cta}>Inquire Now</Link>
+            <Link href={applyHref} className={styles.cta}>Inquire Now</Link>
           </div>
 
           {/* Hamburger Button */}
@@ -344,7 +368,7 @@ export default function Navbar() {
             </Link>
           </div>
         )}
-        <Link href="/apply" className={styles.mobileCta} onClick={closeMenu}>Inquire Now</Link>
+        <Link href={applyHref} className={styles.mobileCta} onClick={closeMenu}>Inquire Now</Link>
       </div>
     </div>
   );

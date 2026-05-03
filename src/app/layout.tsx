@@ -4,6 +4,7 @@ import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import Analytics from "@/components/Analytics";
 import TidioChat from "@/components/TidioChat";
+import CookieConsent from "@/components/CookieConsent";
 
 
 
@@ -69,6 +70,7 @@ export default function RootLayout({
         <Analytics />
         <TidioChat />
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

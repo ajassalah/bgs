@@ -9,6 +9,7 @@ import { getCourse } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@/sanity/lib/image";
 import JsonLd from "@/components/JsonLd";
+import { buildApplyHref } from "@/lib/applyLink";
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +39,11 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
     : (typeof course.image === 'string' 
         ? course.image 
         : (urlForImage(course.image)?.url() || "/course inside hero section .jpg"));
+  const applyHref = buildApplyHref({
+    title: course.title,
+    path: `/courses/${id}`,
+    subject: `Course enquiry - ${course.title}`,
+  });
 
   return (
     <main className={styles.main}>
@@ -168,7 +174,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
             <div className={styles.inquiryCard}>
               <h3>Interested in this Course?</h3>
               <p>Contact our admissions team to learn more about the enrollment process, fees, and upcoming intakes.</p>
-              <Link href="/contact" className={styles.btnApply}>
+              <Link href={applyHref} className={styles.btnApply}>
                 Make an Inquiry
               </Link>
             </div>

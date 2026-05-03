@@ -6,6 +6,7 @@ import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 import { Metadata } from "next";
 import Link from "next/link";
+import { buildApplyHref } from "@/lib/applyLink";
 import StudyAbroadHero from "./StudyAbroadHero";
 
 export const metadata: Metadata = {
@@ -173,7 +174,14 @@ export default function StudyAbroadPage() {
                   <h3>{loc.country}</h3>
                   <p>{loc.description}</p>
                   <div className={styles.sidebarActions}>
-                    <Link href="/apply" className={styles.sidebarBtn}>
+                    <Link
+                      href={buildApplyHref({
+                        title: loc.country,
+                        path: `/study-abroad#${loc.id}`,
+                        subject: `Enquiry about studying in ${loc.country}`,
+                      })}
+                      className={styles.sidebarBtn}
+                    >
                       {loc.btnText} <span>→</span>
                     </Link>
                   </div>

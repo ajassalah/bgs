@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import styles from "./Contact.module.css";
 import JsonLd from "@/components/JsonLd";
 import Image from "next/image";
+import ContactForm from "./ContactForm";
 
 export default function ContactPage() {
   return (
@@ -59,16 +60,7 @@ export default function ContactPage() {
                 <p className={styles.formDesc}>
                   If you have any questions about the programmes we provide, simply use the form below. We try to respond to all queries and comments within 24 hours.
                 </p>
-                <form className={styles.contactForm}>
-                  <div className={styles.inputGroup}>
-                    <input type="text" placeholder="First Name" className={styles.input} required />
-                    <input type="text" placeholder="Last Name" className={styles.input} required />
-                  </div>
-                  <input type="email" placeholder="Email Address" className={styles.input} required />
-                  <input type="text" placeholder="Subject" className={styles.input} required />
-                  <textarea placeholder="Your Message" rows={6} className={styles.textarea} required></textarea>
-                  <button type="submit" className={styles.submitBtn}>Send Message</button>
-                </form>
+                <ContactForm />
               </div>
             </div>
 
