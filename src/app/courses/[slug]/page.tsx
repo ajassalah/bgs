@@ -5,28 +5,38 @@ import CTASection from "@/components/CTASection";
 import styles from "./CourseDetail.module.css";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCourse } from "@/sanity/lib/queries";
+import { getCourse, getCourses } from "@/sanity/lib/queries";
 import { PortableText } from "@portabletext/react";
 import { urlForImage } from "@/sanity/lib/image";
 import JsonLd from "@/components/JsonLd";
 import { buildApplyHref } from "@/lib/applyLink";
+import { getCourseSlug } from "@/lib/courseSlug";
 
 export const dynamic = "force-dynamic";
 
-export default async function CourseDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function CourseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   
   // Try to fetch from Sanity first
   let course: any = null;
   try {
-    course = await getCourse(id);
+    course = await getCourse(slug);
   } catch (error) {
     console.error("Sanity fetch failed:", error);
   }
 
+  if (!course) {
+    try {
+      const courses = await getCourses();
+      course = courses.find((item: any) => getCourseSlug(item) === slug || item.id === slug);
+    } catch (error) {
+      console.error("Sanity course list fetch failed:", error);
+    }
+  }
+
   // Fallback to static data
   if (!course) {
-    course = staticCourses.find((c) => c.id === id);
+    course = staticCourses.find((c) => getCourseSlug(c) === slug || c.id === slug);
   }
 
   if (!course) {
@@ -41,7 +51,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ i
         : (urlForImage(course.image)?.url() || "/course inside hero section .jpg"));
   const applyHref = buildApplyHref({
     title: course.title,
-    path: `/courses/${id}`,
+    path: `/courses/${getCourseSlug(course)}`,
     subject: `Course enquiry - ${course.title}`,
   });
 

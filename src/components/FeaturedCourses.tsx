@@ -4,6 +4,7 @@ import { allCourses } from "@/data/courses";
 import Image from "next/image";
 import { getCourses } from "@/sanity/lib/queries";
 import { urlForImage } from "@/sanity/lib/image";
+import { getCourseSlug } from "@/lib/courseSlug";
 
 export default async function FeaturedCourses({ data }: { data?: any }) {
   // Use manually selected courses from Home schema if they exist
@@ -40,7 +41,7 @@ export default async function FeaturedCourses({ data }: { data?: any }) {
         
         <div className={styles.coursesGrid}>
           {featuredCourses.map((course: any) => (
-            <div key={course.id} className={styles.courseCard}>
+            <div key={course.id || getCourseSlug(course)} className={styles.courseCard}>
               <div className={styles.courseImage}>
                 {course.image ? (
                   <Image 
@@ -60,7 +61,7 @@ export default async function FeaturedCourses({ data }: { data?: any }) {
               <div className={styles.courseContent}>
                 <div className={styles.courseLevel}>{course.awardingBody} {course.level}</div>
                 <h3 className={styles.courseTitle}>{course.title}</h3>
-                <Link href={`/courses/${course.id}`} className={styles.learnMore}>
+                <Link href={`/courses/${getCourseSlug(course)}`} className={styles.learnMore}>
                   View Details
                 </Link>
               </div>

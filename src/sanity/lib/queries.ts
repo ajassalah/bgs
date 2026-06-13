@@ -54,6 +54,7 @@ export async function getPost(id: string) {
 export async function getCourses() {
   const query = `*[_type == "course"] {
     "id": id,
+    "slug": slug.current,
     title,
     level,
     category,
@@ -79,9 +80,10 @@ export async function getCourses() {
   }
 }
 
-export async function getCourse(id: string) {
-  const query = `*[_type == "course" && id == $id][0] {
+export async function getCourse(slugOrId: string) {
+  const query = `*[_type == "course" && (slug.current == $slugOrId || id == $slugOrId)][0] {
     "id": id,
+    "slug": slug.current,
     title,
     level,
     category,
@@ -99,7 +101,7 @@ export async function getCourse(id: string) {
   }`
 
   try {
-    const data = await client.fetch(query, { id })
+    const data = await client.fetch(query, { slugOrId })
     return data
   } catch (error) {
     console.error('Error fetching course:', error)
@@ -117,6 +119,7 @@ export async function getHomeData() {
     featuredCoursesSubtitle,
     "featuredCourses": featuredCourses[]-> {
       "id": id,
+      "slug": slug.current,
       title,
       level,
       category,

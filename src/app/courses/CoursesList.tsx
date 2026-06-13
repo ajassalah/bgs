@@ -5,6 +5,7 @@ import styles from "./Courses.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { urlForImage } from "@/sanity/lib/image";
+import { getCourseSlug } from "@/lib/courseSlug";
 
 const PAGE_SIZE = 10;
 
@@ -136,7 +137,7 @@ export default function CoursesList({ initialCourses }: { initialCourses: any[] 
           <div className={styles.coursesGrid}>
             {visibleCourses.length > 0 ? (
               visibleCourses.map((course) => (
-                <div key={course.id} className={styles.courseCard}>
+                <div key={course.id || getCourseSlug(course)} className={styles.courseCard}>
                   <div className={styles.imageWrapper}>
                     {course.image || course.heroImage ? (
                       <Image 
@@ -158,7 +159,7 @@ export default function CoursesList({ initialCourses }: { initialCourses: any[] 
                   <div className={styles.content}>
                     <span className={styles.awardingBody}>{course.awardingBody}</span>
                     <h3 className={styles.title}>{course.title}</h3>
-                    <Link href={`/courses/${course.id}`} className={styles.btn}>
+                    <Link href={`/courses/${getCourseSlug(course)}`} className={styles.btn}>
                       View Course
                     </Link>
                   </div>

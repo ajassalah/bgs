@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { client } from '@/sanity/lib/client'
 import { allCourses } from '@/data/courses'
 import { blogPosts } from '@/data/blog'
+import { getCourseSlug } from '@/lib/courseSlug'
 
 const BASE_URL = 'https://britishgraduateschool.co.uk'
 
@@ -31,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   const localCourseRoutes = allCourses.map((course) => ({
-    url: `${BASE_URL}/courses/${course.id}`,
+    url: `${BASE_URL}/courses/${getCourseSlug(course)}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
@@ -44,10 +45,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  const courseQuery = `*[_type == "course"] { "id": id, _updatedAt }`
+  const courseQuery = `*[_type == "course"] { "id": id, "slug": slug.current, title, _updatedAt }`
   const postQuery = `*[_type == "post"] { "id": _id, _updatedAt }`
 
-  let courses: Array<{ id: string; _updatedAt: string }> = []
+  let courses: Array<{ id: string; slug?: string; title?: string; _updatedAt: string }> = []
   let posts: Array<{ id: string; _updatedAt: string }> = []
 
   try {
@@ -62,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const courseRoutes = courses.map((course) => ({
-    url: `${BASE_URL}/courses/${course.id}`,
+    url: `${BASE_URL}/courses/${getCourseSlug(course)}`,
     lastModified: new Date(course._updatedAt),
     changeFrequency: 'weekly' as const,
     priority: 0.8,

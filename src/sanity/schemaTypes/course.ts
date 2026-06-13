@@ -1,3 +1,5 @@
+import AutoCourseSlugInput from '../components/AutoCourseSlugInput'
+
 const courseSchema = {
   name: 'course',
   title: 'Course',
@@ -7,6 +9,26 @@ const courseSchema = {
       name: 'title',
       title: 'Title',
       type: 'string',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description: 'Auto-generated from the course title and used in the course detail page URL.',
+      options: {
+        source: 'title',
+        maxLength: 120,
+        slugify: (input: string) =>
+          input
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, ''),
+      },
+      components: {
+        input: AutoCourseSlugInput,
+      },
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'id',
