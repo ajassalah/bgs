@@ -81,7 +81,7 @@ img {
 .btn {
   display: inline-block;
   padding: 0.8rem 2rem;
-  border-radius: 4px;
+  border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition-smooth);
@@ -89,6 +89,18 @@ img {
   letter-spacing: 0.5px;
   font-size: 0.9rem;
   border: none;
+}
+
+:where(
+  button,
+  a[class*="btn" i],
+  a[class*="button" i],
+  a[class*="cta" i],
+  button[class*="btn" i],
+  button[class*="button" i],
+  button[class*="cta" i]
+) {
+  border-radius: 999px !important;
 }
 
 .btn-primary {

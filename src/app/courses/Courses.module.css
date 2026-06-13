@@ -319,14 +319,18 @@
 
 .categoryBadge {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 97, 0.9);
-  color: white;
+  right: 1rem;
+  bottom: 1rem;
+  background: white;
+  color: #000061;
   padding: 0.4rem 1rem;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.5px;
+  border: 1px solid rgba(0, 0, 97, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  text-transform: uppercase;
 }
 
 .content {
