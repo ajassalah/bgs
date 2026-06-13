@@ -5,8 +5,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin/', '/studio/'],
+      disallow: ['/admin/', '/api/', '/studio/'],
     },
     sitemap: 'https://britishgraduateschool.co.uk/sitemap.xml',
+    host: 'https://britishgraduateschool.co.uk',
   }
 }
