@@ -1,4 +1,4 @@
-import { client } from './client'
+import { fetchFresh } from './client'
 
 export async function getPosts() {
   const query = `*[_type == "post"] | order(publishedAt desc) {
@@ -12,7 +12,7 @@ export async function getPosts() {
   }`
   
   try {
-    const data = await client.fetch(query)
+    const data = await fetchFresh(query)
     return data
   } catch (error) {
     console.error('Error fetching posts:', error)
@@ -43,7 +43,7 @@ export async function getPost(id: string) {
   }`
 
   try {
-    const data = await client.fetch(query, { id })
+    const data = await fetchFresh(query, { id })
     return data
   } catch (error) {
     console.error('Error fetching post:', error)
@@ -72,7 +72,7 @@ export async function getCourses() {
   }`
 
   try {
-    const data = await client.fetch(query)
+    const data = await fetchFresh(query)
     return data
   } catch (error) {
     console.error('Error fetching courses:', error)
@@ -101,7 +101,7 @@ export async function getCourse(slugOrId: string) {
   }`
 
   try {
-    const data = await client.fetch(query, { slugOrId })
+    const data = await fetchFresh(query, { slugOrId })
     return data
   } catch (error) {
     console.error('Error fetching course:', error)
@@ -170,7 +170,7 @@ export async function getHomeData() {
   }`
 
   try {
-    const data = await client.fetch(query)
+    const data = await fetchFresh(query)
     return data
   } catch (error) {
     console.error('Error fetching home data:', error)
@@ -204,7 +204,7 @@ export async function getAboutData() {
   }`
 
   try {
-    const data = await client.fetch(query)
+    const data = await fetchFresh(query)
     return data
   } catch (error) {
     console.error('Error fetching about data:', error)

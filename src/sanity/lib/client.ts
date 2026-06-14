@@ -8,3 +8,9 @@ export const client = createClient({
   projectId,
   useCdn,
 })
+
+type SanityParams = Record<string, unknown>
+
+export function fetchFresh<T = any>(query: string, params: SanityParams = {}) {
+  return client.fetch<T>(query, params, { cache: 'no-store' })
+}

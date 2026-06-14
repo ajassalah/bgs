@@ -2,11 +2,13 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
-import { client } from "@/sanity/lib/client";
+import { fetchFresh } from "@/sanity/lib/client";
 import { Metadata } from "next";
 import Image from "next/image";
 import CareerBoard, { CareerJob } from "./CareerBoard";
 import styles from "./Career.module.css";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Careers | British Graduate School",
@@ -101,7 +103,7 @@ async function getCareerJobs(): Promise<CareerJob[]> {
   }`;
 
   try {
-    const jobs = await client.fetch<CareerJob[]>(query);
+    const jobs = await fetchFresh<CareerJob[]>(query);
     return jobs.length > 0 ? jobs : fallbackJobs;
   } catch (error) {
     console.error("Error fetching career jobs:", error);

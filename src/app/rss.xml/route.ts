@@ -1,4 +1,6 @@
-import { client } from '@/sanity/lib/client'
+import { fetchFresh } from '@/sanity/lib/client'
+
+export const dynamic = 'force-dynamic'
 
 export async function GET() {
   const postsQuery = `*[_type == "post"] | order(publishedAt desc) [0..10] {
@@ -9,7 +11,9 @@ export async function GET() {
     author
   }`
   
-  const posts = await client.fetch(postsQuery)
+  const posts = await fetchFresh<
+    Array<{ id: string; title: string; excerpt: string; date: string; author: string }>
+  >(postsQuery)
   const BASE_URL = 'https://britishgraduateschool.co.uk'
 
   const itemsXml = posts

@@ -16,6 +16,8 @@ import JsonLd from "@/components/JsonLd";
 import { Metadata } from "next";
 import { getAboutData } from "@/sanity/lib/queries";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "About Us | British Graduate School",
   description: "Learn more about British Graduate School, our mission to provide high-quality international qualifications, and our global network of education hubs.",

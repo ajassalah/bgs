@@ -7,6 +7,8 @@ import styles from "./Blog.module.css";
 import { blogPosts as staticBlogPosts } from "@/data/blog";
 import { getPosts } from "@/sanity/lib/queries";
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogPage() {
   // Try to fetch from Sanity
   let postsFromSanity = [];

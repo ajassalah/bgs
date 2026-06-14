@@ -12,6 +12,8 @@ import CommentSection from "./CommentSection";
 import { urlForImage } from "@/sanity/lib/image";
 import JsonLd from "@/components/JsonLd";
 
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 const PORTABLE_TEXT_COMPONENTS = {
   types: {

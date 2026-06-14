@@ -1,8 +1,10 @@
 import { MetadataRoute } from 'next'
-import { client } from '@/sanity/lib/client'
+import { fetchFresh } from '@/sanity/lib/client'
 import { allCourses } from '@/data/courses'
 import { blogPosts } from '@/data/blog'
 import { getCourseSlug } from '@/lib/courseSlug'
+
+export const dynamic = 'force-dynamic'
 
 const BASE_URL = 'https://britishgraduateschool.co.uk'
 
@@ -53,8 +55,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     const sanityRoutes = await Promise.all([
-      client.fetch(courseQuery),
-      client.fetch(postQuery),
+      fetchFresh<Array<{ id: string; slug?: string; title?: string; _updatedAt: string }>>(courseQuery),
+      fetchFresh<Array<{ id: string; _updatedAt: string }>>(postQuery),
     ])
     courses = sanityRoutes[0]
     posts = sanityRoutes[1]
