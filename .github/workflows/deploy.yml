@@ -52,6 +52,31 @@ jobs:
           ls -la deploy/.next
           tar -czf release.tar.gz -C deploy .
 
+      - name: Verify SSH reachability
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || 22 }}
+        run: |
+          set -eu
+
+          if [ -z "$DEPLOY_HOST" ]; then
+            echo "DEPLOY_HOST is empty. Set it in repository Secrets."
+            exit 1
+          fi
+
+          echo "Checking SSH reachability on ${DEPLOY_HOST}:${DEPLOY_PORT}"
+          if ! timeout 15 bash -c 'cat < /dev/null > /dev/tcp/$DEPLOY_HOST/$DEPLOY_PORT'; then
+            echo "Unable to open a TCP connection to ${DEPLOY_HOST}:${DEPLOY_PORT}."
+            echo "Check DEPLOY_HOST, DEPLOY_PORT, the server firewall, and any cloud provider firewall/security group."
+            exit 1
+          fi
+
+          if ! ssh-keyscan -p "$DEPLOY_PORT" -T 10 "$DEPLOY_HOST" >/dev/null; then
+            echo "TCP connected, but no SSH banner was received from ${DEPLOY_HOST}:${DEPLOY_PORT}."
+            echo "Check that DEPLOY_PORT points to the SSH service."
+            exit 1
+          fi
+
       - name: Upload bundle to server
         uses: appleboy/scp-action@v1.0.0
         with:
@@ -59,6 +84,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           port: ${{ secrets.DEPLOY_PORT || 22 }}
+          timeout: 120s
           source: "release.tar.gz"
           target: "/tmp"
 

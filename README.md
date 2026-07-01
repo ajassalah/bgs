@@ -84,6 +84,14 @@ The workflow will:
 4. activate a new release under `/var/www/british-graduate-school/current`
 5. restart the app with PM2
 
+If the upload step fails with `dial tcp ... i/o timeout`, the GitHub runner cannot reach the SSH port on the server. Check:
+
+- `DEPLOY_HOST` is only the server hostname or IP address, without `http://`, `https://`, or a trailing path
+- `DEPLOY_PORT` is the SSH port, usually `22`
+- the server firewall allows inbound SSH on that port
+- the cloud provider firewall/security group allows inbound SSH from GitHub Actions runners
+- `sshd` is running on the server and listening on the configured port
+
 ### 4. Reverse proxy
 
 Expose the Node app through Nginx:
