@@ -30,53 +30,61 @@
 }
 
 .features {
-  margin-top: 5rem;
-  padding-top: 4rem;
-  border-top: 1px solid rgba(0,0,0,0.06);
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 2rem;
 }
 
-.featureItem {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
+.featureCard {
+  background: #ffffff;
+  border: 1px solid rgba(15, 34, 63, 0.08);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
   flex: 1;
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(15, 34, 63, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
-.featureItem:hover {
-  transform: translateY(-5px);
+.featureCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 34, 63, 0.08);
+  border-color: rgba(15, 34, 63, 0.15);
 }
 
-.iconBox {
-  min-width: 65px;
-  height: 65px;
-  background: #a0142d; /* Primary red color */
-  border-radius: 50%;
+.badge {
+  background: #0f223f; /* Dark Blue from first image */
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  box-shadow: 0 4px 12px rgba(160, 20, 45, 0.2);
+  margin-bottom: 1.75rem;
 }
 
-.iconBox svg {
-  stroke: white !important;
-}
-
-.featureContent h3 {
-  font-size: 1.1rem;
+.featureTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
   font-weight: 800;
-  color: #333;
-  margin-bottom: 0.5rem;
+  color: #0f223f;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
 }
 
-.featureContent p {
+.featureDesc {
   font-size: 0.95rem;
-  line-height: 1.5;
-  color: #666;
+  line-height: 1.6;
+  color: #5e6d82;
 }
 
 @media (max-width: 992px) {
@@ -97,15 +105,14 @@
 
   .features {
     flex-direction: column;
-    gap: 2.5rem;
-    padding-top: 3rem;
+    gap: 1.5rem;
+    padding-top: 2rem;
     margin-top: 3rem;
   }
 
-  .featureItem {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .featureCard {
+    width: 100%;
+    padding: 2rem;
   }
 }
 

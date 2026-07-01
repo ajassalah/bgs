@@ -1,46 +1,104 @@
 .section {
-  padding: 80px 0;
-  background-color: #000061;
+  padding: 100px 0;
+  background: #091930; /* Deep navy background consistent with WhyChooseUs and CTA */
+  position: relative;
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  color: #f04e30; /* Orange-red accent */
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.mainTitle {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 4rem;
 }
 
 .grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 3.5rem 2rem 2.5rem;
   text-align: center;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .card:hover {
   transform: translateY(-10px);
   background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(240, 78, 48, 0.3); /* Soft orange-red glow */
+  box-shadow: 0 25px 45px rgba(240, 78, 48, 0.1);
 }
 
 .iconWrapper {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  width: 70px;
+  height: 70px;
+  background: rgba(240, 78, 48, 0.1); /* Soft red/orange circle background */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(240, 78, 48, 0.2);
 }
 
 .icon {
-  font-size: 3rem;
-  color: #bc0000; /* Red icon color from image */
+  font-size: 2.25rem;
 }
 
-.title {
-  color: white;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
+.cardTitle {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
 }
 
 .desc {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .card {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  .mainTitle {
+    font-size: 2.2rem;
+  }
 }

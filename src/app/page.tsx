@@ -37,9 +37,9 @@ export default async function Home() {
       <Hero data={homeData} />
       <Introduction data={homeData} />
       <ProgramCategories data={homeData} />
-      <Accreditations data={homeData} />
       <FeaturedCourses data={homeData} />
       <WhyChooseUs data={homeData} />
+      <Accreditations data={homeData} />
       <Welcome data={homeData} />
       <Testimonials data={homeData} />
       <QualifiCertification data={homeData} />

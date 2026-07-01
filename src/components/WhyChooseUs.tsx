@@ -24,25 +24,42 @@ export default function WhyChooseUs({ data }: { data?: any }) {
     }
   }
 
+  // Format the title to highlight 'impressive new talent'
+  const formattedTitle = title.replace(
+    "impressive new talent",
+    `<span style="color: #f04e30;">impressive new talent</span>`
+  );
+
   return (
     <section className={styles.section}>
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.content}>
-            <span className="text-muted uppercase font-bold tracking-widest text-sm" style={{ letterSpacing: '2px', display: 'block', marginBottom: '1rem' }}>Why Choose Us?</span>
-            <h2 className={styles.title}>
-              {title}
+            <span className={styles.subtitle}>WHY CHOOSE US?</span>
+            <h2 
+              className={styles.title}
+              dangerouslySetInnerHTML={{ __html: formattedTitle }}
+            >
             </h2>
-            <div className={styles.list}>
+            
+            <div className={styles.listGrid}>
               {points.map((point: string, index: number) => (
                 <div key={index} className={styles.item}>
-                  <span className={styles.icon}>✓</span>
-                  {point}
+                  <span className={styles.checkIcon}>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  <span className={styles.pointText}>{point}</span>
                 </div>
               ))}
             </div>
-            <Link href="/contact#contact-form" className="btn btn-secondary" style={{ backgroundColor: '#bc0000', color: 'white' }}>Join Now</Link>
+            
+            <Link href="/contact#contact-form" className={styles.btnPill}>
+              Join Now
+            </Link>
           </div>
+          
           <div className={styles.imageContainer}>
             <Image
               src={image}
@@ -50,8 +67,12 @@ export default function WhyChooseUs({ data }: { data?: any }) {
               width={700}
               height={450}
               className={styles.image}
-              style={{ objectFit: 'cover', width: '100%', height: '450px' }}
+              priority
             />
+            <div className={styles.floatingCard}>
+              <span className={styles.floatingNumber}>100%</span>
+              <span className={styles.floatingText}>Graduate satisfaction with academic support</span>
+            </div>
           </div>
         </div>
       </div>

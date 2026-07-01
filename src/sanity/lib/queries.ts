@@ -2,7 +2,7 @@ import { fetchFresh } from './client'
 
 export async function getPosts() {
   const query = `*[_type == "post"] | order(publishedAt desc) {
-    "id": _id,
+    "id": coalesce(slug.current, _id),
     title,
     excerpt,
     "date": publishedAt,
@@ -21,8 +21,8 @@ export async function getPosts() {
 }
 
 export async function getPost(id: string) {
-  const query = `*[_type == "post" && _id == $id][0] {
-    "id": _id,
+  const query = `*[_type == "post" && (_id == $id || slug.current == $id)][0] {
+    "id": coalesce(slug.current, _id),
     title,
     excerpt,
     "date": publishedAt,
@@ -33,7 +33,7 @@ export async function getPost(id: string) {
     showShareLinks,
     socialLinks,
     "relatedPosts": relatedPosts[]-> {
-      "id": _id,
+      "id": coalesce(slug.current, _id),
       title,
       "image": mainImage.asset->url,
       "date": publishedAt,

@@ -42,7 +42,7 @@ export default async function AboutPage() {
       {/* Hero Section - Video Background from Kensley */}
       <section className={styles.hero}>
         <Image
-          src="/about us hero section .png"
+          src="/about_hero_new.png"
           alt="About British Graduate School"
           fill
           priority
@@ -73,7 +73,7 @@ export default async function AboutPage() {
             <div className={styles.imageBox}>
                <div style={{ position: 'relative', width: '100%', height: '400px' }}>
                 <Image 
-                  src={aboutData?.storyImage ? (typeof aboutData.storyImage === 'string' ? aboutData.storyImage : '/pexels-tara-winstead-8386434.jpg') : "/pexels-tara-winstead-8386434.jpg"} 
+                  src={aboutData?.storyImage ? (typeof aboutData.storyImage === 'string' ? aboutData.storyImage : '/about_story_new.png') : "/about_story_new.png"} 
                   alt="BGS Foundation" 
                   fill
                   style={{ objectFit: 'cover', borderRadius: '12px' }}

@@ -49,15 +49,13 @@ export default function Accreditations({ data }: { data?: any }) {
     <section className={styles.section}>
       <div className="container">
         <div className={styles.grid}>
-          {items.map((partner: any, index: number) => (
-            <div key={index} className={styles.item}>
-              <div className={styles.iconWrapper}>
-                {partner.icon}
+          {benefitItems.map((item: any, index: number) => (
+            <div key={index} className={styles.card}>
+              <div className={styles.badge}>
+                {`0${index + 1}`}
               </div>
-              <div className={styles.textWrapper}>
-                <h4 className={styles.itemName}>{partner.name}</h4>
-                <p className={styles.label}>{partner.label}</p>
-              </div>
+              <h3 className={styles.cardTitle}>{item.name}</h3>
+              <p className={styles.cardDesc}>{item.label}</p>
             </div>
           ))}
         </div>

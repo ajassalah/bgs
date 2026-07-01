@@ -65,61 +65,75 @@
 
 .infoCards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
   margin-bottom: 3rem;
 }
 
 .keepInTouchSection {
-  margin-top: 4rem;
+  margin-top: 5rem;
+  padding: 2rem 0;
 }
 
 .keepInTouchDesc {
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  color: #666;
-  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+  color: #5e6d82;
+  font-size: 1.1rem;
   font-weight: 500;
   line-height: 1.6;
   text-align: center;
 }
 
 .infoCard {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: 8px;
-  border-left: 4px solid #bc0000;
-  transition: transform 0.3s ease;
+  background: #ffffff;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(15, 34, 63, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 34, 63, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .infoCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 34, 63, 0.08);
+  border-color: rgba(240, 78, 48, 0.2);
 }
 
 .infoCard h3 {
-  color: #000061;
-  font-size: 1.25rem;
-  margin: 1rem 0 0.5rem;
-  font-weight: 700;
+  color: #0f223f;
+  font-size: 1.3rem;
+  margin: 1.5rem 0 0.75rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
 }
 
 .iconWrapper {
-  width: 50px;
-  height: 50px;
-  background: white;
+  width: 60px;
+  height: 60px;
+  background: rgba(240, 78, 48, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  border: 1px solid rgba(240, 78, 48, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.infoCard:hover .iconWrapper {
+  transform: scale(1.1);
 }
 
 .infoCard p {
-  color: #555;
+  color: #5e6d82;
   font-size: 0.95rem;
   line-height: 1.6;
+  margin: 0;
 }
 
 .formSection {

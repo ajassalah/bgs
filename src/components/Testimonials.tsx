@@ -22,24 +22,40 @@ export default function Testimonials({ data }: { data?: any }) {
   return (
     <section className={styles.section}>
       <div className="container">
-        <div className="text-center mb-2">
-          <span className="text-muted uppercase font-bold tracking-widest text-sm" style={{ letterSpacing: '2px', display: 'block', marginBottom: '1rem' }}>REVIEWS</span>
-          <h2 style={{ fontSize: '2.5rem' }}>Student Testimonials</h2>
+        <div className="text-center mb-5">
+          <span className={styles.subtitle}>REVIEWS</span>
+          <h2 className={styles.mainTitle}>
+            Student <span style={{ color: '#f04e30' }}>Testimonials</span>
+          </h2>
         </div>
+        
         <div className={styles.grid}>
-          {testimonials.map((t: any, idx: number) => (
-            <div key={idx} className={styles.card}>
-              <div className={styles.quoteIcon}>&quot;</div>
-              <p className={styles.text}>{t.text}</p>
-              <div className={styles.author}>
-                <div className={styles.avatar}>{t.name.charAt(0)}</div>
-                <div>
-                  <h4 className={styles.name}>{t.name}</h4>
-                  <p className={styles.role}>{t.role}</p>
+          {testimonials.map((t: any, idx: number) => {
+            const isHighlighted = idx === 1; // Middle card
+            return (
+              <div key={idx} className={`${styles.card} ${isHighlighted ? styles.highlighted : ""}`}>
+                <div className={styles.quoteIcon}>&quot;&quot;</div>
+                
+                <div className={styles.stars}>
+                  {"★".repeat(5).split("").map((star, i) => (
+                    <span key={i} className={styles.star}>{star}</span>
+                  ))}
+                </div>
+                
+                <p className={styles.text}>{t.text}</p>
+                
+                <div className={styles.author}>
+                  <div className={isHighlighted ? styles.avatarRed : styles.avatarBlue}>
+                    {t.name.trim().charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className={styles.name}>{t.name}</h4>
+                    <p className={styles.role}>{t.role}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

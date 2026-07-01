@@ -1,77 +1,173 @@
 .section {
-  padding: var(--section-padding);
-  background: var(--bg-gray);
+  padding: 100px 0;
+  background-color: #ffffff;
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  color: #f04e30;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.mainTitle {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 900;
+  color: #0f223f;
+  margin-bottom: 3rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .card {
-  background: white;
+  background: #ffffff;
+  border: 1px solid rgba(15, 34, 63, 0.08);
+  border-radius: 20px;
   padding: 3rem 2.5rem 2.5rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
   position: relative;
-  transition: var(--transition-smooth);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(15, 34, 63, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 34, 63, 0.08);
 }
 
 .quoteIcon {
   position: absolute;
-  top: 1rem;
+  top: 1.5rem;
   left: 2rem;
   font-size: 5rem;
-  color: #f1f1f1;
-  font-family: serif;
+  color: rgba(240, 78, 48, 0.15); /* Light orange-red quote mark */
+  font-family: Georgia, serif;
+  font-weight: 900;
   line-height: 1;
 }
 
+.stars {
+  display: flex;
+  gap: 0.2rem;
+  margin-bottom: 1.25rem;
+  z-index: 2;
+}
+
+.star {
+  color: #f04e30; /* Orange-red star color matching the reference image */
+  font-size: 1.15rem;
+}
+
 .text {
-  position: relative;
-  z-index: 1;
-  font-size: 1.1rem;
-  font-style: italic;
-  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555555;
   margin-bottom: 2rem;
+  font-style: italic;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
 }
 
 .author {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  border-top: 1px solid #f1f1f1;
-  padding-top: 1.5rem;
+  gap: 1rem;
+  margin-top: auto;
+  width: 100%;
 }
 
-.avatar {
-  width: 50px;
-  height: 50px;
-  background: var(--primary);
-  color: white;
+.avatarBlue {
+  width: 44px;
+  height: 44px;
+  background: #0f223f; /* Dark Blue avatar background */
+  color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.avatarRed {
+  width: 44px;
+  height: 44px;
+  background: #f04e30; /* Red avatar background */
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .name {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f223f;
+  margin-bottom: 0.1rem;
 }
 
 .role {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: #667385;
+}
+
+/* Highlighted middle card style (Sarah Frang) */
+.card.highlighted {
+  background: #0f223f; /* Dark blue background */
+  border-color: #0f223f;
+  box-shadow: 0 15px 35px rgba(15, 34, 63, 0.2);
+}
+
+.card.highlighted .text {
+  color: #ffffff;
+}
+
+.card.highlighted .name {
+  color: #ffffff;
+}
+
+.card.highlighted .role {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.card.highlighted .quoteIcon {
+  color: rgba(240, 78, 48, 0.25);
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .card {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  .mainTitle {
+    font-size: 2.2rem;
+  }
 }
