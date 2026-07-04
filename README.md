@@ -80,17 +80,21 @@ The workflow will:
 
 1. install dependencies
 2. lint and build the app
-3. upload the standalone production bundle
-4. activate a new release under `/var/www/british-graduate-school/current`
-5. restart the app with PM2
+3. verify that GitHub Actions can reach the server SSH port
+4. upload the standalone production bundle with `scp`
+5. retry the upload up to three times if the SSH connection drops
+6. activate a new release under `/var/www/british-graduate-school/current`
+7. restart the app with PM2
 
-If the upload step fails with `dial tcp ... i/o timeout`, the GitHub runner cannot reach the SSH port on the server. Check:
+If the SSH reachability or upload step fails with a timeout, the GitHub runner cannot reach the SSH port on the server. Check:
 
 - `DEPLOY_HOST` is only the server hostname or IP address, without `http://`, `https://`, or a trailing path
 - `DEPLOY_PORT` is the SSH port, usually `22`
 - the server firewall allows inbound SSH on that port
 - the cloud provider firewall/security group allows inbound SSH from GitHub Actions runners
 - `sshd` is running on the server and listening on the configured port
+
+If the server only allows SSH from specific IP addresses, either allow GitHub-hosted runner IP ranges or deploy from a self-hosted runner with a stable IP address.
 
 ### 4. Reverse proxy
 
