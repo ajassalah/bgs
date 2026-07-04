@@ -74,10 +74,18 @@ jobs:
             exit 1
           fi
 
+          RUNNER_PUBLIC_IP="$(curl -fsS https://api.ipify.org || true)"
+          if [ -n "$RUNNER_PUBLIC_IP" ]; then
+            echo "GitHub runner public IP: ${RUNNER_PUBLIC_IP}"
+          else
+            echo "Unable to determine GitHub runner public IP."
+          fi
+
           echo "Checking SSH reachability on ${DEPLOY_HOST}:${DEPLOY_PORT}"
           if ! timeout 15 bash -c 'cat < /dev/null > /dev/tcp/$DEPLOY_HOST/$DEPLOY_PORT'; then
             echo "Unable to open a TCP connection to ${DEPLOY_HOST}:${DEPLOY_PORT}."
             echo "Check DEPLOY_HOST, DEPLOY_PORT, the server firewall, and any cloud provider firewall/security group."
+            echo "If SSH is IP-restricted, allow the runner public IP above or use a self-hosted runner with a stable IP."
             exit 1
           fi
 

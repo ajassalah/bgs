@@ -96,6 +96,21 @@ If the SSH reachability or upload step fails with a timeout, the GitHub runner c
 
 If the server only allows SSH from specific IP addresses, either allow GitHub-hosted runner IP ranges or deploy from a self-hosted runner with a stable IP address.
 
+Useful server checks:
+
+```bash
+sudo systemctl status ssh
+sudo ss -ltnp | grep ':22'
+sudo ufw status verbose
+```
+
+If UFW is enabled and SSH should be public on port 22:
+
+```bash
+sudo ufw allow 22/tcp
+sudo ufw reload
+```
+
 ### 4. Reverse proxy
 
 Expose the Node app through Nginx:
