@@ -177,7 +177,7 @@ jobs:
             set +a
 
             pm2 delete british-graduate-school 2>/dev/null || true
-            env -u HOSTNAME HOSTNAME=0.0.0.0 HOST=0.0.0.0 PORT=3000 NODE_ENV=production \
+            env -u HOSTNAME HOSTNAME=0.0.0.0 HOST=0.0.0.0 PORT=3001 NODE_ENV=production \
               pm2 start server.js --name british-graduate-school
             pm2 save
 
